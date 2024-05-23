@@ -1,3 +1,4 @@
+// app/product/[id]/page.tsx
 "use client";
 
 import axios from "axios";
@@ -6,7 +7,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation"; // Sử dụng useParams thay cho useRouter
 
 interface Product {
-  id: any;
+  id: number;
   tags: string;
   name: string;
   fit: string;
@@ -25,8 +26,9 @@ const ProductDetail = () => {
         .then((res) => {
           const products = res.data;
           const selectedProduct = products.find(
-            (p: Product) => p.id === parseInt(id)
+            (p: Product) => p.id === parseInt(Array.isArray(id) ? id[0] : id)
           );
+
           setProduct(selectedProduct);
         })
         .catch((err) => {
