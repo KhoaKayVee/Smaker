@@ -26,7 +26,7 @@ interface Product {
   rating1: any;
 }
 
-const renderRatingStars = (roundedTotalNumberRating) => {
+const renderRatingStars = (roundedTotalNumberRating: any) => {
   const maxRating = 5;
   const roundedRating = Math.floor(roundedTotalNumberRating); // Làm tròn xuống
   const filledStars = Math.min(roundedRating, maxRating); // Số sao không vượt quá 5
