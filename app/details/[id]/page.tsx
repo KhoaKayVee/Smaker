@@ -26,9 +26,10 @@ interface Product {
   rating1: any;
 }
 
-const ProductRating = ({ rating }: any) => {
+const renderRatingStars = (roundedTotalNumberRating) => {
   const maxRating = 5;
-  const filledStars = Math.round(rating); // Làm tròn số sao
+  const roundedRating = Math.floor(roundedTotalNumberRating); // Làm tròn xuống
+  const filledStars = Math.min(roundedRating, maxRating); // Số sao không vượt quá 5
   const emptyStars = maxRating - filledStars;
 
   return (
@@ -85,12 +86,24 @@ const ProductDetail = () => {
   }
 
   const quantity = quantities[product.id] || 1; // Ensure product is not null
-  const totalRating =
-    product?.rating5 +
-    product?.rating4 +
-    product?.rating3 +
-    product?.rating2 +
-    product?.rating1;
+  const before =
+    product.rating5 * 5 +
+    product.rating4 * 4 +
+    product.rating3 * 3 +
+    product.rating2 * 2 +
+    product.rating1 * 1;
+
+  const after =
+    parseInt(product?.rating5 || 0) +
+    parseInt(product?.rating4 || 0) +
+    parseInt(product?.rating3 || 0) +
+    parseInt(product?.rating2 || 0) +
+    parseInt(product?.rating1 || 0);
+
+  console.log(after);
+
+  const totalNumberRating = before / after;
+  const roundedTotalNumberRating = totalNumberRating.toFixed(1);
 
   return (
     <div className="container mt-[100px] h-full">
@@ -259,9 +272,9 @@ const ProductDetail = () => {
                 <div className="flex py-[50px] px-[80px] items-start w-full gap-[100px] self-stretch">
                   <div className="flex flex-col items-start gap-[10px]">
                     <p className="text-[gold] font-mono text-[50px] not-italic font-[500] leading-[75px]">
-                      {product?.rating}
+                      {roundedTotalNumberRating}
                     </p>
-                    <ProductRating rating={product?.rating} />
+                    {renderRatingStars(roundedTotalNumberRating)}
 
                     <p className="self-stretch text-[#FFF] text-[18px] not-italic font-[400] leading-[27px]">
                       {product?.totalRating} Ratings
@@ -302,6 +315,7 @@ const ProductDetail = () => {
                           }
                           size="small"
                           strokeColor="#AE9B84"
+                          showInfo={false}
                         />
                       </div>
                     </div>
@@ -320,6 +334,7 @@ const ProductDetail = () => {
                           }
                           size="small"
                           strokeColor="#AE9B84"
+                          showInfo={false}
                         />
                       </div>
                     </div>
@@ -338,6 +353,7 @@ const ProductDetail = () => {
                           }
                           size="small"
                           strokeColor="#AE9B84"
+                          showInfo={false}
                         />
                       </div>
                     </div>
@@ -356,6 +372,7 @@ const ProductDetail = () => {
                           }
                           size="small"
                           strokeColor="#AE9B84"
+                          showInfo={false}
                         />
                       </div>
                     </div>

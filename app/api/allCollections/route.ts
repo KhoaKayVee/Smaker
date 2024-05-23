@@ -782,12 +782,12 @@ export const GET = async () => {
       materials:
         "Quần mang thương hiệu $maker được xuất sứ từ chất liệu cao cấp, mang lại cho người sử dụng cảm giác thoải mái và dễ chịu khi hoạt động. Được thiết kế độc đáo mang phong cách street-wear",
       rating: "1.3",
-      totalRating: "100",
-      rating5: "4",
+      totalRating: "13",
+      rating5: "2",
       rating4: "2",
       rating3: "2",
       rating2: "2",
-      rating1: "90",
+      rating1: "5",
     },
   ];
 
