@@ -10,7 +10,7 @@ import { FaStar } from "react-icons/fa6";
 import { Flex, Progress } from "antd";
 
 interface Product {
-  id: number;
+  id: any;
   tags: string;
   name: string;
   fit: string;
@@ -46,6 +46,21 @@ const ProductRating = ({ rating }: any) => {
 const ProductDetail = () => {
   const { id } = useParams(); // Lấy id từ URL
   const [product, setProduct] = useState<Product | null>(null);
+  const [quantities, setQuantities] = useState<{ [key: string]: number }>({}); // Changed key type to string
+
+  const handleIncrease = (id: string) => {
+    setQuantities((prevQuantities) => ({
+      ...prevQuantities,
+      [id]: (prevQuantities[id] || 1) + 1,
+    }));
+  };
+
+  const handleDecrease = (id: string) => {
+    setQuantities((prevQuantities) => ({
+      ...prevQuantities,
+      [id]: Math.max((prevQuantities[id] || 1) - 1, 1),
+    }));
+  };
 
   useEffect(() => {
     if (id) {
@@ -68,6 +83,14 @@ const ProductDetail = () => {
   if (!product) {
     return <div>Loading...</div>;
   }
+
+  const quantity = quantities[product.id] || 1; // Ensure product is not null
+  const totalRating =
+    product?.rating5 +
+    product?.rating4 +
+    product?.rating3 +
+    product?.rating2 +
+    product?.rating1;
 
   return (
     <div className="container mt-[100px] h-full">
@@ -177,23 +200,16 @@ const ProductDetail = () => {
                 </p>
               </div>
 
-              <div className="flex py-[50px] px-[80px] flex-col justify-center items-start gap-[20px] self-stretch border-b-2 border-solid border-[#262626]">
-                <p className="text-[#FFF] justify-center items-start text-center not-italic text-[20px] font-[700] leading-normal">
+              <div className="flex py-[50px] px-[80px] flex-col justify-center items-center gap-[20px] self-stretch border-b-2 border-solid border-[#262626]">
+                <p className="text-[#FFF] justify-center items-start text-center not-italic text-[30px] font-[700] leading-normal">
                   Giá sản phẩm
                 </p>
-                <div className="flex items-center w-full justify-between self-stretch">
-                  <div className="flex items-center gap-[16px] flex-1">
-                    <p className="text-[gold] text-[30px] font-mono not-italic font-[700] leading-[45px]">
-                      {product?.price} VND
-                    </p>
-                  </div>
-                  <button className="flex text-[gold] text-[18px] not-italic font-[700] leading-[27px] py-[18px] px-[24px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040] bg-[#1F1F1F]">
-                    Thêm vào giỏ
-                  </button>
-                </div>
+                <p className="text-[gold] text-[50px] font-mono not-italic font-[700] leading-[45px]">
+                  {product?.price} VND
+                </p>
               </div>
 
-              <div className="flex py-[50px] px-[80px] flex-col justify-center items-start gap-[20px] self-stretch border-b-2 border-solid border-[#262626]">
+              <div className="flex py-[50px] px-[80px] flex-col justify-center items-center gap-[30px] self-stretch border-b-2 border-solid border-[#262626]">
                 <p className="text-[gold] text-[26px] not-italic font-mono font-[700] leading-normal">
                   Sizes có sẵn
                 </p>
@@ -209,6 +225,26 @@ const ProductDetail = () => {
                   </button>
                   <button className="flex py-[12px] px-[50px] items-center gap-[10px] rounded-[100px] bg-[#333] text-[gold] font-mono text-[24px] not-italic font-[700] leading-[27px]">
                     XL
+                  </button>
+                </div>
+                <button className="flex text-[gold] text-[18px] not-italic font-[700] leading-[27px] py-[18px] px-[24px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040] bg-[#1F1F1F]">
+                  Thêm vào giỏ
+                </button>
+                <div className="flex items-center text-center justify-center gap-[20px] self-stretch">
+                  <button
+                    onClick={() => handleDecrease(product?.id)}
+                    className="border-[#404040] bg-[#1F1F1F] text-[gold] text-[22px] not-italic font-[700] leading-[27px] rounded-[100px] py-[8px] px-[16px] hover:bg-[#000] transition-colors duration-300"
+                  >
+                    -
+                  </button>
+                  <span className="text-[gold] bg-[#333] rounded-[12px] px-[15px] py-[8px] text-[22px] not-italic font-[600] leading-[27px]">
+                    {quantity}
+                  </span>
+                  <button
+                    onClick={() => handleIncrease(product?.id)}
+                    className="border-[#404040] bg-[#1F1F1F] text-[gold] text-[18px] not-italic font-[700] leading-[27px] rounded-[100px] py-[8px] px-[16px] hover:bg-[#000] transition-colors duration-300"
+                  >
+                    +
                   </button>
                 </div>
               </div>
