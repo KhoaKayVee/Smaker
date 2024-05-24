@@ -17,7 +17,7 @@ const Introduction = () => {
   return (
     <div className="flex mt-[100px] w-full flex-col items-start rounded-[20px] border-2 border-dashed border-[#262626]">
       <div className="flex flex-col  pt-[80px] lg:pr-[300px] pb-[80px] lg:pl-[80px] pr-[10px] pl-[10px] items-start gap-[30px] self-stretch border-b-2 border-solid border-[#262626]">
-        <p className="self-stretch text-[#FFF] lg:text-[46px] text-[16px] whitespace-nowrap not-italic font-[500] leading-normal uppercase">
+        <p className="self-stretch text-[#FFF] overflow-hidden lg:text-[46px] text-[16px] whitespace-nowrap not-italic font-[500] leading-normal uppercase">
           Crafting Trends, Inspiring Confidence
         </p>
         <p className="self-stretch text-[#676665] lg:text-[18px] text-[12px] not-italic font-[400] leading-[27px]">
