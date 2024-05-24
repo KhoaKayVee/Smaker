@@ -9,6 +9,9 @@ import Head from "next/head";
 const page = () => {
   return (
     <>
+      <Head>
+        <title>OK</title>
+      </Head>
       <div className="container h-full">
         <Products />
         <Testimonials />

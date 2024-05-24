@@ -20,6 +20,12 @@ import Logo from "../../public/boinshop/logoBoinShop.png";
 const Navbar = () => {
   const { setTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [selectedNavItem, setSelectedNavItem] = React.useState(null); // State for selected navigation item
+
+  const handleNavItemClick = (navItem: any) => {
+    setSelectedNavItem(navItem); // Set selected navigation item
+    setIsMenuOpen(false); // Close menu
+  };
 
   return (
     <nav className="container sticky top-0 z-50">
@@ -49,7 +55,9 @@ const Navbar = () => {
         </div>
         <ul
           className={`flex-col lg:flex-row flex items-center gap-2 lg:gap-4 ${
-            isMenuOpen ? "flex" : "hidden"
+            isMenuOpen
+              ? "absolute left-0 top-full w-full bg-[#1A1A1A] py-4 px-0 z-10"
+              : "hidden"
           } lg:flex w-full lg:w-auto`}
         >
           <Link href="/">
