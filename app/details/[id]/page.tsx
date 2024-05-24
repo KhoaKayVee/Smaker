@@ -301,7 +301,7 @@ const ProductDetail = () => {
                         <div className="text-[#81807E] lg:text-[18px] text-[14px] not-italic font-[400] leading-[27px]">
                           05
                         </div>
-                        <p>({product?.rating5})</p>
+                        <p className="min-w-[30px]">({product?.rating5})</p>
                       </div>
                       <div className="flex flex-col lg:p-[10px] p-[5px] items-start gap-[10px] flex-1 rounded-[100px] border border-solid border-[#262626] bg-[#1A1A1A]">
                         <Progress
@@ -314,15 +314,20 @@ const ProductDetail = () => {
                         />
                       </div>
                     </div>
-                    <div className="flex items-center gap-[20px] self-stretch">
-                      <FaStar fill="yellow" width={24} height={24} />
-                      <div className="flex items-center gap-[10px]">
-                        <div className="text-[#81807E] text-[18px] not-italic font-[400] leading-[27px]">
+                    <div className="flex items-center lg:gap-[20px] gap-[10px] self-stretch">
+                      <FaStar
+                        className="lg:w-[24px] lg:h-[24px] w-[16px] h-[16px]"
+                        fill="yellow"
+                        width={24}
+                        height={24}
+                      />
+                      <div className="flex items-center lg:gap-[10px] gap-[6px]">
+                        <div className="text-[#81807E] lg:text-[18px] text-[14px] not-italic font-[400] leading-[27px]">
                           04
                         </div>
-                        <p>({product?.rating4})</p>
+                        <p className="min-w-[30px]">({product?.rating4})</p>
                       </div>
-                      <div className="flex flex-col p-[10px] items-start gap-[10px] flex-1 rounded-[100px] border border-solid border-[#262626] bg-[#1A1A1A]">
+                      <div className="flex flex-col lg:p-[10px] p-[5px] items-start gap-[10px] flex-1 rounded-[100px] border border-solid border-[#262626] bg-[#1A1A1A]">
                         <Progress
                           percent={
                             (product?.rating4 * 100) / product?.totalRating
@@ -333,15 +338,20 @@ const ProductDetail = () => {
                         />
                       </div>
                     </div>
-                    <div className="flex items-center gap-[20px] self-stretch">
-                      <FaStar fill="yellow" width={24} height={24} />
-                      <div className="flex items-center gap-[10px]">
-                        <div className="text-[#81807E] text-[18px] not-italic font-[400] leading-[27px]">
+                    <div className="flex items-center lg:gap-[20px] gap-[10px] self-stretch">
+                      <FaStar
+                        className="lg:w-[24px] lg:h-[24px] w-[16px] h-[16px]"
+                        fill="yellow"
+                        width={24}
+                        height={24}
+                      />
+                      <div className="flex items-center lg:gap-[10px] gap-[6px]">
+                        <div className="text-[#81807E] lg:text-[18px] text-[14px] not-italic font-[400] leading-[27px]">
                           03
                         </div>
-                        <p>({product?.rating3})</p>
+                        <p className="min-w-[30px]">({product?.rating3})</p>
                       </div>
-                      <div className="flex flex-col p-[10px] items-start gap-[10px] flex-1 rounded-[100px] border border-solid border-[#262626] bg-[#1A1A1A]">
+                      <div className="flex flex-col lg:p-[10px] p-[5px] items-start gap-[10px] flex-1 rounded-[100px] border border-solid border-[#262626] bg-[#1A1A1A]">
                         <Progress
                           percent={
                             (product?.rating3 * 100) / product?.totalRating
@@ -352,15 +362,20 @@ const ProductDetail = () => {
                         />
                       </div>
                     </div>
-                    <div className="flex items-center gap-[20px] self-stretch">
-                      <FaStar fill="yellow" width={24} height={24} />
-                      <div className="flex items-center gap-[10px]">
-                        <div className="text-[#81807E] text-[18px] not-italic font-[400] leading-[27px]">
+                    <div className="flex items-center lg:gap-[20px] gap-[10px] self-stretch">
+                      <FaStar
+                        className="lg:w-[24px] lg:h-[24px] w-[16px] h-[16px]"
+                        fill="yellow"
+                        width={24}
+                        height={24}
+                      />
+                      <div className="flex items-center lg:gap-[10px] gap-[6px]">
+                        <div className="text-[#81807E] lg:text-[18px] text-[14px] not-italic font-[400] leading-[27px]">
                           02
                         </div>
-                        <p>({product?.rating2})</p>
+                        <p className="min-w-[30px]">({product?.rating2})</p>
                       </div>
-                      <div className="flex flex-col p-[10px] items-start gap-[10px] flex-1 rounded-[100px] border border-solid border-[#262626] bg-[#1A1A1A]">
+                      <div className="flex flex-col lg:p-[10px] p-[5px] items-start gap-[10px] flex-1 rounded-[100px] border border-solid border-[#262626] bg-[#1A1A1A]">
                         <Progress
                           percent={
                             (product?.rating2 * 100) / product?.totalRating
@@ -371,15 +386,20 @@ const ProductDetail = () => {
                         />
                       </div>
                     </div>
-                    <div className="flex items-center gap-[20px] self-stretch">
-                      <FaStar fill="yellow" width={24} height={24} />
-                      <div className="flex items-center gap-[10px]">
-                        <div className="text-[#81807E] text-[18px] not-italic font-[400] leading-[27px]">
+                    <div className="flex items-center lg:gap-[20px] gap-[10px] self-stretch">
+                      <FaStar
+                        className="lg:w-[24px] lg:h-[24px] w-[16px] h-[16px]"
+                        fill="yellow"
+                        width={24}
+                        height={24}
+                      />
+                      <div className="flex items-center lg:gap-[10px] gap-[6px]">
+                        <div className="text-[#81807E] lg:text-[18px] text-[14px] not-italic font-[400] leading-[27px]">
                           01
                         </div>
-                        <p>({product?.rating1})</p>
+                        <p className="min-w-[30px]">({product?.rating1})</p>
                       </div>
-                      <div className="flex flex-col p-[10px] items-start gap-[10px] flex-1 rounded-[100px] border border-solid border-[#262626] bg-[#1A1A1A]">
+                      <div className="flex flex-col lg:p-[10px] p-[5px] items-start gap-[10px] flex-1 rounded-[100px] border border-solid border-[#262626] bg-[#1A1A1A]">
                         <Progress
                           percent={
                             (product?.rating1 * 100) / product?.totalRating
