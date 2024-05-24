@@ -70,11 +70,11 @@ const ProductList = () => {
             bạn.
           </p>
         </div>
-        <div className="flex lg:items-center items-start lg:gap-[14px] gap-[14px]">
+        <div className="flex lg:items-center items-start gap-[10px]">
           {["All", "Tshirts", "Shirts", "Pants"].map((tag) => (
             <button
               key={tag}
-              className={`flex text-[#B3B3B2] text-center lg:text-[18px] text-[14px] not-italic font-[400] leading-[27px] lg:py-[18px] lg:px-[24px] py-[10px] px-[14px] items-center lg:gap-[10px] gap-[5px] rounded-[12px] border border-dashed border-[#333] hover:bg-[#C2B4A3] hover:text-black hover:duration-500 hover:transition-all cursor-pointer ${
+              className={`flex text-[#B3B3B2] text-center lg:text-[18px] text-[12px] not-italic font-[400] leading-[27px] lg:py-[18px] lg:px-[24px] py-[8px] px-[12px] items-center lg:gap-[10px] gap-[5px] rounded-[12px] border border-dashed border-[#333] hover:bg-[#C2B4A3] hover:text-black hover:duration-500 hover:transition-all cursor-pointer ${
                 filter === tag ? "bg-[#C2B4A3] text-black" : ""
               }`}
               onClick={() => handleFilterClick(tag)}
