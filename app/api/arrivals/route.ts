@@ -36,6 +36,7 @@ export const GET = async () => {
           tags: "Shirts",
           name: "Hoodie Smaker",
           fit: "Oversized",
+          price: "650.000",
           image: "/images/Shirts-Smaker.jpg",
         },
         {
@@ -43,6 +44,7 @@ export const GET = async () => {
           tags: "Shirts",
           name: "Jacket Smaker Blue",
           fit: "Oversized",
+          price: "590.000",
           image: "/images/Shirts-Smaker2.jpg",
         },
         {
