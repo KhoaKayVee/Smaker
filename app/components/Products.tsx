@@ -127,11 +127,11 @@ const Products = () => {
               bạn.
             </p>
           </div>
-          <div className="flex items-center gap-[14px]">
+          <div className="flex lg:items-center items-start gap-[10px]">
             {["All", "Tshirts", "Shirts", "Pants"].map((tag) => (
               <button
                 key={tag}
-                className={`flex text-[#B3B3B2] text-center lg:text-[18px] text-[14px] not-italic font-[400] leading-[27px] lg:py-[18px] lg:px-[24px] py-[10px] px-[14px] items-center gap-[10px] rounded-[12px] border border-dashed border-[#333] hover:bg-[#C2B4A3] hover:text-black hover:duration-500 hover:transition-all cursor-pointer ${
+                className={`flex text-[#B3B3B2] text-center lg:text-[18px] text-[12px] not-italic font-[400] leading-[27px] lg:py-[18px] lg:px-[24px] py-[8px] px-[12px] items-center gap-[10px] rounded-[12px] border border-dashed border-[#333] hover:bg-[#C2B4A3] hover:text-black hover:duration-500 hover:transition-all cursor-pointer ${
                   filter === tag ? "bg-[#C2B4A3] text-black" : ""
                 }`}
                 onClick={() => handleFilter(tag)}
@@ -277,25 +277,25 @@ const Products = () => {
                         </Link>
                       </div>
 
-                      <div className="flex flex-col items-start gap-[14px] self-stretch">
+                      <div className="flex flex-col items-start gap-[14px] self-stretch truncate">
                         <p className="self-stretch text-center text-[#FFF] font-mono lg:text-[24px] text-[18px] overflow-hidden not-italic font-[600] leading-[36px]">
                           {item?.name}
                         </p>
                         <div className="flex items-start justify-between w-full">
                           <div className="flex items-center gap-[8px]">
-                            <p className="text-[#81807E] font-mono lg:text-[18px] text-[14px] not-italic font-[400] leading-[27px]">
+                            <p className="text-[#81807E] font-mono lg:text-[18px] text-[10px] not-italic font-[400] leading-[27px]">
                               Fit:
                             </p>
-                            <p className="text-[#FFF] lg:text-[20px] text-[14px] font-mono not-italic font-[500] leading-[30px]">
+                            <p className="text-[#FFF] lg:text-[20px] text-[10px] font-mono not-italic font-[500] leading-[30px]">
                               {item?.fit}
                             </p>
                           </div>
 
                           <div className="flex items-center gap-[8px]">
-                            <p className="text-[#81807E] font-mono lg:text-[18px] text-[14px] not-italic font-[400] leading-[27px]">
+                            <p className="text-[#81807E] font-mono lg:text-[18px] text-[10px] not-italic font-[400] leading-[27px]">
                               Price:
                             </p>
-                            <p className="text-[#FFF] lg:text-[20px] text-[14px] font-mono not-italic font-[500] leading-[30px]">
+                            <p className="text-[#FFF] lg:text-[20px] text-[10px] font-mono not-italic font-[500] leading-[30px]">
                               {item?.price} VND
                             </p>
                           </div>
@@ -356,25 +356,25 @@ const Products = () => {
                         </Link>
                       </div>
 
-                      <div className="flex flex-col items-start gap-[14px] self-stretch">
+                      <div className="flex flex-col items-start gap-[14px] self-stretch truncate">
                         <p className="self-stretch text-center text-[#FFF] font-mono overflow-hidden lg:text-[24px] text-[18px] not-italic font-[600] leading-[36px]">
                           {item?.name}
                         </p>
                         <div className="flex items-start justify-between w-full">
                           <div className="flex items-center gap-[8px]">
-                            <p className="text-[#81807E] font-mono lg:text-[18px] text-[14px] not-italic font-[400] leading-[27px]">
+                            <p className="text-[#81807E] font-mono lg:text-[18px] text-[10px] not-italic font-[400] leading-[27px]">
                               Fit:
                             </p>
-                            <p className="text-[#FFF] lg:text-[20px] text-[14px] font-mono not-italic font-[500] leading-[30px]">
+                            <p className="text-[#FFF] lg:text-[20px] text-[10px] font-mono not-italic font-[500] leading-[30px]">
                               {item?.fit}
                             </p>
                           </div>
 
                           <div className="flex items-center gap-[8px]">
-                            <p className="text-[#81807E] font-mono lg:text-[18px] text-[14px] not-italic font-[400] leading-[27px]">
+                            <p className="text-[#81807E] font-mono lg:text-[18px] text-[10px] not-italic font-[400] leading-[27px]">
                               Price:
                             </p>
-                            <p className="text-[#FFF] lg:text-[20px] text-[14px] font-mono not-italic font-[500] leading-[30px]">
+                            <p className="text-[#FFF] lg:text-[20px] text-[10px] font-mono not-italic font-[500] leading-[30px]">
                               {item?.price} VND
                             </p>
                           </div>
