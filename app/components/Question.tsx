@@ -61,11 +61,12 @@ const Question = () => {
     <div className="flex mt-[100px] w-full flex-col items-start rounded-[20px] border-2 border-dashed border-[#262626]">
       <div className="flex lg:pt-[80px] pt-[40px] relative lg:pr-[300px] pr-[40px] lg:pb-[80px] pb-[40px] lg:pl-[80px] pl-[40px] flex-col items-start gap-[50px] self-stretch border-b-2 border-solid border-[#262626]">
         <div className="flex flex-col items-start gap-[30px] self-stretch">
-          <p className="self-stretch lg:whitespace-nowrap text-[#FFF] lg:text-[40px] text-[30px] z-10 not-italic font-[500] leading-normal uppercase">
-            Elevate Your Style with Our Latest Collection
+          <p className="self-stretch lg:whitespace-nowrap text-[#FFF] lg:text-[40px] truncate text-[30px] z-10 not-italic font-[500] leading-normal uppercase">
+            NÂNG CAO PHONG CÁCH CỦA BẠN VỚI BỘ SƯU TẬP MỚI NHẤT CỦA CHÚNG TÔI
           </p>
           <p className="self-stretch text-[#676665] lg:text-[18px] text-[14px] not-italic font-[400] leading-[27px]">
-            Each piece is crafted to enhance your fashion statement.
+            Mỗi sản phẩm đều được chế tạo để nâng cao tuyên bố thời trang của
+            bạn.
           </p>
         </div>
         <div className="lg:flex grid grid-cols-3 items-center justify-center text-center gap-[14px]">

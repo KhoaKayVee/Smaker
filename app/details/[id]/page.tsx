@@ -183,8 +183,8 @@ const ProductDetail = () => {
                 </p>
                 <p className="self-stretch text-[#FFF] text-[16px] md:text-[18px] not-italic font-[400] leading-[27px]">
                   Được lấy cảm hứng từ đường phố streetwear và lấy cảm hứng từ
-                  các rap-star của châu âu. Cảm hứng cho những bộ quần áo của
-                  $maker là từ những điều đó tạo nên giá trị của thương hiệu
+                  các đường phố của châu âu. Cảm hứng cho những bộ quần áo của
+                  BoinShop là từ những điều đó tạo nên giá trị của thương hiệu
                   theo style đường phố.
                 </p>
               </div>
@@ -213,12 +213,12 @@ const ProductDetail = () => {
                   Đặc trưng
                 </p>
                 <p className="self-stretch text-[#FFF] text-[16px] md:text-[18px] not-italic font-[400] leading-[27px]">
-                  Đặc trưng của những bô quần áo $maker được thiết kế mang tính
-                  thời trang theo kiểu đường phố streetwear, giúp người sử dụng
-                  khi mang có thể nổi bật giữa đám đông, tạo hiệu ứng spotlight
-                  cho riêng bản thân mình. Được thiết kế chi tiết tỉ mỉ và được
-                  chọn từ những chất liệu cao cấp mang lại sự đặc biệt dành cho
-                  người sử dụng.
+                  Đặc trưng của những bô quần áo BoinShop được thiết kế mang
+                  tính thời trang theo kiểu đường phố streetwear, giúp người sử
+                  dụng khi mang có thể nổi bật giữa đám đông, tạo hiệu ứng
+                  spotlight cho riêng bản thân mình. Được thiết kế chi tiết tỉ
+                  mỉ và được chọn từ những chất liệu cao cấp mang lại sự đặc
+                  biệt dành cho người sử dụng.
                 </p>
               </div>
 

@@ -7,11 +7,11 @@ const Navigating = () => {
     <div className="flex mt-[100px] flex-col items-start rounded-[20px] border-2 border-dashed border-[#262626]">
       <div className="flex relative pt-[80px] lg:pr-[300px] pb-[80px] lg:pl-[80px] pr-[40px] pl-[40px] flex-col items-start gap-[30px] self-stretch border-b-2 border-solid border-[#262626]">
         <p className="self-stretch text-[#FFF] lg:text-[40px] text-[20px] not-italic font-[500] leading-normal uppercase lg:whitespace-nowrap whitespace-normal z-30">
-          Navigating the StyleLoom Fashion Journey.
+          HÀNH TRÌNH THỜI TRANG BoinStore.
         </p>
         <p className="self-stretch text-[#676665] lg:text-[18px] text-[10px] not-italic font-[500] leading-[27px]">
-          At StyleLoom, weve designed a straightforward shopping experience to
-          make fashion accessible.
+          Tại BoinStore, chúng tôi đã thiết kế trải nghiệm mua sắm đơn giản để
+          giúp bạn tiếp cận thời trang.
         </p>
         <Image
           src={Vector}
@@ -23,57 +23,57 @@ const Navigating = () => {
       <div className="flex flex-col md:flex-row items-start self-stretch">
         <div className="flex p-[50px] flex-col items-start gap-[30px] flex-1 border-b-2 md:border-b-0 md:border-r-2 border-solid border-[#262626]">
           <p className="self-stretch text-[#676665] text-[20px] not-italic font-[400] leading-[30px]">
-            Step 01
+            Bước 01
           </p>
           <div className="flex flex-col items-start gap-[16px] self-stretch">
             <p className="self-stretch text-[#FFF] text-[22px] not-italic font-[500] leading-[42px] whitespace-nowrap">
-              Discover Trends
+              Khám phá xu hướng
             </p>
             <p className="self-stretch text-[#81807E] text-[18px] not-italic font-[400] leading-[27px]">
-              Explore our curated collection of over 1000 styles, spanning
-              global fashion trends.
+              Khám phá bộ sưu tập hơn 1000 phong cách được tuyển chọn của chúng
+              tôi, bao gồm các xu hướng thời trang toàn cầu.
             </p>
           </div>
         </div>
         <div className="flex p-[50px] flex-col items-start gap-[30px] flex-1 border-b-2 md:border-b-0 md:border-r-2 border-solid border-[#262626]">
           <p className="self-stretch text-[#676665] text-[20px] not-italic font-[400] leading-[30px]">
-            Step 02
+            Bước 02
           </p>
           <div className="flex flex-col items-start gap-[16px] self-stretch">
             <p className="self-stretch text-[#FFF] text-[22px] not-italic font-[500] leading-[42px] flex-nowrap whitespace-nowrap">
-              Effortless Navigation
+              Sự dẫn đầu
             </p>
             <p className="self-stretch text-[#81807E] text-[18px] not-italic font-[400] leading-[27px]">
-              Intuitive filters and categories help you find the perfect pieces
-              tailored to your style.
+              Các bộ lọc và danh mục trực quan giúp bạn tìm thấy những phần hoàn
+              hảo phù hợp với phong cách của bạn.
             </p>
           </div>
         </div>
         <div className="flex p-[50px] flex-col items-start gap-[30px] flex-1 border-b-2 md:border-b-0 md:border-r-2 border-solid border-[#262626]">
           <p className="self-stretch text-[#676665] text-[20px] not-italic font-[400] leading-[30px]">
-            Step 03
+            Bước 03
           </p>
           <div className="flex flex-col items-start gap-[16px] self-stretch">
             <p className="self-stretch text-[#FFF] text-[22px] not-italic font-[500] leading-[42px] whitespace-nowrap">
-              Secure Checkout
+              Thanh toán an toàn
             </p>
             <p className="self-stretch text-[#81807E] text-[18px] not-italic font-[400] leading-[27px]">
-              Multiple payment options and encrypted transactions ensure a safe
-              and hassle-free purchase.
+              Nhiều tùy chọn thanh toán và giao dịch được mã hóa đảm bảo mua
+              hàng an toàn và không gặp rắc rối.
             </p>
           </div>
         </div>
         <div className="flex p-[50px] flex-col items-start gap-[30px] flex-1">
           <p className="self-stretch text-[#676665] text-[20px] not-italic font-[400] leading-[30px]">
-            Step 04
+            Bước 04
           </p>
           <div className="flex flex-col items-start gap-[16px] self-stretch">
             <p className="self-stretch text-[#FFF] text-[22px] not-italic font-[500] leading-[42px] whitespace-nowrap">
-              Unbox Happiness
+              Đập hộp trong hạnh phúc
             </p>
             <p className="self-stretch text-[#81807E] text-[18px] not-italic font-[400] leading-[27px]">
-              Unbox a fashion-forward experience delivered right to your door,
-              ready to elevate your style.
+              Mở hộp trải nghiệm thời trang được giao đến tận nhà bạn, sẵn sàng
+              nâng tầm phong cách của bạn.
             </p>
           </div>
         </div>

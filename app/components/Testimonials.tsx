@@ -8,57 +8,58 @@ import Avatar4 from "../../public/avata4.png";
 import Avatar5 from "../../public/avatar5.png";
 import Avatar6 from "../../public/avatar6.png";
 import Twitter from "../../public/twitter.png";
+import Default from "../../public/boinshop/avatardefault.jpg";
 import { FaStar } from "react-icons/fa";
 
 const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Sarah Thompson",
-      location: "New York, USA",
-      avatar: Avatar2,
+      name: "Trần Văn Nam",
+      location: "HCM - VN",
+      avatar: Default,
       review:
-        "Absolutely love the style and warmth of the jacket. A perfect blend of fashion and functionality!",
+        "Hoàn toàn thích phong cách và sự ấm áp của chiếc áo khoác. Sự kết hợp hoàn hảo giữa thời trang",
     },
     {
       id: 2,
-      name: "Rajesh Patel",
-      location: "Mumbai, India",
-      avatar: Avatar,
+      name: "Phạm Vũ Long",
+      location: "HCM - VN",
+      avatar: Default,
       review:
-        "Absolutely love the style and warmth of the jacket. A perfect blend of fashion and functionality!",
+        "BoinStore vượt quá mong đợi của tôi. Chất lượng và thiết kế của chiếc váy khiến tôi cảm thấy mình như một nữ hoàng. Vận chuyển nhanh chóng, quá!",
     },
     {
       id: 3,
-      name: "Emily Walker",
-      location: "London, UK",
-      avatar: Avatar3,
+      name: "Quang Anh Bùi",
+      location: "HN - VN",
+      avatar: Default,
       review:
-        "Absolutely love the style and warmth of the jacket. A perfect blend of fashion and functionality!",
+        "Đáng yêu và thoải mái! Con gái tôi thích bộ trang phục mới của nó. Cảm ơn BoinStore vì đã mặc quần áo cho tín đồ thời trang nhí của chúng tôi.",
     },
     {
       id: 4,
-      name: "Alejandro Martinez",
-      location: "Barcelona, Spain",
-      avatar: Avatar4,
+      name: "Đặng Tuấn Vỹ",
+      location: "HP - VN",
+      avatar: Default,
       review:
-        "Absolutely love the style and warmth of the jacket. A perfect blend of fashion and functionality!",
+        "Ấn tượng bởi chất lượng và phong cách. Những đôi giày này gây chú ý ở mọi sự kiện. BoinStore, bạn đã có được một khách hàng trung thành!",
     },
     {
       id: 5,
-      name: "Priya Sharma",
-      location: "Delhi, India",
-      avatar: Avatar5,
+      name: "Vũ Vỹ Vy",
+      location: "ĐN - VN",
+      avatar: Default,
       review:
-        "Absolutely love the style and warmth of the jacket. A perfect blend of fashion and functionality!",
+        "Hoàn toàn phù hợp và chất lượng vượt trội. Những chiếc quần jean này đã trở thành trang phục đi chơi bình thường và sang trọng của tôi.",
     },
     {
       id: 6,
-      name: "Maria Rodriguez",
-      location: "Mexico City, Mexico",
-      avatar: Avatar6,
+      name: "Phạm Pháp Phương",
+      location: "BG - VN",
+      avatar: Default,
       review:
-        "Absolutely love the style and warmth of the jacket. A perfect blend of fashion and functionality!",
+        "Sành điệu nhưng không ảnh hưởng đến sự thoải mái. BoinStore biết cách cân bằng giữa thời trang và chức năng.",
     },
   ];
 
@@ -66,10 +67,10 @@ const Testimonials = () => {
     <div className="flex mt-[100px] w-full flex-col items-start rounded-[20px] border-2 border-dashed border-[#262626]">
       <div className="relative lg:pt-[80px] pt-[40px] lg:pr-[300px] pr-[40px] lg:pb-[80px] pb-[40px] lg:pl-[80px] pl-[40px] flex flex-col items-start gap-[30px] w-full border-b-2 border-solid border-[#262626]">
         <p className="self-stretch text-[#FFF] lg:text-[36px] text-[26px] lg:whitespace-nowrap z-30 not-italic font-[500] leading-normal uppercase">
-          The StyleLoom Testimonial Collection.
+          BỘ SƯU TẬP CHỨNG THỰC CỦA BOINSTORE.
         </p>
         <p className="self-stretch text-[#676665] text-[16px] not-italic font-[500] leading-[27px]">
-          At StyleLoom, our customers are the heartbeat of our brand.
+          Tại BOINSTORE, khách hàng là trái tim của thương hiệu chúng tôi.
         </p>
         <Image
           src={Xoay}

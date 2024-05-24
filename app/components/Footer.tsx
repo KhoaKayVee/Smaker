@@ -1,12 +1,22 @@
 import React from "react";
 import Anhsang from "../../public/anhsang.png";
 import Image from "next/image";
-import Logo from "../../public/images/logo-smaker.png";
+import Logo from "../../public/boinshop/logoBoinShop.png";
 import Shape from "../../public/Shape.png";
 import { FaInstagram, FaFacebookF, FaTwitter, FaYoutube } from "react-icons/fa";
 import { ArrowRight } from "lucide-react";
+import { SiShopee } from "react-icons/si";
 
 const Footer = () => {
+  const socialLinks = [
+    { Icon: FaFacebookF, link: "https://www.facebook.com/ngoanhkhoa13062001/" },
+    {
+      Icon: FaInstagram,
+      link: "https://www.instagram.com/kayvreelightdandsakaanhkhoa/",
+    },
+    { Icon: SiShopee, link: "https://shopee.vn/boin.unisex" },
+    { Icon: FaYoutube, link: "https://www.youtube.com" },
+  ];
   return (
     <footer className="container">
       <div className="flex flex-col items-center border-t-2 border-dashed border-[#262626] mt-[50px] md:mt-[100px]">
@@ -30,29 +40,30 @@ const Footer = () => {
         </div>
 
         <div className="flex flex-col md:flex-row py-[50px] md:py-[100px] gap-[50px] px-[20px] md:px-[162px] justify-between items-center self-stretch border-t-2 border-b-2 border-dashed border-[#262626]">
-          <div className="flex flex-col items-center gap-[16px] h-[146px] justify-center">
+          <div className="flex flex-col items-center h-[146px] justify-center">
             <Image
               src={Logo}
               alt="Logo"
-              width={160}
-              height={160}
+              width={200}
+              height={200}
               className="text-[#FFF] filter invert"
             />
             <p className="font-mono text-[25px] md:text-[50px] text-[gold] leading-[32px] font-[700]">
-              SMAKER CLOTHING
+              BOINSHOP CLOTHING
             </p>
           </div>
           <div className="flex items-center gap-[10px] md:gap-[20px] mt-[20px] md:mt-0">
-            {[FaFacebookF, FaInstagram, FaTwitter, FaYoutube].map(
-              (Icon, index) => (
-                <div
-                  key={index}
-                  className="flex p-[12px] md:p-[16px] items-center gap-[10px] rounded-[12px] bg-[gold] hover:opacity-65 hover:transition-all hover:duration-500 cursor-pointer"
-                >
-                  <Icon fill="black" />
-                </div>
-              )
-            )}
+            {socialLinks.map(({ Icon, link }, index) => (
+              <a
+                key={index}
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex p-[12px] md:p-[16px] items-center gap-[10px] rounded-[12px] bg-[gold] hover:opacity-65 hover:transition-all hover:duration-500 cursor-pointer"
+              >
+                <Icon fill="black" />
+              </a>
+            ))}
           </div>
         </div>
 
@@ -115,7 +126,7 @@ const Footer = () => {
           </div>
           <div className="flex flex-col md:flex-row py-[30px] md:py-[50px] px-[20px] md:px-[162px] lg:gap-0 gap-[20px] justify-between lg:items-center items-start md:items-start self-stretch">
             <p className="text-[#818073] text-[14px] md:text-[18px] not-italic font-[400] leading-[20px] md:leading-[27px]">
-              © 2024 SmakerClothing. All rights reserved.
+              © 2024 BoinStore. All rights reserved.
             </p>
             <div className="flex items-center gap-[10px] md:gap-[11px] mt-[10px] md:mt-0">
               {["Terms & Conditions", "Privacy Policy"].map((text, index) => (

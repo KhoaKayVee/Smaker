@@ -15,7 +15,7 @@ import Image1 from "../../public/Icon.png";
 import Image2 from "../../public/Logo.png";
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "../../public/images/logo-smaker.png";
+import Logo from "../../public/boinshop/logoBoinShop.png";
 
 const Navbar = () => {
   const { setTheme } = useTheme();
@@ -36,13 +36,14 @@ const Navbar = () => {
         <div className="flex items-center">
           <Link href="/">
             <Image
-              className={`text-[#FFF] object-contain lg:flex hidden filter invert ${
-                isMenuOpen ? "hidden" : "" // Ẩn logo khi menu được mở
+              className={`text-[#FFF] object-contain lg:flex hidden ${
+                isMenuOpen ? "hidden" : ""
               }`}
               src={Logo}
               alt="Logo"
-              width={50}
-              height={50}
+              width={130}
+              height={130}
+              style={{ filter: "invert(1)" }}
             />
           </Link>
         </div>
@@ -54,7 +55,7 @@ const Navbar = () => {
           <Link href="/">
             <li className="flex cursor-pointer py-4 px-6 gap-2 rounded-lg hover:bg-[#1A1A1A]">
               <p className="text-[#FFF] text-center text-base lg:text-lg font-normal leading-6">
-                Home
+                HOME
               </p>
             </li>
           </Link>
