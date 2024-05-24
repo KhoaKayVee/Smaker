@@ -198,25 +198,25 @@ const Products = () => {
                         </Link>
                       </div>
 
-                      <div className="flex flex-col items-start gap-[14px] self-stretch">
+                      <div className="flex flex-col items-start gap-[14px] self-stretch truncate">
                         <p className="self-stretch text-center text-[#FFF] font-mono lg:text-[24px] text-[18px] overflow-hidden not-italic font-[600] leading-[36px]">
                           {item?.name}
                         </p>
                         <div className="flex items-start justify-between w-full">
                           <div className="flex items-center gap-[8px]">
-                            <p className="text-[#81807E] font-mono lg:text-[18px] text-[14px] not-italic font-[400] leading-[27px]">
+                            <p className="text-[#81807E] font-mono lg:text-[18px] text-[10px] not-italic font-[400] leading-[27px]">
                               Fit:
                             </p>
-                            <p className="text-[#FFF] lg:text-[18px] text-[14px] font-mono not-italic font-[500] leading-[30px]">
+                            <p className="text-[#FFF] lg:text-[18px] text-[10px] font-mono not-italic font-[500] lg:leading-[30px] leading-[20px]">
                               {item?.fit}
                             </p>
                           </div>
 
                           <div className="flex items-center gap-[8px]">
-                            <p className="text-[#81807E] font-mono lg:text-[18px]  text-[14px]  not-italic font-[400] leading-[27px]">
+                            <p className="text-[#81807E] font-mono lg:text-[18px]  text-[10px]  not-italic font-[400] leading-[27px]">
                               Price:
                             </p>
-                            <p className="text-[#FFF]  text-[14px]  font-mono not-italic font-[500] leading-[30px]">
+                            <p className="text-[#FFF] lg:text-[18px]  text-[10px]  font-mono not-italic font-[500] lg:leading-[30px] leading-[20px]">
                               {item?.price} VND
                             </p>
                           </div>
