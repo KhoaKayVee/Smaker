@@ -236,16 +236,16 @@ const ProductDetail = () => {
                   Sizes có sẵn
                 </p>
                 <div className="flex items-start gap-[8px] md:gap-[16px]">
-                  <button className="flex py-[8px] md:py-[12px] px-[30px] md:px-[50px] items-center gap-[10px] rounded-[100px] bg-[#333] text-[gold] font-mono text-[20px] md:text-[24px] not-italic font-[700] leading-[27px]">
+                  <button className="flex py-[6px] md:py-[12px] px-[20px] md:px-[50px] items-center gap-[10px] rounded-[100px] bg-[#333] text-[gold] font-mono text-[15px] md:text-[24px] not-italic font-[700] leading-[27px]">
                     S
                   </button>
-                  <button className="flex py-[8px] md:py-[12px] px-[30px] md:px-[50px] items-center gap-[10px] rounded-[100px] bg-[#333] text-[gold] font-mono text-[20px] md:text-[24px] not-italic font-[700] leading-[27px]">
+                  <button className="flex py-[6px] md:py-[12px] px-[20px] md:px-[50px] items-center gap-[10px] rounded-[100px] bg-[#333] text-[gold] font-mono text-[15px] md:text-[24px] not-italic font-[700] leading-[27px]">
                     M
                   </button>
-                  <button className="flex py-[8px] md:py-[12px] px-[30px] md:px-[50px] items-center gap-[10px] rounded-[100px] bg-[#333] text-[gold] font-mono text-[20px] md:text-[24px] not-italic font-[700] leading-[27px]">
+                  <button className="flex py-[6px] md:py-[12px] px-[20px] md:px-[50px] items-center gap-[10px] rounded-[100px] bg-[#333] text-[gold] font-mono text-[15px] md:text-[24px] not-italic font-[700] leading-[27px]">
                     L
                   </button>
-                  <button className="flex py-[8px] md:py-[12px] px-[30px] md:px-[50px] items-center gap-[10px] rounded-[100px] bg-[#333] text-[gold] font-mono text-[20px] md:text-[24px] not-italic font-[700] leading-[27px]">
+                  <button className="flex py-[6px] md:py-[12px] px-[20px] md:px-[50px] items-center gap-[10px] rounded-[100px] bg-[#333] text-[gold] font-mono text-[15px] md:text-[24px] not-italic font-[700] leading-[27px]">
                     XL
                   </button>
                 </div>
@@ -290,15 +290,20 @@ const ProductDetail = () => {
                     </p>
                   </div>
                   <div className="flex flex-col items-start gap-[16px] flex-1  w-full">
-                    <div className="flex items-center gap-[20px] self-stretch">
-                      <FaStar fill="yellow" width={24} height={24} />
-                      <div className="flex items-center gap-[10px]">
-                        <div className="text-[#81807E] text-[18px] not-italic font-[400] leading-[27px]">
+                    <div className="flex items-center lg:gap-[20px] gap-[10px] self-stretch">
+                      <FaStar
+                        className="lg:w-[24px] lg:h-[24px] w-[16px] h-[16px]"
+                        fill="yellow"
+                        width={24}
+                        height={24}
+                      />
+                      <div className="flex items-center lg:gap-[10px] gap-[6px]">
+                        <div className="text-[#81807E] lg:text-[18px] text-[14px] not-italic font-[400] leading-[27px]">
                           05
                         </div>
                         <p>({product?.rating5})</p>
                       </div>
-                      <div className="flex flex-col p-[10px] items-start gap-[10px] flex-1 rounded-[100px] border border-solid border-[#262626] bg-[#1A1A1A]">
+                      <div className="flex flex-col lg:p-[10px] p-[5px] items-start gap-[10px] flex-1 rounded-[100px] border border-solid border-[#262626] bg-[#1A1A1A]">
                         <Progress
                           percent={
                             (product?.rating5 * 100) / product?.totalRating
