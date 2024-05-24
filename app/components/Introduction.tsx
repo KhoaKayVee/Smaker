@@ -16,18 +16,18 @@ import Sao6 from "../../public/Sao6.png";
 const Introduction = () => {
   return (
     <div className="flex mt-[100px] w-full flex-col items-start rounded-[20px] border-2 border-dashed border-[#262626]">
-      <div className="flex pt-[80px] pr-[300px] pb-[80px] pl-[80px] flex-col items-start gap-[30px] self-stretch border-b-2 border-solid border-[#262626]">
-        <p className="self-stretch text-[#FFF] text-[46px] whitespace-nowrap not-italic font-[500] leading-normal uppercase">
+      <div className="flex flex-col  pt-[80px] lg:pr-[300px] pb-[80px] lg:pl-[80px] pr-[10px] pl-[10px] items-start gap-[30px] self-stretch border-b-2 border-solid border-[#262626]">
+        <p className="self-stretch text-[#FFF] lg:text-[46px] text-[16px] whitespace-nowrap not-italic font-[500] leading-normal uppercase">
           Crafting Trends, Inspiring Confidence
         </p>
-        <p className="self-stretch text-[#676665] text-[18px] not-italic font-[400] leading-[27px]">
+        <p className="self-stretch text-[#676665] lg:text-[18px] text-[12px] not-italic font-[400] leading-[27px]">
           Explore a world of fashion at StyleLoom, where trends meet
           affordability.
         </p>
       </div>
       <div className="flex flex-col items-start self-stretch">
-        <div className="flex items-start self-stretch border-b-2 border-solid border-[#262626]">
-          <div className="flex p-[60px] relative flex-col items-start gap-[50px] flex-1 border-r-2 border-solid border-[#262626]">
+        <div className="flex flex-col md:flex-row items-start self-stretch border-b-2 border-solid border-[#262626]">
+          <div className="flex p-[60px] relative flex-col items-start gap-[50px] flex-1 border-b-2 md:border-b-0 md:border-r-2 border-solid border-[#262626]">
             <div className="flex p-[14px] items-center gap-[10px]">
               <div className="flex p-[16px] flex-col items-start gap-[10px] rounded-[64px] bg-[#1A1A1A]">
                 <Image
@@ -52,7 +52,7 @@ const Introduction = () => {
               className="w-[200px] h-[200px] absolute -right-[5px] top-0 overflow-hidden"
             />
           </div>
-          <div className="flex p-[60px] relative flex-col items-start gap-[50px] flex-1 border-r-2 border-solid border-[#262626]">
+          <div className="flex p-[60px] relative flex-col items-start gap-[50px] flex-1 border-b-2 md:border-b-0 md:border-r-2 border-solid border-[#262626]">
             <div className="flex p-[14px] items-center gap-[10px]">
               <div className="flex p-[16px] flex-col items-start gap-[10px] rounded-[64px] bg-[#1A1A1A]">
                 <Image src={So2} alt="ngoisao" className="w-[34px] h-[34px]" />
@@ -96,8 +96,8 @@ const Introduction = () => {
           </div>
         </div>
 
-        <div className="flex items-start self-stretch">
-          <div className="flex p-[60px] relative flex-col items-start gap-[50px] flex-1 border-r-2 border-solid border-[#262626]">
+        <div className="flex flex-col md:flex-row items-start self-stretch">
+          <div className="flex p-[60px] relative flex-col items-start gap-[50px] flex-1 border-b-2 md:border-b-0 md:border-r-2 border-solid border-[#262626]">
             <div className="flex p-[14px] items-center gap-[10px]">
               <div className="flex p-[16px] flex-col items-start gap-[10px] rounded-[64px] bg-[#1A1A1A]">
                 <Image src={So4} alt="ngoisao" className="w-[34px] h-[34px]" />
@@ -118,7 +118,7 @@ const Introduction = () => {
               className="w-[200px] h-[200px] absolute right-0 top-0"
             />
           </div>
-          <div className="flex p-[60px] relative flex-col items-start gap-[50px] flex-1 border-r-2 border-solid border-[#262626]">
+          <div className="flex p-[60px] relative flex-col items-start gap-[50px] flex-1 border-b-2 md:border-b-0 md:border-r-2 border-solid border-[#262626]">
             <div className="flex p-[14px] items-center gap-[10px]">
               <div className="flex p-[16px] flex-col items-start gap-[10px] rounded-[64px] bg-[#1A1A1A]">
                 <Image src={So5} alt="ngoisao" className="w-[34px] h-[34px]" />

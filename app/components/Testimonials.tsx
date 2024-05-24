@@ -11,10 +11,61 @@ import Twitter from "../../public/twitter.png";
 import { FaStar } from "react-icons/fa";
 
 const Testimonials = () => {
+  const testimonials = [
+    {
+      id: 1,
+      name: "Sarah Thompson",
+      location: "New York, USA",
+      avatar: Avatar2,
+      review:
+        "Absolutely love the style and warmth of the jacket. A perfect blend of fashion and functionality!",
+    },
+    {
+      id: 2,
+      name: "Rajesh Patel",
+      location: "Mumbai, India",
+      avatar: Avatar,
+      review:
+        "Absolutely love the style and warmth of the jacket. A perfect blend of fashion and functionality!",
+    },
+    {
+      id: 3,
+      name: "Emily Walker",
+      location: "London, UK",
+      avatar: Avatar3,
+      review:
+        "Absolutely love the style and warmth of the jacket. A perfect blend of fashion and functionality!",
+    },
+    {
+      id: 4,
+      name: "Alejandro Martinez",
+      location: "Barcelona, Spain",
+      avatar: Avatar4,
+      review:
+        "Absolutely love the style and warmth of the jacket. A perfect blend of fashion and functionality!",
+    },
+    {
+      id: 5,
+      name: "Priya Sharma",
+      location: "Delhi, India",
+      avatar: Avatar5,
+      review:
+        "Absolutely love the style and warmth of the jacket. A perfect blend of fashion and functionality!",
+    },
+    {
+      id: 6,
+      name: "Maria Rodriguez",
+      location: "Mexico City, Mexico",
+      avatar: Avatar6,
+      review:
+        "Absolutely love the style and warmth of the jacket. A perfect blend of fashion and functionality!",
+    },
+  ];
+
   return (
     <div className="flex mt-[100px] w-full flex-col items-start rounded-[20px] border-2 border-dashed border-[#262626]">
-      <div className="flex relative pt-[80px] pr-[300px] pb-[80px] pl-[80px] flex-col items-start gap-[30px] self-stretch border-b-2 border-solid border-[#262626]">
-        <p className="self-stretch text-[#FFF] text-[36px] whitespace-nowrap z-30 not-italic font-[500] leading-normal uppercase">
+      <div className="relative lg:pt-[80px] pt-[40px] lg:pr-[300px] pr-[40px] lg:pb-[80px] pb-[40px] lg:pl-[80px] pl-[40px] flex flex-col items-start gap-[30px] w-full border-b-2 border-solid border-[#262626]">
+        <p className="self-stretch text-[#FFF] lg:text-[36px] text-[26px] lg:whitespace-nowrap z-30 not-italic font-[500] leading-normal uppercase">
           The StyleLoom Testimonial Collection.
         </p>
         <p className="self-stretch text-[#676665] text-[16px] not-italic font-[500] leading-[27px]">
@@ -24,66 +75,42 @@ const Testimonials = () => {
           src={Xoay}
           alt="xoay"
           width={300}
-          className="absolute object-cover right-0 top-0 opacity-75 h-full"
+          className="absolute object-cover right-0 top-0 opacity-75 h-full lg:flex hidden"
         />
       </div>
 
-      <div className="flex flex-col items-start self-stretch">
-        <div className="flex items-start self-stretch border-b-2 border-solid border-[#262626]">
-          <div className="flex px-[30px] py-[40px] flex-col items-start gap-[40px] flex-1 border-r-2 border-solid border-[#262626]">
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+        {testimonials.map((testimonial) => (
+          <div
+            key={testimonial.id}
+            className="flex flex-col lg:items-start items-center lg:p-[40px] p-[20px]  border-2 border-dashed border-[#262626] rounded-md"
+          >
             <div className="flex items-center gap-[12px] self-stretch">
               <Image
-                src={Avatar2}
-                alt="Avatar"
+                src={testimonial.avatar}
+                alt={testimonial.name}
                 width={60}
                 height={60}
-                className="rounded-[100px] object-cover bg-no-repeat bg-[#AE9B84]"
+                className="rounded-full lg:w-[60px] w-[40px] lg:h-[60px] h-[40px] object-cover bg-no-repeat bg-[#AE9B84]"
               />
               <div className="flex flex-col items-start gap-[4px] flex-1">
-                <p className="self-stretch text-[#FFF] text-[16px] not-italic font-[500] leading-[30px]">
-                  Sarah Thompson
+                <p className="text-[#FFF] lg:text-[16px] text-[14px] not-italic font-[500] leading-[30px]">
+                  {testimonial.name}
                 </p>
-                <p className="self-stretch text-[#676665] text-[18px] not-italic font-[400] leading-[27px]">
-                  New York, USA
+                <p className="text-[#676665] lg:text-[18px] text-[16px] not-italic font-[400] leading-[27px]">
+                  {testimonial.location}
                 </p>
               </div>
-              <Image src={Twitter} alt="Twitter" width={34} height={34} />
-            </div>
-
-            <div className="flex items-start gap-[5px]">
-              <FaStar fill="yellow" width={24} height={24} />
-              <FaStar fill="yellow" width={24} height={24} />
-              <FaStar fill="yellow" width={24} height={24} />
-              <FaStar fill="yellow" width={24} height={24} />
-              <FaStar fill="yellow" width={24} height={24} />
-            </div>
-
-            <p className="self-stretch text-[#81807E] text-[18px] not-italic font-[500] leading-[27px]">
-              Absolutely love the style and warmth of the jacket. A perfect
-              blend of fashion and functionality!
-            </p>
-          </div>
-          <div className="flex px-[30px] py-[40px] flex-col items-start gap-[40px] flex-1 border-r-2 border-solid border-[#262626]">
-            <div className="flex items-center gap-[12px] self-stretch">
               <Image
-                src={Avatar}
-                alt="Avatar"
-                width={60}
-                height={60}
-                className="rounded-[100px] object-cover bg-no-repeat bg-[#AE9B84]"
+                src={Twitter}
+                alt="Twitter"
+                width={34}
+                height={34}
+                className="lg:w-[34px] w-[24px] lg:h-[34px] h-[24px]"
               />
-              <div className="flex flex-col items-start gap-[4px] flex-1">
-                <p className="self-stretch text-[#FFF] text-[16px] not-italic font-[500] leading-[30px]">
-                  Rajesh Patel
-                </p>
-                <p className="self-stretch text-[#676665] text-[18px] not-italic font-[400] leading-[27px]">
-                  Mumbai, India
-                </p>
-              </div>
-              <Image src={Twitter} alt="Twitter" width={34} height={34} />
             </div>
 
-            <div className="flex items-start gap-[5px]">
+            <div className="flex items-start gap-[5px] mt-4">
               <FaStar fill="yellow" width={24} height={24} />
               <FaStar fill="yellow" width={24} height={24} />
               <FaStar fill="yellow" width={24} height={24} />
@@ -91,147 +118,11 @@ const Testimonials = () => {
               <FaStar fill="yellow" width={24} height={24} />
             </div>
 
-            <p className="self-stretch text-[#81807E] text-[18px] not-italic font-[500] leading-[27px]">
-              Absolutely love the style and warmth of the jacket. A perfect
-              blend of fashion and functionality!
+            <p className="text-[#81807E] text-[18px] not-italic font-[500] leading-[27px] mt-4">
+              {testimonial.review}
             </p>
           </div>
-          <div className="flex px-[30px] py-[40px] flex-col items-start gap-[40px] flex-1">
-            <div className="flex items-center gap-[12px] self-stretch">
-              <Image
-                src={Avatar3}
-                alt="Avatar"
-                width={60}
-                height={60}
-                className="rounded-[100px] object-cover bg-no-repeat bg-[#AE9B84]"
-              />
-              <div className="flex flex-col items-start gap-[4px] flex-1">
-                <p className="self-stretch text-[#FFF] text-[16px] not-italic font-[500] leading-[30px]">
-                  Emily Walker
-                </p>
-                <p className="self-stretch text-[#676665] text-[18px] not-italic font-[400] leading-[27px]">
-                  London, UK
-                </p>
-              </div>
-              <Image src={Twitter} alt="Twitter" width={34} height={34} />
-            </div>
-
-            <div className="flex items-start gap-[5px]">
-              <FaStar fill="yellow" width={24} height={24} />
-              <FaStar fill="yellow" width={24} height={24} />
-              <FaStar fill="yellow" width={24} height={24} />
-              <FaStar fill="yellow" width={24} height={24} />
-              <FaStar fill="yellow" width={24} height={24} />
-            </div>
-
-            <p className="self-stretch text-[#81807E] text-[18px] not-italic font-[500] leading-[27px]">
-              Absolutely love the style and warmth of the jacket. A perfect
-              blend of fashion and functionality!
-            </p>
-          </div>
-        </div>
-
-        <div className="flex items-start self-stretch">
-          <div className="flex px-[30px] py-[40px] flex-col items-start gap-[40px] flex-1 border-r-2 border-solid border-[#262626]">
-            <div className="flex items-center gap-[12px] self-stretch">
-              <Image
-                src={Avatar4}
-                alt="Avatar"
-                width={60}
-                height={60}
-                className="rounded-[100px] object-cover bg-no-repeat bg-[#AE9B84]"
-              />
-              <div className="flex flex-col items-start gap-[4px] flex-1">
-                <p className="self-stretch text-[#FFF] text-[16px] not-italic font-[500] leading-[30px]">
-                  Alejandro Martinez
-                </p>
-                <p className="self-stretch text-[#676665] text-[18px] not-italic font-[400] leading-[27px]">
-                  Barcelona, Spain
-                </p>
-              </div>
-              <Image src={Twitter} alt="Twitter" width={34} height={34} />
-            </div>
-
-            <div className="flex items-start gap-[5px]">
-              <FaStar fill="yellow" width={24} height={24} />
-              <FaStar fill="yellow" width={24} height={24} />
-              <FaStar fill="yellow" width={24} height={24} />
-              <FaStar fill="yellow" width={24} height={24} />
-              <FaStar fill="yellow" width={24} height={24} />
-            </div>
-
-            <p className="self-stretch text-[#81807E] text-[18px] not-italic font-[500] leading-[27px]">
-              Absolutely love the style and warmth of the jacket. A perfect
-              blend of fashion and functionality!
-            </p>
-          </div>
-          <div className="flex px-[30px] py-[40px] flex-col items-start gap-[40px] flex-1 border-r-2 border-solid border-[#262626]">
-            <div className="flex items-center gap-[12px] self-stretch">
-              <Image
-                src={Avatar5}
-                alt="Avatar"
-                width={60}
-                height={60}
-                className="rounded-[100px] object-cover bg-no-repeat bg-[#AE9B84]"
-              />
-              <div className="flex flex-col items-start gap-[4px] flex-1">
-                <p className="self-stretch text-[#FFF] text-[16px] not-italic font-[500] leading-[30px]">
-                  Priya Sharma
-                </p>
-                <p className="self-stretch text-[#676665] text-[18px] not-italic font-[400] leading-[27px]">
-                  Delhi, India
-                </p>
-              </div>
-              <Image src={Twitter} alt="Twitter" width={34} height={34} />
-            </div>
-
-            <div className="flex items-start gap-[5px]">
-              <FaStar fill="yellow" width={24} height={24} />
-              <FaStar fill="yellow" width={24} height={24} />
-              <FaStar fill="yellow" width={24} height={24} />
-              <FaStar fill="yellow" width={24} height={24} />
-              <FaStar fill="yellow" width={24} height={24} />
-            </div>
-
-            <p className="self-stretch text-[#81807E] text-[18px] not-italic font-[500] leading-[27px]">
-              Absolutely love the style and warmth of the jacket. A perfect
-              blend of fashion and functionality!
-            </p>
-          </div>
-          <div className="flex px-[30px] py-[40px] flex-col items-start gap-[40px] flex-1">
-            <div className="flex items-center gap-[12px] self-stretch">
-              <Image
-                src={Avatar6}
-                alt="Avatar"
-                width={60}
-                height={60}
-                className="rounded-[100px] object-cover bg-no-repeat bg-[#AE9B84]"
-              />
-              <div className="flex flex-col items-start gap-[4px] flex-1">
-                <p className="self-stretch text-[#FFF] text-[16px] not-italic font-[500] leading-[30px]">
-                  Maria Rodriguez
-                </p>
-                <p className="self-stretch text-[#676665] text-[18px] not-italic font-[400] leading-[27px]">
-                  Mexico City, Mexico
-                </p>
-              </div>
-              <Image src={Twitter} alt="Twitter" width={34} height={34} />
-            </div>
-
-            <div className="flex items-start gap-[5px]">
-              <FaStar fill="yellow" width={24} height={24} />
-              <FaStar fill="yellow" width={24} height={24} />
-              <FaStar fill="yellow" width={24} height={24} />
-              <FaStar fill="yellow" width={24} height={24} />
-              <FaStar fill="yellow" width={24} height={24} />
-            </div>
-
-            <p className="self-stretch text-[#81807E] text-[18px] not-italic font-[500] leading-[27px]">
-              Absolutely love the style and warmth of the jacket. A perfect
-              blend of fashion and functionality!
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

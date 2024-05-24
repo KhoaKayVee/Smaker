@@ -13,19 +13,19 @@ const Hero = () => {
         </button>
       </div>
 
-      <div className="flex items-center self-stretch">
-        <div className="flex pt-[100px] pr-[80px] pb-[80px] pl-[80px] flex-col items-start gap-[30px] flex-1 border-r-2 border-solid border-[#262626]">
-          <ul className="flex items-center gap-[14px]">
-            <li className="flex text-[#B3B3B2] text-center text-[18px] not-italic font-[400] leading-[27px] py-[14px] px-[24px] items-center gap-[10px] rounded-[12px] border border-dashed border-[#333]">
+      <div className="flex flex-col lg:flex-row items-center self-stretch">
+        <div className="flex flex-col pt-[100px] pr-[80px] pb-[80px] pl-[80px] items-start gap-[30px] flex-1 border-b-2 lg:border-b-0 lg:border-r-2 border-solid border-[#262626]">
+          <ul className="flex lg:items-center items-start lg:gap-[14px] gap-[12px]">
+            <li className="flex text-[#B3B3B2] text-center text-[18px] not-italic font-[400] leading-[27px] lg:py-[14px] lg:px-[24px] py-[4px] px-[8px] items-center gap-[10px] rounded-[12px] border border-dashed border-[#333]">
               All
             </li>
-            <li className="flex text-[#B3B3B2] text-center text-[18px] not-italic font-[400] leading-[27px] py-[14px] px-[24px] items-center gap-[10px] rounded-[12px] border border-dashed border-[#333]">
+            <li className="flex text-[#B3B3B2] text-center text-[18px] not-italic font-[400] leading-[27px] lg:py-[14px] lg:px-[24px] py-[4px] px-[8px] items-center gap-[10px] rounded-[12px] border border-dashed border-[#333]">
               Mens
             </li>
-            <li className="flex text-[#B3B3B2] text-center text-[18px] not-italic font-[400] leading-[27px] py-[14px] px-[24px] items-center gap-[10px] rounded-[12px] border border-dashed border-[#333]">
+            <li className="flex text-[#B3B3B2] text-center text-[18px] not-italic font-[400] leading-[27px] lg:py-[14px] lg:px-[24px] py-[4px] px-[8px] items-center gap-[10px] rounded-[12px] border border-dashed border-[#333]">
               Womens
             </li>
-            <li className="flex text-[#B3B3B2] text-center text-[18px] not-italic font-[400] leading-[27px] py-[14px] px-[24px] items-center gap-[10px] rounded-[12px] border border-dashed border-[#333]">
+            <li className="flex text-[#B3B3B2] text-center text-[18px] not-italic font-[400] leading-[27px] lg:py-[14px] lg:px-[24px] py-[4px] px-[8px] items-center gap-[10px] rounded-[12px] border border-dashed border-[#333]">
               Kids
             </li>
           </ul>
@@ -39,18 +39,18 @@ const Hero = () => {
           </p>
         </div>
 
-        <div className="flex flex-col justify-end items-center flex-1 self-stretch">
-          <div className="flex items-center self-stretch border-b-2 border-solid border-[#262626]">
-            <div className="flex pt-[120px] pr-[50px] pb-[50px] pl-[50px] flex-col items-start gap-[16px] flex-1 border-r-2 border-solid border-[#262626]">
-              <p className="self-stretch text-[#FFF] text-[40px] not-italic font-[500] leading-[75px] ">
-                1,500 +
+        <div className="flex flex-col justify-end items-center flex-1 self-stretch lg:p-[40px]">
+          <div className="flex flex-col md:flex-row items-center self-stretch md:gap-[50px]">
+            <div className="flex pt-[80px] pb-[50px] px-[30px] flex-col items-start gap-[16px] flex-1">
+              <p className="self-stretch text-[#FFF] lg:text-[40px] text-[30px] not-italic font-[500] leading-[75px]">
+                150 +
               </p>
               <p className="self-stretch text-[#81807E] text-[18px] not-italic font-[400] leading-[27px]">
                 Explore Fashion Products
               </p>
             </div>
-            <div className="flex pt-[120px] pr-[50px] pb-[50px] pl-[50px] flex-col items-start gap-[16px] flex-1">
-              <p className="self-stretch text-[#FFF] text-[40px] not-italic font-[500] leading-[75px]">
+            <div className="flex pt-[80px] pb-[50px] px-[30px] flex-col items-start gap-[16px] flex-1">
+              <p className="self-stretch text-[#FFF] lg:text-[40px] text-[30px] not-italic font-[500] leading-[75px]">
                 50 +
               </p>
               <p className="self-stretch text-[#81807E] text-[18px] not-italic font-[400] leading-[27px]">
@@ -58,17 +58,17 @@ const Hero = () => {
               </p>
             </div>
           </div>
-          <div className="flex items-center self-stretch">
-            <div className="flex py-[70px] px-[50px] flex-col items-start gap-[16px] flex-1 border-r-2 border-solid border-[#262626]">
-              <p className="self-stretch text-[#FFF] text-[40px] not-italic font-[500] leading-[75px]">
+          <div className="flex flex-col md:flex-row items-center self-stretch md:gap-[50px]">
+            <div className="flex py-[40px] px-[30px] flex-col items-start gap-[16px] flex-1">
+              <p className="self-stretch text-[#FFF] lg:text-[40px] text-[30px] not-italic font-[500] leading-[75px]">
                 30%
               </p>
               <p className="self-stretch text-[#81807E] text-[18px] not-italic font-[400] leading-[27px]">
-                OFF on select items.
+                OFF on select items. Explo
               </p>
             </div>
-            <div className="flex py-[70px] px-[50px] flex-col items-start gap-[16px] flex-1">
-              <p className="self-stretch text-[#FFF] text-[40px] not-italic font-[500] leading-[75px]">
+            <div className="flex py-[40px] px-[30px] flex-col items-start gap-[16px] flex-1">
+              <p className="self-stretch text-[#FFF] lg:text-[40px] text-[30px] not-italic font-[500] leading-[75px]">
                 95%
               </p>
               <p className="self-stretch text-[#81807E] text-[18px] not-italic font-[400] leading-[27px]">

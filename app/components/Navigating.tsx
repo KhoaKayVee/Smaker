@@ -5,23 +5,23 @@ import Image from "next/image";
 const Navigating = () => {
   return (
     <div className="flex mt-[100px] flex-col items-start rounded-[20px] border-2 border-dashed border-[#262626]">
-      <div className="flex relative pt-[80px] pr-[300px] pb-[80px] pl-[80px] flex-col items-start gap-[30px] self-stretch border-b-2 border-solid border-[#262626]">
-        <p className="self-stretch text-[#FFF] text-[40px] not-italic font-[500] leading-normal uppercase whitespace-nowrap z-30">
+      <div className="flex relative pt-[80px] lg:pr-[300px] pb-[80px] lg:pl-[80px] pr-[40px] pl-[40px] flex-col items-start gap-[30px] self-stretch border-b-2 border-solid border-[#262626]">
+        <p className="self-stretch text-[#FFF] lg:text-[40px] text-[20px] not-italic font-[500] leading-normal uppercase lg:whitespace-nowrap whitespace-normal z-30">
           Navigating the StyleLoom Fashion Journey.
         </p>
-        <p className="self-stretch text-[#676665] text-[18px] not-italic font-[500] leading-[27px]">
+        <p className="self-stretch text-[#676665] lg:text-[18px] text-[10px] not-italic font-[500] leading-[27px]">
           At StyleLoom, weve designed a straightforward shopping experience to
           make fashion accessible.
         </p>
         <Image
           src={Vector}
           alt="vector"
-          className="w-[250px] opacity-70 h-full object-cover absolute right-0 top-0"
+          className="w-[250px] lg:flex hidden opacity-70 h-full object-cover absolute right-0 top-0"
         />
       </div>
 
-      <div className="flex items-start self-stretch">
-        <div className="flex p-[50px] flex-col items-start gap-[30px] flex-1 border-r-2 border-solid border-[#262626]">
+      <div className="flex flex-col md:flex-row items-start self-stretch">
+        <div className="flex p-[50px] flex-col items-start gap-[30px] flex-1 border-b-2 md:border-b-0 md:border-r-2 border-solid border-[#262626]">
           <p className="self-stretch text-[#676665] text-[20px] not-italic font-[400] leading-[30px]">
             Step 01
           </p>
@@ -35,7 +35,7 @@ const Navigating = () => {
             </p>
           </div>
         </div>
-        <div className="flex p-[50px] flex-col items-start gap-[30px] flex-1 border-r-2 border-solid border-[#262626]">
+        <div className="flex p-[50px] flex-col items-start gap-[30px] flex-1 border-b-2 md:border-b-0 md:border-r-2 border-solid border-[#262626]">
           <p className="self-stretch text-[#676665] text-[20px] not-italic font-[400] leading-[30px]">
             Step 02
           </p>
@@ -49,7 +49,7 @@ const Navigating = () => {
             </p>
           </div>
         </div>
-        <div className="flex p-[50px] flex-col items-start gap-[30px] flex-1 border-r-2 border-solid border-[#262626]">
+        <div className="flex p-[50px] flex-col items-start gap-[30px] flex-1 border-b-2 md:border-b-0 md:border-r-2 border-solid border-[#262626]">
           <p className="self-stretch text-[#676665] text-[20px] not-italic font-[400] leading-[30px]">
             Step 03
           </p>
