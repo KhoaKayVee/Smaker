@@ -4,9 +4,12 @@ import axios from "axios";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Star from "../../public/star.png";
-import { motion } from "framer-motion";
+
 import Link from "next/link";
 import Head from "next/head";
+
+import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 interface Product {
   id: number;
@@ -33,6 +36,24 @@ const Products = () => {
   const [showTshirts, setShowTshirts] = useState<boolean>(true);
   const [showShirts, setShowShirts] = useState<boolean>(true);
   const [showPants, setShowPants] = useState<boolean>(true);
+
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Chỉ kích hoạt một lần
+    threshold: 0.9, // Kích hoạt khi 10% của component xuất hiện
+  });
+
+  const variants = {
+    hidden: { opacity: 0, scale: 0.5 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 3.5,
+        type: "spring",
+        bounce: 0.3,
+      },
+    },
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -119,7 +140,13 @@ const Products = () => {
       <head>
         <title>BoinShop | New Arrivals</title>
       </head>
-      <div className="mt-[100px] flex w-full flex-col items-start rounded-[20px] border-2 border-dashed border-[#6b4d57]">
+      <motion.div
+        ref={ref}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        variants={variants}
+        className="mt-[100px] flex w-full flex-col items-start rounded-[20px] border-2 border-dashed border-[#6b4d57]"
+      >
         <div className="flex lg:pt-[80px] pt-[40px] relative lg:pr-[300px] pr-[40px] lg:pb-[80px] pb-[40px] lg:pl-[80px] pl-[40px] flex-col items-start gap-[50px] self-stretch ">
           <div className="flex flex-col items-start gap-[30px] self-stretch">
             <p className="self-stretch lg:whitespace-nowrap truncate text-[var(--foreground-primary)] lg:text-[30px] text-[20px] z-10 not-italic font-[500] leading-normal uppercase">
@@ -392,7 +419,7 @@ const Products = () => {
             )}
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

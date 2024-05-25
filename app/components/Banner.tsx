@@ -1,10 +1,38 @@
 import Image from "next/image";
 import React from "react";
 import Baner from "../../public/banner.png";
+import { useInView } from "react-intersection-observer";
+import { RiArrowDownDoubleFill } from "react-icons/ri";
+import { motion } from "framer-motion";
 
 const Banner = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.3,
+  });
+
+  const variants = {
+    hidden: { opacity: 0, y: 200, scale: 0.5, rotate: -90 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      rotate: 0,
+      transition: {
+        duration: 3,
+        type: "spring",
+        bounce: 0.3,
+      },
+    },
+  };
   return (
-    <div className="flex flex-col md:flex-row mt-[100px] relative w-full p-6 md:pt-[100px] md:pr-[142px] md:pb-[100px] md:pl-[100px] items-center gap-4 md:gap-[150px] rounded-[20px] bg-[#00224d] bg-opacity-40">
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      variants={variants}
+      className="flex flex-col md:flex-row mt-[100px] relative w-full p-6 md:pt-[100px] md:pr-[142px] md:pb-[100px] md:pl-[100px] items-center gap-4 md:gap-[150px] rounded-[20px] bg-[#00224d] bg-opacity-40"
+    >
       <Image
         src={Baner}
         alt="banner"
@@ -25,7 +53,7 @@ const Banner = () => {
       <button className="py-[12px] md:py-[18px] z-30 px-[16px] md:px-[24px] items-start gap-[4px] rounded-[12px]  text-[16px] md:text-[18px] not-italic font-[400] leading-[24px] md:leading-[27px]">
         Shop Now
       </button>
-    </div>
+    </motion.div>
   );
 };
 

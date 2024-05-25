@@ -19,14 +19,30 @@ import Link from "next/link";
 import Logo from "../../public/boinshop/logoBoinShop.png";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
+import { IoMdClose } from "react-icons/io";
 
 const Navbar = () => {
   const { setTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = React.useState(false); // Thêm state mới để kiểm soát việc mở/closed sidebar
+  const [sidebarVisible, setSidebarVisible] = React.useState(false);
 
   const handleNavItemClick = () => {
     setIsMenuOpen(false);
+  };
+
+  const handleToggleClick = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+    setSidebarVisible(true); // Đánh dấu rằng sidebar đã được mở
+  };
+
+  const handleMiniToggle = () => {
+    setSidebarVisible(false); // Đánh dấu rằng sidebar đã được đóng
+  };
+
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
   };
 
   const pathname = usePathname();
@@ -40,7 +56,7 @@ const Navbar = () => {
       <div className="flex flex-wrap py-4 justify-between items-center border-b border-solid border-[#262626]">
         <Button
           size="icon"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          onClick={handleToggleClick} // Thêm sự kiện onClick để mở sidebar
           className="lg:hidden"
         >
           <Menu className="h-5 w-5 text-[var(--foreground-primary)]" />
@@ -60,6 +76,109 @@ const Navbar = () => {
             />
           </Link>
         </div>
+        {/* Thanh sidebar */}
+        {sidebarVisible && (
+          <div className={`lg:hidden ${isSidebarOpen ? "block" : "hidden"}`}>
+            <motion.div
+              initial={{ x: "-100%" }} // Hiệu ứng ban đầu: sidebar nằm ngoài khung nhìn bên trái
+              animate={{ x: 0 }} // Hiệu ứng khi hiển thị: sidebar dịch chuyển từ bên ngoài vào trong
+              transition={{ type: "spring", stiffness: 150, damping: 50 }} // Cài đặt transition để hiệu ứng mượt mà hơn
+              className="fixed px-[12px] top-0 left-0 w-56 h-full bg-black bg-opacity-25 z-50"
+            >
+              <div className="flex justify-center items-center h-20">
+                {/* Nút đóng sidebar */}
+                <button onClick={() => setIsSidebarOpen(false)}>
+                  <IoMdClose className="h-6 w-6 text-white bg-transparent" />
+                </button>
+              </div>
+              <ul className="flex flex-col items-start space-y-2 p-4">
+                <Link onClick={handleMiniToggle} href="/">
+                  <li className="cursor-pointer text-white hover:text-gray-300">
+                    Home
+                  </li>
+                </Link>
+                <Link onClick={handleMiniToggle} href="/products">
+                  <li className="cursor-pointer text-white hover:text-gray-300">
+                    New Arrivals
+                  </li>
+                </Link>
+                <Link href="/all-collections">
+                  <li
+                    className={`flex items-center gap-2 rounded-lg ${
+                      isAllCollections
+                        ? "border-b-2 border-solid border-[var(--foreground-secondary)]"
+                        : "text-[var(--foreground-primary)]"
+                    }`}
+                    onClick={handleNavItemClick}
+                    onMouseEnter={() => setIsDropdownOpen(true)}
+                    onMouseLeave={() => setIsDropdownOpen(false)}
+                  >
+                    <p
+                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                      className="cursor-pointer relative flex gap-[2px] items-center text-white hover:text-gray-300"
+                    >
+                      All
+                      <RiArrowDropDownLine size={20} fill="white" />
+                    </p>
+                    {isDropdownOpen && (
+                      <motion.ul
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="absolute top-[180px] mt-2 px-[30px] bg-[#333333] bg-opacity-50  shadow-lg rounded-lg py-2"
+                      >
+                        <Link href="/all-collections">
+                          <li
+                            className="px-4 py-2 hover:bg-[#333] font-[600] text-[var(--btn-text2)] hover:text-[var(--btn-text)] hover:transition-all hover:duration-500"
+                            onClick={() => setIsDropdownOpen(false)}
+                          >
+                            Collections
+                          </li>
+                        </Link>
+
+                        <Link href="/tshirts">
+                          <li
+                            className="px-4 py-2 hover:bg-[#333] font-[600] text-[var(--btn-text2)] hover:text-[var(--btn-text)] hover:transition-all hover:duration-500"
+                            onClick={() => setIsDropdownOpen(false)}
+                          >
+                            T-Shirts
+                          </li>
+                        </Link>
+                        <Link href="/shirts">
+                          <li
+                            className="px-4 py-2 hover:bg-[#333] font-[600] text-[var(--btn-text2)] hover:text-[var(--btn-text)] hover:transition-all hover:duration-500"
+                            onClick={() => setIsDropdownOpen(false)}
+                          >
+                            Shirts
+                          </li>
+                        </Link>
+                        <Link href="/pants">
+                          <li
+                            className="px-4 py-2 hover:bg-[#333] font-[600] text-[var(--btn-text2)] hover:text-[var(--btn-text)] hover:transition-all hover:duration-500"
+                            onClick={() => setIsDropdownOpen(false)}
+                          >
+                            Pants
+                          </li>
+                        </Link>
+                      </motion.ul>
+                    )}
+                  </li>
+                </Link>
+              </ul>
+            </motion.div>
+            {/* Overlay để tắt sidebar khi click ngoài */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.5 }}
+              transition={{ duration: 0.5 }}
+              className={`fixed top-0 left-0 w-screen h-screen bg-black z-40 ${
+                isSidebarOpen ? "block" : "hidden"
+              }`}
+              onClick={() => setIsSidebarOpen(false)}
+            ></motion.div>
+          </div>
+        )}
+
         <ul
           className={`flex-col lg:flex-row flex items-center gap-2 lg:gap-4 ${
             isMenuOpen

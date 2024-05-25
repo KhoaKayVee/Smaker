@@ -216,16 +216,16 @@ const AllCollections = () => {
                 variants={{
                   hidden: {
                     opacity: 0,
-                    x: -50,
+                    y: -100, // Bắt đầu từ trên cùng của màn hình
                   },
                   visible: {
                     opacity: 1,
-                    x: 0,
+                    y: 0, // Kết thúc ở vị trí ban đầu
                     transition: {
                       type: "spring",
                       stiffness: 260,
-                      damping: 20,
-                      delay: index * 0.2, // Tăng dần thời gian delay cho mỗi sản phẩm
+                      damping: 50,
+                      delay: index * 0.6, // Tăng dần thời gian delay cho mỗi sản phẩm
                     },
                   },
                 }}
