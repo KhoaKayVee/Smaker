@@ -17,10 +17,10 @@ const Introduction = () => {
   return (
     <div className="flex mt-[100px] w-full flex-col items-start rounded-[20px] border-2 border-dashed border-[#262626]">
       <div className="flex flex-col  pt-[80px] lg:pr-[300px] pb-[80px] lg:pl-[80px] pr-[10px] pl-[10px] items-start gap-[30px] self-stretch border-b-2 border-solid border-[#262626]">
-        <p className="self-stretch text-[#FFF] truncate lg:text-[30px] text-[16px] whitespace-nowrap not-italic font-[500] leading-normal uppercase">
+        <p className="self-stretch text-[var(--foreground-primary)] truncate lg:text-[30px] text-[16px] whitespace-nowrap not-italic font-[500] leading-normal uppercase">
           XU HƯỚNG THỦ CÔNG, SỰ TIN TƯỞNG TRUYỀN CẢM HỨNG
         </p>
-        <p className="self-stretch text-[#676665] lg:text-[18px] text-[12px] not-italic font-[400] leading-[27px]">
+        <p className="self-stretch text-[var(--text-color)] lg:text-[18px] text-[12px] not-italic font-[400] leading-[27px]">
           Khám phá thế giới thời trang tại BoinStore, nơi xu hướng đáp ứng được
           khả năng chi trả.
         </p>
@@ -38,10 +38,10 @@ const Introduction = () => {
               </div>
             </div>
             <div className="flex flex-col items-start gap-[16px] self-stretch">
-              <p className="self-stretch text-[#FFF] text-[24px] not-italic font-[500] leading-[36px]">
+              <p className="self-stretch text-[var(--foreground-secondary)] text-[24px] not-italic font-[500] leading-[36px]">
                 Nghề thủ công đam mê
               </p>
-              <p className="self-stretch text-[#81807E] text-[20px] not-italic font-[400] leading-[27px]">
+              <p className="self-stretch text-[var(--text-color)] text-[20px] not-italic font-[400] leading-[27px]">
                 Mỗi sản phẩm may mặc tại Boinstore đều được chế tạo bằng niềm
                 đam mê, phản ánh cam kết của chúng tôi về chất lượng và sự đổi
                 mới.
@@ -60,10 +60,10 @@ const Introduction = () => {
               </div>
             </div>
             <div className="flex flex-col items-start gap-[16px] self-stretch">
-              <p className="self-stretch text-[#FFF] text-[24px] not-italic font-[500] leading-[36px]">
+              <p className="self-stretch text-[var(--foreground-secondary)] text-[24px] not-italic font-[500] leading-[36px]">
                 Chuyển tiếp thời trang
               </p>
-              <p className="self-stretch text-[#81807E] text-[18px] not-italic font-[400] leading-[27px]">
+              <p className="self-stretch text-[var(--text-color)] text-[18px] not-italic font-[400] leading-[27px]">
                 Chúng tôi không chỉ là một thương hiệu; chúng tôi là những người
                 tạo ra xu hướng, tuyển chọn những phong cách mang lại sức mạnh
                 và truyền cảm hứng cho sự tự tin.
@@ -82,10 +82,10 @@ const Introduction = () => {
               </div>
             </div>
             <div className="flex flex-col items-start gap-[16px] self-stretch">
-              <p className="self-stretch text-[#FFF] text-[24px] not-italic font-[500] leading-[36px]">
+              <p className="self-stretch text-[var(--foreground-secondary)] text-[24px] not-italic font-[500] leading-[36px]">
                 Phương pháp tiếp cận lấy khách hàng làm trung tâm
               </p>
-              <p className="self-stretch text-[#81807E] text-[18px] not-italic font-[400] leading-[27px]">
+              <p className="self-stretch text-[var(--text-color)] text-[18px] not-italic font-[400] leading-[27px]">
                 Tại BoinStore, khách hàng là trọng tâm trong mọi việc chúng tôi
                 làm. Sự hài lòng của bạn là thước đo thành công của chúng tôi.
               </p>
@@ -106,10 +106,10 @@ const Introduction = () => {
               </div>
             </div>
             <div className="flex flex-col items-start gap-[16px] self-stretch">
-              <p className="self-stretch text-[#FFF] text-[24px] not-italic font-[500] leading-[36px]">
+              <p className="self-stretch text-[var(--foreground-secondary)] text-[24px] not-italic font-[500] leading-[36px]">
                 Cảm hứng toàn cầu
               </p>
-              <p className="self-stretch text-[#81807E] text-[18px] not-italic font-[400] leading-[27px]">
+              <p className="self-stretch text-[var(--text-color)] text-[18px] not-italic font-[400] leading-[27px]">
                 Chịu ảnh hưởng của xu hướng toàn cầu, chúng tôi mang đến cho bạn
                 bộ sưu tập đa dạng và năng động, thể hiện tinh thần thời trang
                 từ khắp nơi trên thế giới.
@@ -128,10 +128,10 @@ const Introduction = () => {
               </div>
             </div>
             <div className="flex flex-col items-start gap-[16px] self-stretch">
-              <p className="self-stretch text-[#FFF] text-[24px] not-italic font-[500] leading-[36px]">
+              <p className="self-stretch text-[var(--foreground-secondary)]  text-[24px] not-italic font-[500] leading-[36px]">
                 Trao quyền cho phong cách của bạn
               </p>
-              <p className="self-stretch text-[#81807E] text-[18px] not-italic font-[400] leading-[27px]">
+              <p className="self-stretch text-[var(--text-color)] text-[18px] not-italic font-[400] leading-[27px]">
                 Ngoài quần áo, BoinStore còn là một phong cách sống. Hãy tham
                 gia cùng chúng tôi trên hành trình thể hiện bản thân và trao
                 quyền thông qua thời trang.
@@ -150,10 +150,10 @@ const Introduction = () => {
               </div>
             </div>
             <div className="flex flex-col items-start gap-[16px] self-stretch">
-              <p className="self-stretch text-[#FFF] text-[24px] not-italic font-[500] leading-[36px]">
+              <p className="self-stretch text-[var(--foreground-secondary)] text-[24px] not-italic font-[500] leading-[36px]">
                 Thực hành bền vững
               </p>
-              <p className="self-stretch text-[#81807E] text-[18px] not-italic font-[400] leading-[27px]">
+              <p className="self-stretch text-[var(--text-color)] text-[18px] not-italic font-[400] leading-[27px]">
                 BoinStore cam kết phát triển bền vững, tích hợp các hoạt động
                 thân thiện với môi trường vào quy trình sản xuất của chúng tôi.
               </p>

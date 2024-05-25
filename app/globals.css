@@ -4,63 +4,37 @@
 
 @layer base {
   :root {
-    --background: #121212; /* Màu đen tuyền */
-    --foreground: 20 14.3% 4.1%;
-    --card: 0 0% 100%;
-    --card-foreground: 20 14.3% 4.1%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 20 14.3% 4.1%;
-    --primary: 24 9.8% 10%;
-    --primary-foreground: 60 9.1% 97.8%;
-    --secondary: 60 4.8% 95.9%;
-    --secondary-foreground: 24 9.8% 10%;
-    --muted: 60 4.8% 95.9%;
-    --muted-foreground: 25 5.3% 44.7%;
-    --accent: 60 4.8% 95.9%;
-    --accent-foreground: 24 9.8% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 60 9.1% 97.8%;
-    --border: 20 5.9% 90%;
-    --input: 20 5.9% 90%;
-    --ring: 20 14.3% 4.1%;
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: #121212; /* Màu đen tuyền */
-    --foreground: 60 9.1% 97.8%;
-    --card: 20 14.3% 4.1%;
-    --card-foreground: 60 9.1% 97.8%;
-    --popover: 20 14.3% 4.1%;
-    --popover-foreground: 60 9.1% 97.8%;
-    --primary: 60 9.1% 97.8%;
-    --primary-foreground: 24 9.8% 10%;
-    --secondary: 12 6.5% 15.1%;
-    --secondary-foreground: 60 9.1% 97.8%;
-    --muted: 12 6.5% 15.1%;
-    --muted-foreground: 24 5.4% 63.9%;
-    --accent: 12 6.5% 15.1%;
-    --accent-foreground: 60 9.1% 97.8%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 60 9.1% 97.8%;
-    --border: 12 6.5% 15.1%;
-    --input: 12 6.5% 15.1%;
-    --ring: 24 5.7% 82.9%;
+    --background: #0d1b2a;
+    --foreground-primary: #ffbf00;
+    --foreground-secondary: #ff9966;
+    --text-color: #f5f5dc;
+    --border: #e0e0e0;
+    --btn-primary: #1b4242;
+    --btn-secondary: #a0153e;
+    --btn-text: #9290c3;
+    --btn-text2: #9ec8b9;
   }
 }
 
-html,
 body {
-  background-color: #121212; /* Màu đen tuyền */
+  background-color: var(--background);
+  color: var(--foreground-primary);
+}
+
+button {
+  background-color: var(--btn-primary);
+  color: var(--btn-text);
+  cursor: pointer;
+  font-weight: 700 !important;
+}
+
+button:hover {
+  background-color: var(--btn-secondary);
+  color: var(--btn-text2);
+  transition: 0.6s;
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
 }
 
 .bg-custom {

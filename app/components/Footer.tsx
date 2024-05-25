@@ -24,7 +24,7 @@ const Footer = () => {
           {["T-Shirts", "Shirts", "Pants", "ALL Products"].map(
             (item, index) => (
               <React.Fragment key={index}>
-                <p className="text-[gold] text-[20px] md:text-[25px] not-italic font-[700] leading-[30px] md:leading-[36px] uppercase whitespace-nowrap">
+                <p className="text-[var(--foreground-primary)] text-[20px] md:text-[25px] not-italic font-[700] leading-[30px] md:leading-[36px] uppercase whitespace-nowrap">
                   {item}
                 </p>
                 {index < 3 && (
@@ -48,7 +48,7 @@ const Footer = () => {
               height={200}
               className="text-[#FFF] filter invert"
             />
-            <p className="font-mono text-[25px] md:text-[50px] text-[gold] leading-[32px] font-[700]">
+            <p className="font-mono text-[25px] md:text-[50px] text-[var(--foreground-primary)] leading-[32px] font-[700]">
               BOINSHOP CLOTHING
             </p>
           </div>
@@ -59,9 +59,9 @@ const Footer = () => {
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex p-[12px] md:p-[16px] items-center gap-[10px] rounded-[12px] bg-[gold] hover:opacity-65 hover:transition-all hover:duration-500 cursor-pointer"
+                className="flex p-[12px] md:p-[16px] items-center gap-[10px] rounded-[12px] bg-[var(--btn-primary)] hover:opacity-65 hover:transition-all hover:duration-500 cursor-pointer"
               >
-                <Icon fill="black" />
+                <Icon fill="white" />
               </a>
             ))}
           </div>
@@ -70,14 +70,14 @@ const Footer = () => {
         <div className="flex flex-col items-center self-stretch px-[20px] md:px-[162px]">
           <div className="flex flex-col md:flex-row py-[40px] md:py-[80px] items-center md:items-start gap-[40px] md:gap-[80px] self-stretch border-b-2 border-solid border-[#262626]">
             <div className="flex flex-col items-center md:items-start gap-[20px] md:gap-[30px] flex-1">
-              <p className="text-[gold] text-[20px] md:text-[22px] not-italic font-[500] leading-normal">
+              <p className="text-[var(--foreground-secondary)] text-[20px] md:text-[22px] not-italic font-[500] leading-normal">
                 Home
               </p>
               <div className="flex flex-wrap md:flex-nowrap items-center gap-[10px] md:gap-[16px] self-stretch">
                 {["Why us", "About us", "Testimonials", "FAQs"].map(
                   (text, index) => (
                     <React.Fragment key={index}>
-                      <p className="text-[#676665] text-[14px] md:text-[16px] not-italic font-[400] leading-[20px] md:leading-[30px] whitespace-nowrap">
+                      <p className="text-[var(--text-color)] text-[14px] md:text-[16px] not-italic font-[400] leading-[20px] md:leading-[30px] whitespace-nowrap">
                         {text}
                       </p>
                       {index < 3 && (
@@ -93,13 +93,13 @@ const Footer = () => {
               </div>
             </div>
             <div className="flex flex-col items-center md:items-start gap-[20px] md:gap-[30px] flex-1">
-              <p className="text-[gold] text-[20px] md:text-[22px] not-italic font-[500] leading-normal">
+              <p className="text-[var(--foreground-secondary)] text-[20px] md:text-[22px] not-italic font-[500] leading-normal">
                 Products
               </p>
               <div className="flex flex-wrap md:flex-nowrap items-center gap-[10px] md:gap-[16px] self-stretch">
-                {["Men", "Women", "Kid"].map((text, index) => (
+                {["T-Shirts", "Shirts", "Pants"].map((text, index) => (
                   <React.Fragment key={index}>
-                    <p className="text-[#676665] text-[16px] md:text-[20px] not-italic font-[400] leading-[20px] md:leading-[30px] whitespace-nowrap">
+                    <p className="text-[var(--text-color)]  text-[16px] md:text-[20px] not-italic font-[400] leading-[20px] md:leading-[30px] whitespace-nowrap">
                       {text}
                     </p>
                     {index < 2 && (
@@ -114,7 +114,7 @@ const Footer = () => {
               </div>
             </div>
             <div className="flex flex-col items-center md:items-start gap-[20px] md:gap-[30px] flex-1">
-              <p className="text-[gold] text-[20px] md:text-[22px] not-italic font-[500] leading-normal">
+              <p className="text-[var(--foreground-secondary)] text-[20px] md:text-[22px] not-italic font-[500] leading-normal">
                 Subscribe to Newsletter
               </p>
               <input

@@ -61,10 +61,10 @@ const Question = () => {
     <div className="flex mt-[100px] w-full flex-col items-start rounded-[20px] border-2 border-dashed border-[#262626]">
       <div className="flex lg:pt-[80px] pt-[40px] relative lg:pr-[300px] pr-[40px] lg:pb-[80px] pb-[40px] lg:pl-[80px] pl-[40px] flex-col items-start gap-[50px] self-stretch border-b-2 border-solid border-[#262626]">
         <div className="flex flex-col items-start gap-[30px] self-stretch">
-          <p className="self-stretch lg:whitespace-nowrap text-[#FFF] lg:text-[40px] truncate text-[30px] z-10 not-italic font-[500] leading-normal uppercase">
+          <p className="self-stretch lg:whitespace-nowrap text-[var(--foreground-primary)] lg:text-[40px] truncate text-[30px] z-10 not-italic font-[500] leading-normal uppercase">
             NÂNG CAO PHONG CÁCH CỦA BẠN VỚI BỘ SƯU TẬP MỚI NHẤT CỦA CHÚNG TÔI
           </p>
-          <p className="self-stretch text-[#676665] lg:text-[18px] text-[14px] not-italic font-[400] leading-[27px]">
+          <p className="self-stretch text-[#676665] lg:text-[18px] text-[var(--text-color)] not-italic font-[400] leading-[27px]">
             Mỗi sản phẩm đều được chế tạo để nâng cao tuyên bố thời trang của
             bạn.
           </p>
@@ -73,8 +73,10 @@ const Question = () => {
           {["ALL", "Ordering", "Shipping", "Returns", "Support"].map((tag) => (
             <button
               key={tag}
-              className={`flex  text-[#B3B3B2] text-center lg:text-[18px] text-[14px] not-italic font-[400] leading-[27px] lg:py-[18px] lg:px-[24px] py-[10px] px-[14px] items-center gap-[10px] rounded-[12px] border border-dashed border-[#333] hover:bg-[#C2B4A3] hover:text-black hover:duration-500 hover:transition-all cursor-pointer ${
-                filter === tag ? "bg-[#C2B4A3] text-black" : ""
+              className={`flex text-center justify-center lg:text-[18px] text-[14px] not-italic font-[400] leading-[27px] lg:py-[18px] lg:px-[24px] py-[10px] px-[14px] items-center rounded-[12px] border border-dashed border-[#333] hover:duration-500 hover:transition-all cursor-pointer ${
+                filter === tag
+                  ? "bg-[var(--foreground-primary)] text-black"
+                  : ""
               }`}
               onClick={() => handleFilterClick(tag)}
             >
@@ -98,10 +100,10 @@ const Question = () => {
             key={question.id}
             className="flex flex-col p-4 gap-4 items-start border border-dashed border-gray-700 rounded-lg"
           >
-            <p className="self-stretch text-[#FFF] text-[16px] sm:text-[18px] lg:text-[20px] not-italic font-[500] leading-[24px] sm:leading-[30px] lg:leading-[36px]">
+            <p className="self-stretch text-[var(--foreground-secondary)] text-[16px] sm:text-[18px] lg:text-[20px] not-italic font-[500] leading-[24px] sm:leading-[30px] lg:leading-[36px]">
               {question.title}
             </p>
-            <p className="self-stretch text-[#81807E] text-[14px] sm:text-[16px] lg:text-[18px] not-italic font-[400] leading-[20px] sm:leading-[24px] lg:leading-[27px]">
+            <p className="self-stretch text-[var(--text-color)] text-[14px] sm:text-[16px] lg:text-[18px] not-italic font-[400] leading-[20px] sm:leading-[24px] lg:leading-[27px]">
               {question.description}
             </p>
             <div hidden>{question.tags}</div>

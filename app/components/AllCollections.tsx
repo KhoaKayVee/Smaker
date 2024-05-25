@@ -112,15 +112,19 @@ const AllCollections = () => {
 
   return (
     <>
+      <head>
+        <title>BoinShop | ALL Collections</title>
+      </head>
+
       <div>
         {/* Bộ lọc */}
         <div className="flex justify-center gap-[20px] py-[20px] [px-20px] w-full">
           <button
-            className={`btn-filter px-[8px] py-[5px] rounded-[20px] text-[24px] font-[700] ${
+            className={`btn-filter px-[10px] py-[5px] rounded-[8px] text-[24px] font-[700] ${
               selectedFilter === null ? "btn-active" : ""
             } ${
               selectedFilter === null
-                ? "lg:text-[24px] text-[14px] bg-[gold] text-[black] font-bold"
+                ? "lg:text-[24px] text-[14px] bg-[var(--btn-secondary)] text-[var(--btn-text2)] font-bold"
                 : ""
             }`}
             onClick={() => filterProducts(null)}
@@ -128,11 +132,11 @@ const AllCollections = () => {
             ALL
           </button>
           <button
-            className={`btn-filter px-[8px] py-[5px] rounded-[20px] lg:text-[24px] text-[14px] font-[700] ${
+            className={`btn-filter px-[8px] py-[5px] rounded-[8px] lg:text-[24px] text-[14px] font-[700] ${
               selectedFilter === "Tshirts" ? "btn-active" : ""
             } ${
               selectedFilter === "Tshirts"
-                ? "text-[24px] bg-[gold] text-[black] font-bold"
+                ? "text-[24px] bg-[var(--btn-secondary)] text-[var(--btn-text2)] font-bold"
                 : ""
             }`}
             onClick={() => filterProducts("Tshirts")}
@@ -140,11 +144,11 @@ const AllCollections = () => {
             T-Shirts
           </button>
           <button
-            className={`btn-filter px-[8px] py-[5px] rounded-[20px] lg:text-[24px] text-[14px] font-[700] ${
+            className={`btn-filter px-[8px] py-[5px] rounded-[8px] lg:text-[24px] text-[14px] font-[700] ${
               selectedFilter === "Shirts" ? "btn-active" : ""
             } ${
               selectedFilter === "Shirts"
-                ? "text-[24px] bg-[gold] text-[black] font-bold"
+                ? "text-[24px] bg-[var(--btn-secondary)] text-[var(--btn-text2)] font-bold"
                 : ""
             }`}
             onClick={() => filterProducts("Shirts")}
@@ -152,11 +156,11 @@ const AllCollections = () => {
             Shirts
           </button>
           <button
-            className={`btn-filter px-[8px] py-[5px] rounded-[20px] lg:text-[24px] text-[14px] font-[700] ${
+            className={`btn-filter px-[8px] py-[5px] rounded-[8px] lg:text-[24px] text-[14px] font-[700] ${
               selectedFilter === "Pants" ? "btn-active" : ""
             } ${
               selectedFilter === "Pants"
-                ? "text-[24px] bg-[gold] text-[black] font-bold"
+                ? "text-[24px] bg-[var(--btn-secondary)] text-[var(--btn-text2)] font-bold"
                 : ""
             }`}
             onClick={() => filterProducts("Pants")}
@@ -168,7 +172,7 @@ const AllCollections = () => {
           <Select
             defaultValue="Sắp xếp theo giá"
             onChange={handleSortByPrice}
-            className="w-full lg:w-auto text-lg text-yellow-500" // Thêm lớp text-yellow-500
+            className="w-full lg:w-auto text-lg" // Thêm lớp text-yellow-500
           >
             <Option value="asc">Thấp - Cao</Option>
             <Option value="desc">Cao - Thấp</Option>
@@ -236,14 +240,14 @@ const AllCollections = () => {
                   style={{ borderRadius: "20px 20px 0 0 " }}
                 />
                 <div className="flex flex-col gap-[10px] px-[10px] py-[12px] self-stretch w-full">
-                  <p className="self-stretch text-center text-[gold] font-mono text-[24px] not-italic font-[700] leading-[36px] truncate">
+                  <p className="self-stretch text-center text-[var(--foreground-primary)] font-mono text-[24px] not-italic font-[700] leading-[36px] truncate">
                     {item?.name}
                   </p>
                   <div className="flex text-center justify-center gap-[8px]">
-                    <p className="text-[#FFF] font-mono text-[18px] not-italic font-[700] leading-[27px]">
+                    <p className="text-[var(--text-color)] font-mono text-[18px] not-italic font-[700] leading-[27px]">
                       Price:
                     </p>
-                    <p className="text-[red] text-[20px] font-mono not-italic font-[700] leading-[30px]">
+                    <p className="text-[var(--foreground-secondary)] text-[20px] font-mono not-italic font-[700] leading-[30px]">
                       {item?.price} VND
                     </p>
                     <p hidden>{item?.tags}</p>

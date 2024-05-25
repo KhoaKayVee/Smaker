@@ -62,10 +62,10 @@ const ProductList = () => {
     <div className="flex mt-[100px] w-full flex-col items-start rounded-[20px] border-2 border-dashed border-[#262626]">
       <div className="flex relative lg:pt-[80px] pt-[40px]  lg:pr-[300px] pr-[40px] lg:pb-[80px] pb-[40px] lg:pl-[80px] pl-[40px] flex-col items-start gap-[50px] self-stretch border-b-2 border-solid border-[#262626]">
         <div className="flex flex-col items-start gap-[30px] self-stretch">
-          <p className="self-stretch lg:whitespace-nowrap text-[#FFF] lg:text-[30px] text-[20px] truncate z-10 not-italic font-[500] leading-normal uppercase">
+          <p className="self-stretch lg:whitespace-nowrap  text-[var(--foreground-primary)] lg:text-[30px] text-[20px] truncate z-10 not-italic font-[500] leading-normal uppercase">
             NÂNG CAO PHONG CÁCH CỦA BẠN VỚI BỘ SƯU TẬP MỚI NHẤT CỦA CHÚNG TÔI
           </p>
-          <p className="self-stretch text-[#676665] lg:text-[18px] text-[14px] not-italic font-[400] leading-[27px]">
+          <p className="self-stretch text-[var(--text-color)] lg:text-[18px] text-[14px] not-italic font-[400] leading-[27px]">
             Mỗi sản phẩm đều được chế tạo để nâng cao tuyên bố thời trang của
             bạn.
           </p>
@@ -74,8 +74,10 @@ const ProductList = () => {
           {["All", "Tshirts", "Shirts", "Pants"].map((tag) => (
             <button
               key={tag}
-              className={`flex text-[#B3B3B2] text-center lg:text-[18px] text-[12px] not-italic font-[400] leading-[27px] lg:py-[18px] lg:px-[24px] py-[8px] px-[12px] items-center lg:gap-[10px] gap-[5px] rounded-[12px] border border-dashed border-[#333] hover:bg-[#C2B4A3] hover:text-black hover:duration-500 hover:transition-all cursor-pointer ${
-                filter === tag ? "bg-[#C2B4A3] text-black" : ""
+              className={`flex text-center justify-center lg:text-[18px] text-[12px] not-italic font-[400] leading-[27px] lg:py-[18px] lg:px-[24px] py-[8px] px-[12px] items-center  rounded-[12px] border border-dashed border-[#333] hover:duration-500 hover:transition-all cursor-pointer ${
+                filter === tag
+                  ? "bg-[var(--btn-secondary)] text-[--btn-text2]"
+                  : ""
               }`}
               onClick={() => handleFilterClick(tag)}
             >
@@ -111,32 +113,32 @@ const ProductList = () => {
               <div className="flex flex-col p-4 gap-[20px] self-stretch">
                 <div className="flex justify-between items-center self-stretch">
                   <div className="flex py-[10px] px-[16px] items-start gap-[10px] rounded-[100px] border border-dashed border-[#262626] bg-[#1A1A1A]">
-                    <p className="text-[#B3B3B2] text-[18px] not-italic font-[400] leading-[27px]">
+                    <p className="text-[#fff] text-[18px] not-italic font-[400] leading-[27px]">
                       {product.tags}
                     </p>
                   </div>
-                  <button className="flex py-[14px] px-[16px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040] bg-[#1F1F1F] text-[#FFF] text-[18px] not-italic font-[400] leading-[27px]">
+                  <button className="flex py-[14px] px-[16px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040] text-[18px] not-italic font-[400] leading-[27px]">
                     Shop Now
                   </button>
                 </div>
                 <div className="flex flex-col items-start gap-[14px] self-stretch">
-                  <p className="self-stretch text-[#FFF] text-[22px] not-italic font-[500] leading-[36px]">
+                  <p className="self-stretch text-[22px] not-italic font-[500] leading-[36px]">
                     {product.name}
                   </p>
                   <div className="flex items-start justify-between w-full">
                     <div className="flex items-center gap-[8px]">
-                      <p className="text-[#81807E] text-[18px] not-italic font-[400] leading-[27px]">
+                      <p className="text-[#fff] text-[18px] not-italic font-[400] leading-[27px]">
                         Fit:
                       </p>
-                      <p className="text-[#CCC] text-[16px] not-italic font-[500] leading-[30px]">
+                      <p className="text-[var(--foreground-secondary)] text-[16px] not-italic font-[500] leading-[30px]">
                         {product.fit}
                       </p>
                     </div>
                     <div className="flex items-center gap-[8px]">
-                      <p className="text-[#81807E] text-[18px] not-italic font-[400] leading-[27px]">
+                      <p className="text-[#fff] text-[18px] not-italic font-[400] leading-[27px]">
                         Price:
                       </p>
-                      <p className="text-[#CCC] text-[16px] not-italic font-[500] leading-[30px]">
+                      <p className="text-[var(--foreground-secondary)] text-[16px] not-italic font-[500] leading-[30px]">
                         {product.price} VND
                       </p>
                     </div>

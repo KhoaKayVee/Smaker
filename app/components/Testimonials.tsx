@@ -66,10 +66,10 @@ const Testimonials = () => {
   return (
     <div className="flex mt-[100px] w-full flex-col items-start rounded-[20px] border-2 border-dashed border-[#262626]">
       <div className="relative lg:pt-[80px] pt-[40px] lg:pr-[300px] pr-[40px] lg:pb-[80px] pb-[40px] lg:pl-[80px] pl-[40px] flex flex-col items-start gap-[30px] w-full border-b-2 border-solid border-[#262626]">
-        <p className="self-stretch text-[#FFF] lg:text-[36px] text-[26px] lg:whitespace-nowrap z-30 not-italic font-[500] leading-normal uppercase">
+        <p className="self-stretch text-[var(--foreground-primary)] lg:text-[36px] text-[26px] lg:whitespace-nowrap z-30 not-italic font-[500] leading-normal uppercase">
           BỘ SƯU TẬP CHỨNG THỰC CỦA BOINSTORE.
         </p>
-        <p className="self-stretch text-[#676665] text-[16px] not-italic font-[500] leading-[27px]">
+        <p className="self-stretch text-[var(--text-color)] text-[16px] not-italic font-[500] leading-[27px]">
           Tại BOINSTORE, khách hàng là trái tim của thương hiệu chúng tôi.
         </p>
         <Image
@@ -95,10 +95,10 @@ const Testimonials = () => {
                 className="rounded-full lg:w-[60px] w-[40px] lg:h-[60px] h-[40px] object-cover bg-no-repeat bg-[#AE9B84]"
               />
               <div className="flex flex-col items-start gap-[4px] flex-1">
-                <p className="text-[#FFF] lg:text-[16px] text-[14px] not-italic font-[500] leading-[30px]">
+                <p className="text-[#FFF] lg:text-[16px] text-[var(--foreground-secondary)] not-italic font-[500] leading-[30px]">
                   {testimonial.name}
                 </p>
-                <p className="text-[#676665] lg:text-[18px] text-[16px] not-italic font-[400] leading-[27px]">
+                <p className="text-[#fff] lg:text-[18px] text-[16px] not-italic font-[400] leading-[27px]">
                   {testimonial.location}
                 </p>
               </div>
@@ -119,7 +119,7 @@ const Testimonials = () => {
               <FaStar fill="yellow" width={24} height={24} />
             </div>
 
-            <p className="text-[#81807E] text-[18px] not-italic font-[500] leading-[27px] mt-4">
+            <p className="text-[var(--text-color)] text-[18px] not-italic font-[500] leading-[27px] mt-4">
               {testimonial.review}
             </p>
           </div>

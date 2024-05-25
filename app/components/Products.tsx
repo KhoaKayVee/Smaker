@@ -116,13 +116,16 @@ const Products = () => {
 
   return (
     <>
+      <head>
+        <title>BoinShop | New Arrivals</title>
+      </head>
       <div className="mt-[100px] flex w-full flex-col items-start rounded-[20px] border-2 border-dashed border-[#262626]">
         <div className="flex lg:pt-[80px] pt-[40px] relative lg:pr-[300px] pr-[40px] lg:pb-[80px] pb-[40px] lg:pl-[80px] pl-[40px] flex-col items-start gap-[50px] self-stretch ">
           <div className="flex flex-col items-start gap-[30px] self-stretch">
-            <p className="self-stretch lg:whitespace-nowrap truncate text-[#FFF] lg:text-[30px] text-[20px] z-10 not-italic font-[500] leading-normal uppercase">
+            <p className="self-stretch lg:whitespace-nowrap truncate text-[var(--foreground-primary)] lg:text-[30px] text-[20px] z-10 not-italic font-[500] leading-normal uppercase">
               NÂNG CAO PHONG CÁCH CỦA BẠN VỚI BỘ SƯU TẬP MỚI NHẤT CỦA CHÚNG TÔI
             </p>
-            <p className="self-stretch text-[#676665] lg:text-[18px] text-[14px] not-italic font-[400] leading-[27px]">
+            <p className="self-stretch text-[var(--text-color)] lg:text-[18px] text-[14px] not-italic font-[400] leading-[27px]">
               Mỗi sản phẩm đều được chế tạo để nâng cao tuyên bố thời trang của
               bạn.
             </p>
@@ -131,8 +134,10 @@ const Products = () => {
             {["All", "Tshirts", "Shirts", "Pants"].map((tag) => (
               <button
                 key={tag}
-                className={`flex text-[#B3B3B2] text-center lg:text-[18px] text-[12px] not-italic font-[400] leading-[27px] lg:py-[18px] lg:px-[24px] py-[8px] px-[12px] items-center gap-[10px] rounded-[12px] border border-dashed border-[#333] hover:bg-[#C2B4A3] hover:text-black hover:duration-500 hover:transition-all cursor-pointer ${
-                  filter === tag ? "bg-[#C2B4A3] text-black" : ""
+                className={`flex justify-center text-center lg:text-[18px] text-[12px] not-italic font-[400] leading-[27px] lg:py-[18px] lg:px-[24px] py-[8px] px-[12px] items-center rounded-[12px] border border-dashed border-[#333] hover:duration-500 hover:transition-all cursor-pointer ${
+                  filter === tag
+                    ? "bg-[var(--btn-secondary)] text-[var(--btn-text2)]"
+                    : ""
                 }`}
                 onClick={() => handleFilter(tag)}
               >
@@ -154,11 +159,11 @@ const Products = () => {
         <div className="flex flex-col items-start self-stretch border-b-2 border-t-2 border-dashed border-[#262626]">
           <div className="flex flex-col items-start self-stretch">
             <div className="flex p-[30px] justify-between items-center self-stretch   border-b-2 border-dashed border-[#262626]">
-              <p className="flex-1 text-[gold] lg:text-[30px] text-[15px] not-italic font-[700] leading-normal uppercase">
+              <p className="flex-1 text-[var(--foreground-primary)] lg:text-[30px] text-[15px] not-italic font-[700] leading-normal uppercase">
                 Tshirts Collection
               </p>
               <Link href="/all-collections">
-                <button className="flex lg:py-[18px] lg:px-[24px] py-[10px] px-[14px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040] bg-[#1F1F1F] text-[#FFF] text-[18px] not-italic font-[400] leading-[27px]">
+                <button className="flex lg:py-[18px] lg:px-[24px] py-[10px] px-[14px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040]  text-[18px] not-italic font-[400] leading-[27px]">
                   View All
                 </button>
               </Link>
@@ -188,18 +193,18 @@ const Products = () => {
                     />
                     <div className="flex flex-col items-start gap-[20px] self-stretch py-[25px] px-[16px]">
                       <div className="flex w-full justify-between items-start self-stretch">
-                        <div className="flex py-[10px] px-[16px] items-start gap-[10px] rounded-[100px] border border-dashed border-[#262626] bg-[#1A1A1A] text-[#B3B3B2] text-[18px] not-italic font-[400] leading-[27px]">
+                        <div className="flex py-[10px] px-[16px] items-start gap-[10px] rounded-[100px] border border-dashed border-[#262626] bg-[#1A1A1A] text-[var(--text-color)] text-[18px] not-italic font-[400] leading-[27px]">
                           {item?.tags}
                         </div>
                         <Link href="/all-collections">
-                          <button className="flex py-[12px] px-[14px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040] bg-[#1F1F1F]  text-[#FFF] text-[16px] not-italic font-[600] leading-[27px]">
+                          <button className="flex py-[12px] px-[14px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040] text-[16px] not-italic font-[600] leading-[27px]">
                             Shop Now
                           </button>
                         </Link>
                       </div>
 
                       <div className="flex flex-col items-start gap-[14px] self-stretch truncate">
-                        <p className="self-stretch text-center text-[#FFF] font-mono lg:text-[24px] text-[18px] overflow-hidden not-italic font-[600] leading-[36px]">
+                        <p className="self-stretch text-center text-[var(--foreground-primary)] font-mono lg:text-[24px] text-[18px] overflow-hidden not-italic font-[600] leading-[36px]">
                           {item?.name}
                         </p>
                         <div className="flex items-start justify-between w-full">
@@ -207,7 +212,7 @@ const Products = () => {
                             <p className="text-[#81807E] font-mono lg:text-[18px] text-[10px] not-italic font-[400] leading-[27px]">
                               Fit:
                             </p>
-                            <p className="text-[#FFF] lg:text-[18px] text-[10px] font-mono not-italic font-[500] lg:leading-[30px] leading-[20px]">
+                            <p className="text-[var(--foreground-secondary)] lg:text-[18px] text-[10px] font-mono not-italic font-[500] lg:leading-[30px] leading-[20px]">
                               {item?.fit}
                             </p>
                           </div>
@@ -216,7 +221,7 @@ const Products = () => {
                             <p className="text-[#81807E] font-mono lg:text-[18px]  text-[10px]  not-italic font-[400] leading-[27px]">
                               Price:
                             </p>
-                            <p className="text-[#FFF] lg:text-[18px]  text-[10px]  font-mono not-italic font-[500] lg:leading-[30px] leading-[20px]">
+                            <p className="text-[var(--foreground-secondary)] lg:text-[18px]  text-[10px]  font-mono not-italic font-[500] lg:leading-[30px] leading-[20px]">
                               {item?.price} VND
                             </p>
                           </div>
@@ -234,11 +239,11 @@ const Products = () => {
         <div className="flex flex-col items-start self-stretch border-b-2 border-t-2 border-dashed border-[#262626]">
           <div className="flex flex-col items-start self-stretch">
             <div className="flex p-[30px] justify-between items-center self-stretch   border-b-2 border-dashed border-[#262626]">
-              <p className="flex-1 text-[gold] lg:text-[30px] text-[15px] not-italic font-[700] leading-normal uppercase">
+              <p className="flex-1 text-[var(--foreground-primary)] lg:text-[30px] text-[15px] not-italic font-[700] leading-normal uppercase">
                 Shirts Collection
               </p>
               <Link href="/all-collections">
-                <button className="flex py-[10px] px-[14px] lg:py-[18px] lg:px-[24px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040] bg-[#1F1F1F] text-[#FFF] text-[18px] not-italic font-[400] leading-[27px]">
+                <button className="flex py-[10px] px-[14px] lg:py-[18px] lg:px-[24px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040] text-[18px] not-italic font-[400] leading-[27px]">
                   View All
                 </button>
               </Link>
@@ -267,18 +272,18 @@ const Products = () => {
                     />
                     <div className="flex flex-col items-start gap-[20px] self-stretch py-[25px] px-[16px]">
                       <div className="flex w-full justify-between items-start self-stretch">
-                        <div className="flex py-[10px] px-[16px] items-start gap-[10px] rounded-[100px] border border-dashed border-[#262626] bg-[#1A1A1A] text-[#B3B3B2] text-[18px] not-italic font-[400] leading-[27px]">
+                        <div className="flex py-[10px] px-[16px] items-start gap-[10px] rounded-[100px] border border-dashed border-[#262626] bg-[#1A1A1A] text-[var(--text-color)] text-[18px] not-italic font-[400] leading-[27px]">
                           {item?.tags}
                         </div>
                         <Link href="/all-collections">
-                          <button className="flex py-[12px] px-[14px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040] bg-[#1F1F1F]  text-[#FFF] text-[16px] not-italic font-[600] leading-[27px]">
+                          <button className="flex py-[12px] px-[14px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040] text-[16px] not-italic font-[600] leading-[27px]">
                             Shop Now
                           </button>
                         </Link>
                       </div>
 
                       <div className="flex flex-col items-start gap-[14px] self-stretch truncate">
-                        <p className="self-stretch text-center text-[#FFF] font-mono lg:text-[24px] text-[18px] overflow-hidden not-italic font-[600] leading-[36px]">
+                        <p className="self-stretch text-center text-[var(--foreground-primary)] font-mono lg:text-[24px] text-[18px] overflow-hidden not-italic font-[600] leading-[36px]">
                           {item?.name}
                         </p>
                         <div className="flex items-start justify-between w-full">
@@ -286,7 +291,7 @@ const Products = () => {
                             <p className="text-[#81807E] font-mono lg:text-[18px] text-[10px] not-italic font-[400] leading-[27px]">
                               Fit:
                             </p>
-                            <p className="text-[#FFF] lg:text-[20px] text-[10px] font-mono not-italic font-[500] leading-[30px]">
+                            <p className="text-[var(--foreground-secondary)] lg:text-[20px] text-[10px] font-mono not-italic font-[500] leading-[30px]">
                               {item?.fit}
                             </p>
                           </div>
@@ -295,7 +300,7 @@ const Products = () => {
                             <p className="text-[#81807E] font-mono lg:text-[18px] text-[10px] not-italic font-[400] leading-[27px]">
                               Price:
                             </p>
-                            <p className="text-[#FFF] lg:text-[20px] text-[10px] font-mono not-italic font-[500] leading-[30px]">
+                            <p className="text-[var(--foreground-secondary)] lg:text-[20px] text-[10px] font-mono not-italic font-[500] leading-[30px]">
                               {item?.price} VND
                             </p>
                           </div>
@@ -313,11 +318,11 @@ const Products = () => {
         <div className="flex flex-col items-start self-stretch border-b-2 border-t-2 border-dashed border-[#262626]">
           <div className="flex flex-col items-start self-stretch">
             <div className="flex p-[30px] justify-between items-center self-stretch   border-b-2 border-dashed border-[#262626]">
-              <p className="flex-1 text-[gold] lg:text-[30px] text-[15px] not-italic font-[700] leading-normal uppercase">
+              <p className="flex-1 text-[var(--foreground-primary)] lg:text-[30px] text-[15px] not-italic font-[700] leading-normal uppercase">
                 Pants Collection
               </p>
               <Link href="/all-collections">
-                <button className="flex py-[10px] px-[14px] lg:py-[18px] lg:px-[24px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040] bg-[#1F1F1F] text-[#FFF] text-[18px] not-italic font-[400] leading-[27px]">
+                <button className="flex py-[10px] px-[14px] lg:py-[18px] lg:px-[24px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040] text-[18px] not-italic font-[400] leading-[27px]">
                   View All
                 </button>
               </Link>
@@ -346,18 +351,18 @@ const Products = () => {
                     />
                     <div className="flex flex-col items-start gap-[20px] self-stretch py-[25px] px-[16px]">
                       <div className="flex w-full justify-between items-start self-stretch">
-                        <div className="flex py-[10px] px-[16px] items-start gap-[10px] rounded-[100px] border border-dashed border-[#262626] bg-[#1A1A1A] text-[#B3B3B2] text-[18px] not-italic font-[400] leading-[27px]">
+                        <div className="flex py-[10px] px-[16px] items-start gap-[10px] rounded-[100px] border border-dashed border-[#262626] bg-[#1A1A1A] text-[var(--text-color)] text-[18px] not-italic font-[400] leading-[27px]">
                           {item?.tags}
                         </div>
                         <Link href="/all-collections">
-                          <button className="flex py-[12px] px-[14px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040] bg-[#1F1F1F]  text-[#FFF] text-[16px] not-italic font-[600] leading-[27px]">
+                          <button className="flex py-[12px] px-[14px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040] text-[16px] not-italic font-[600] leading-[27px]">
                             Shop Now
                           </button>
                         </Link>
                       </div>
 
                       <div className="flex flex-col items-start gap-[14px] self-stretch truncate">
-                        <p className="self-stretch text-center text-[#FFF] font-mono overflow-hidden lg:text-[24px] text-[18px] not-italic font-[600] leading-[36px]">
+                        <p className="self-stretch text-center text-[var(--foreground-primary)] font-mono overflow-hidden lg:text-[24px] text-[18px] not-italic font-[600] leading-[36px]">
                           {item?.name}
                         </p>
                         <div className="flex items-start justify-between w-full">
@@ -365,7 +370,7 @@ const Products = () => {
                             <p className="text-[#81807E] font-mono lg:text-[18px] text-[10px] not-italic font-[400] leading-[27px]">
                               Fit:
                             </p>
-                            <p className="text-[#FFF] lg:text-[20px] text-[10px] font-mono not-italic font-[500] leading-[30px]">
+                            <p className="text-[var(--foreground-secondary)] lg:text-[20px] text-[10px] font-mono not-italic font-[500] leading-[30px]">
                               {item?.fit}
                             </p>
                           </div>
@@ -374,7 +379,7 @@ const Products = () => {
                             <p className="text-[#81807E] font-mono lg:text-[18px] text-[10px] not-italic font-[400] leading-[27px]">
                               Price:
                             </p>
-                            <p className="text-[#FFF] lg:text-[20px] text-[10px] font-mono not-italic font-[500] leading-[30px]">
+                            <p className="text-[var(--foreground-secondary)] lg:text-[20px] text-[10px] font-mono not-italic font-[500] leading-[30px]">
                               {item?.price} VND
                             </p>
                           </div>
