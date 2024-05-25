@@ -102,65 +102,63 @@ const Navbar = () => {
                     New Arrivals
                   </li>
                 </Link>
-                <Link href="/all-collections">
-                  <li
-                    className={`flex items-center gap-2 rounded-lg ${
-                      isAllCollections
-                        ? "border-b-2 border-solid border-[var(--foreground-secondary)]"
-                        : "text-[var(--foreground-primary)]"
-                    }`}
+                <li
+                  className={`flex items-center gap-2 rounded-lg ${
+                    isAllCollections
+                      ? "border-b-2 border-solid border-[var(--foreground-secondary)]"
+                      : "text-[var(--foreground-primary)]"
+                  }`}
+                >
+                  <p
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                    className="cursor-pointer relative flex gap-[2px] items-center text-white hover:text-gray-300"
                   >
-                    <p
-                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                      className="cursor-pointer relative flex gap-[2px] items-center text-white hover:text-gray-300"
+                    All
+                    <RiArrowDropDownLine size={20} fill="white" />
+                  </p>
+                  {isDropdownOpen && (
+                    <motion.ul
+                      initial={{ opacity: 0, y: -20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute top-[180px] mt-2 px-[30px] bg-[#333333] bg-opacity-50  shadow-lg rounded-lg py-2"
                     >
-                      All
-                      <RiArrowDropDownLine size={20} fill="white" />
-                    </p>
-                    {isDropdownOpen && (
-                      <motion.ul
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="absolute top-[180px] mt-2 px-[30px] bg-[#333333] bg-opacity-50  shadow-lg rounded-lg py-2"
-                      >
-                        <Link href="/all-collections">
-                          <li
-                            className="px-4 py-2 hover:bg-[#333] font-[600] text-[var(--btn-text2)] hover:text-[var(--btn-text)] hover:transition-all hover:duration-500"
-                            onClick={() => setIsDropdownOpen(false)}
-                          >
-                            Collections
-                          </li>
-                        </Link>
+                      <Link href="/all-collections">
+                        <li
+                          className="px-4 py-2 hover:bg-[#333] font-[600] text-[var(--btn-text2)] hover:text-[var(--btn-text)] hover:transition-all hover:duration-500"
+                          onClick={() => setIsDropdownOpen(false)}
+                        >
+                          Collections
+                        </li>
+                      </Link>
 
-                        <Link href="/tshirts">
-                          <li
-                            className="px-4 py-2 hover:bg-[#333] font-[600] text-[var(--btn-text2)] hover:text-[var(--btn-text)] hover:transition-all hover:duration-500"
-                            onClick={() => setIsDropdownOpen(false)}
-                          >
-                            T-Shirts
-                          </li>
-                        </Link>
-                        <Link href="/shirts">
-                          <li
-                            className="px-4 py-2 hover:bg-[#333] font-[600] text-[var(--btn-text2)] hover:text-[var(--btn-text)] hover:transition-all hover:duration-500"
-                            onClick={() => setIsDropdownOpen(false)}
-                          >
-                            Shirts
-                          </li>
-                        </Link>
-                        <Link href="/pants">
-                          <li
-                            className="px-4 py-2 hover:bg-[#333] font-[600] text-[var(--btn-text2)] hover:text-[var(--btn-text)] hover:transition-all hover:duration-500"
-                            onClick={() => setIsDropdownOpen(false)}
-                          >
-                            Pants
-                          </li>
-                        </Link>
-                      </motion.ul>
-                    )}
-                  </li>
-                </Link>
+                      <Link href="/tshirts">
+                        <li
+                          className="px-4 py-2 hover:bg-[#333] font-[600] text-[var(--btn-text2)] hover:text-[var(--btn-text)] hover:transition-all hover:duration-500"
+                          onClick={() => setIsDropdownOpen(false)}
+                        >
+                          T-Shirts
+                        </li>
+                      </Link>
+                      <Link href="/shirts">
+                        <li
+                          className="px-4 py-2 hover:bg-[#333] font-[600] text-[var(--btn-text2)] hover:text-[var(--btn-text)] hover:transition-all hover:duration-500"
+                          onClick={() => setIsDropdownOpen(false)}
+                        >
+                          Shirts
+                        </li>
+                      </Link>
+                      <Link href="/pants">
+                        <li
+                          className="px-4 py-2 hover:bg-[#333] font-[600] text-[var(--btn-text2)] hover:text-[var(--btn-text)] hover:transition-all hover:duration-500"
+                          onClick={() => setIsDropdownOpen(false)}
+                        >
+                          Pants
+                        </li>
+                      </Link>
+                    </motion.ul>
+                  )}
+                </li>
               </ul>
             </motion.div>
             {/* Overlay để tắt sidebar khi click ngoài */}
