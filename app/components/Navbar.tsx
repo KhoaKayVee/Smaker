@@ -109,9 +109,6 @@ const Navbar = () => {
                         ? "border-b-2 border-solid border-[var(--foreground-secondary)]"
                         : "text-[var(--foreground-primary)]"
                     }`}
-                    onClick={handleNavItemClick}
-                    onMouseEnter={() => setIsDropdownOpen(true)}
-                    onMouseLeave={() => setIsDropdownOpen(false)}
                   >
                     <p
                       onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -234,11 +231,11 @@ const Navbar = () => {
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="absolute  mt-2 top-[100px] px-[50px] bg-[#333333]  shadow-lg rounded-lg py-2"
+                  className="absolute  mt-2 top-[100px] px-[50px] bg-[#333333] bg-opacity-50  shadow-lg rounded-lg py-2"
                 >
                   <Link href="/all-collections">
                     <li
-                      className="px-4 py-2 hover:bg-[#333] font-[600] text-[var(--btn-text2)] hover:text-[var(--btn-text)] hover:transition-all hover:duration-500"
+                      className="px-4 py-2 hover:bg-[#333] font-[600] text-[white] hover:text-[var(--btn-text)] hover:transition-all hover:duration-500"
                       onClick={handleNavItemClick}
                     >
                       Collections
@@ -247,7 +244,7 @@ const Navbar = () => {
 
                   <Link href="/tshirts">
                     <li
-                      className="px-4 py-2 hover:bg-[#333] font-[600] text-[var(--btn-text2)] hover:text-[var(--btn-text)] hover:transition-all hover:duration-500"
+                      className="px-4 py-2 hover:bg-[#333] font-[600] text-[white] hover:text-[var(--btn-text)] hover:transition-all hover:duration-500"
                       onClick={handleNavItemClick}
                     >
                       T-Shirts
@@ -255,7 +252,7 @@ const Navbar = () => {
                   </Link>
                   <Link href="/shirts">
                     <li
-                      className="px-4 py-2 hover:bg-[#333] font-[600] text-[var(--btn-text2)] hover:text-[var(--btn-text)] hover:transition-all hover:duration-500"
+                      className="px-4 py-2 hover:bg-[#333] font-[600] text-[white] hover:text-[var(--btn-text)] hover:transition-all hover:duration-500"
                       onClick={handleNavItemClick}
                     >
                       Shirts
@@ -263,7 +260,7 @@ const Navbar = () => {
                   </Link>
                   <Link href="/pants">
                     <li
-                      className="px-4 py-2 hover:bg-[#333] font-[600] text-[var(--btn-text2)] hover:text-[var(--btn-text)] hover:transition-all hover:duration-500"
+                      className="px-4 py-2 hover:bg-[#333] font-[600] text-[white] hover:text-[var(--btn-text)] hover:transition-all hover:duration-500"
                       onClick={handleNavItemClick}
                     >
                       Pants
