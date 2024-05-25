@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Navigating = () => {
   return (
-    <div className="flex mt-[100px] flex-col items-start rounded-[20px] border-2 border-dashed border-[#262626]">
+    <div className="flex mt-[100px] flex-col items-start rounded-[20px] border-2 border-dashed border-[#6b4d57]">
       <div className="flex relative pt-[80px] lg:pr-[300px] pb-[80px] lg:pl-[80px] pr-[40px] pl-[40px] flex-col items-start gap-[30px] self-stretch border-b-2 border-solid border-[#262626]">
         <p className="self-stretch text-[var(--foreground-primary)] lg:text-[40px] text-[20px] not-italic font-[500] leading-normal uppercase lg:whitespace-nowrap whitespace-normal z-30">
           HÀNH TRÌNH THỜI TRANG BoinStore.

@@ -5,6 +5,9 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import { Select } from "antd";
+
+const { Option } = Select;
 
 interface Product {
   id: number;
@@ -18,6 +21,34 @@ interface Product {
 const Tshirts = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true); // Thêm state cho trạng thái loading
+  const [sortByPrice, setSortByPrice] = useState<string | null>(null);
+  const [sortByName, setSortByName] = useState<string | null>(null);
+
+  const handleSortByPrice = (value: string) => {
+    setSortByPrice(value);
+    const sortedProducts = [...products];
+    sortedProducts.sort((a, b) => {
+      if (value === "asc") {
+        return parseFloat(a.price) - parseFloat(b.price);
+      } else {
+        return parseFloat(b.price) - parseFloat(a.price);
+      }
+    });
+    setProducts(sortedProducts);
+  };
+
+  const handleSortByName = (value: string) => {
+    setSortByName(value);
+    const sortedProducts = [...products];
+    sortedProducts.sort((a, b) => {
+      if (value === "asc") {
+        return a.name.localeCompare(b.name);
+      } else {
+        return b.name.localeCompare(a.name);
+      }
+    });
+    setProducts(sortedProducts);
+  };
 
   const router = useRouter();
 
@@ -67,9 +98,27 @@ const Tshirts = () => {
       <head>
         <title>BoinShop | T-Shirts Collection</title>
       </head>
-      <h1 className="flex justify-center items-center mt-[50px] text-[30px] font-[700] leading-[27px] self-stretch">
+      <p className="flex justify-center items-center mt-[50px] text-[30px] font-[700] leading-[27px] self-stretch">
         T-SHIRTS COLLECTION
-      </h1>
+      </p>
+      <div className="flex flex-col lg:flex-row justify-center lg:justify-center gap-12 py-8 px-4 lg:px-20">
+        <Select
+          defaultValue="Sắp xếp theo giá"
+          onChange={handleSortByPrice}
+          className="w-full lg:w-auto text-lg" // Thêm lớp text-yellow-500
+        >
+          <Option value="asc">Thấp - Cao</Option>
+          <Option value="desc">Cao - Thấp</Option>
+        </Select>
+        <Select
+          defaultValue="Sắp xếp theo tên"
+          onChange={handleSortByName}
+          className="w-full lg:w-auto text-lg text-yellow-500" // Thêm lớp text-yellow-500
+        >
+          <Option value="asc">A to Z</Option>
+          <Option value="desc">Z to A</Option>
+        </Select>
+      </div>
       <div className="container">
         <motion.div
           variants={containerVariants}

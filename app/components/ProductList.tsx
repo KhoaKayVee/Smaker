@@ -59,7 +59,7 @@ const ProductList = () => {
   };
 
   return (
-    <div className="flex mt-[100px] w-full flex-col items-start rounded-[20px] border-2 border-dashed border-[#262626]">
+    <div className="flex mt-[100px] w-full flex-col items-start rounded-[20px] border-2 border-dashed border-[#6b4d57]">
       <div className="flex relative lg:pt-[80px] pt-[40px]  lg:pr-[300px] pr-[40px] lg:pb-[80px] pb-[40px] lg:pl-[80px] pl-[40px] flex-col items-start gap-[50px] self-stretch border-b-2 border-solid border-[#262626]">
         <div className="flex flex-col items-start gap-[30px] self-stretch">
           <p className="self-stretch lg:whitespace-nowrap  text-[var(--foreground-primary)] lg:text-[30px] text-[20px] truncate z-10 not-italic font-[500] leading-normal uppercase">

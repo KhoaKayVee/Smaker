@@ -44,10 +44,6 @@ const AllCollections = () => {
     setFilteredProducts(sortedProducts);
   };
 
-  const handleProductClick = (id: number) => {
-    router.push(`/details/${id}`);
-  };
-
   const handleSortByName = (value: any) => {
     setSortByName(value);
     const sortedProducts = [...filteredProducts];
@@ -59,6 +55,10 @@ const AllCollections = () => {
       }
     });
     setFilteredProducts(sortedProducts);
+  };
+
+  const handleProductClick = (id: number) => {
+    router.push(`/details/${id}`);
   };
 
   const containerVariants = {

@@ -29,7 +29,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="flex mt-[36px] flex-col items-start gap-[-62px] rounded-[20px] border-2 border-dashed border-[#262626]">
+    <div className="flex mt-[36px] flex-col items-start gap-[-62px] rounded-[20px] border-2 border-dashed border-[#6b4d57]">
       <div className="flex flex-col items-center gap-[-27px] self-stretch relative h-[670px] w-full overflow-hidden">
         {images.map((image, index) => (
           <Image

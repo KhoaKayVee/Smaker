@@ -117,6 +117,15 @@ const Navbar = () => {
                   transition={{ duration: 0.3 }}
                   className="absolute  mt-2 top-[100px] px-[50px] bg-[#333333]  shadow-lg rounded-lg py-2"
                 >
+                  <Link href="/all-collections">
+                    <li
+                      className="px-4 py-2 hover:bg-[#333] font-[600] text-[var(--btn-text2)] hover:text-[var(--btn-text)] hover:transition-all hover:duration-500"
+                      onClick={handleNavItemClick}
+                    >
+                      Collections
+                    </li>
+                  </Link>
+
                   <Link href="/tshirts">
                     <li
                       className="px-4 py-2 hover:bg-[#333] font-[600] text-[var(--btn-text2)] hover:text-[var(--btn-text)] hover:transition-all hover:duration-500"

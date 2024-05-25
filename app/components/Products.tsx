@@ -119,7 +119,7 @@ const Products = () => {
       <head>
         <title>BoinShop | New Arrivals</title>
       </head>
-      <div className="mt-[100px] flex w-full flex-col items-start rounded-[20px] border-2 border-dashed border-[#262626]">
+      <div className="mt-[100px] flex w-full flex-col items-start rounded-[20px] border-2 border-dashed border-[#6b4d57]">
         <div className="flex lg:pt-[80px] pt-[40px] relative lg:pr-[300px] pr-[40px] lg:pb-[80px] pb-[40px] lg:pl-[80px] pl-[40px] flex-col items-start gap-[50px] self-stretch ">
           <div className="flex flex-col items-start gap-[30px] self-stretch">
             <p className="self-stretch lg:whitespace-nowrap truncate text-[var(--foreground-primary)] lg:text-[30px] text-[20px] z-10 not-italic font-[500] leading-normal uppercase">
@@ -134,7 +134,7 @@ const Products = () => {
             {["All", "Tshirts", "Shirts", "Pants"].map((tag) => (
               <button
                 key={tag}
-                className={`flex justify-center text-center lg:text-[18px] text-[12px] not-italic font-[400] leading-[27px] lg:py-[18px] lg:px-[24px] py-[8px] px-[12px] items-center rounded-[12px] border border-dashed border-[#333] hover:duration-500 hover:transition-all cursor-pointer ${
+                className={`flex justify-center text-center lg:text-[18px] text-[12px] not-italic font-[400] leading-[27px] lg:py-[18px] lg:px-[24px] py-[8px] px-[12px] items-center rounded-[12px] border border-dashed border-[#6b4d57] hover:duration-500 hover:transition-all cursor-pointer ${
                   filter === tag
                     ? "bg-[var(--btn-secondary)] text-[var(--btn-text2)]"
                     : ""
@@ -156,14 +156,14 @@ const Products = () => {
         </div>
 
         {/* TSHIRT */}
-        <div className="flex flex-col items-start self-stretch border-b-2 border-t-2 border-dashed border-[#262626]">
+        <div className="flex flex-col items-start self-stretch border-b-2 border-t-2 border-dashed border-[#6b4d57]">
           <div className="flex flex-col items-start self-stretch">
-            <div className="flex p-[30px] justify-between items-center self-stretch   border-b-2 border-dashed border-[#262626]">
+            <div className="flex p-[30px] justify-between items-center self-stretch   border-b-2 border-dashed border-[#6b4d57]">
               <p className="flex-1 text-[var(--foreground-primary)] lg:text-[30px] text-[15px] not-italic font-[700] leading-normal uppercase">
                 Tshirts Collection
               </p>
               <Link href="/all-collections">
-                <button className="flex lg:py-[18px] lg:px-[24px] py-[10px] px-[14px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040]  text-[18px] not-italic font-[400] leading-[27px]">
+                <button className="flex lg:py-[18px] lg:px-[24px] py-[10px] px-[14px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#6b4d57]  text-[18px] not-italic font-[400] leading-[27px]">
                   View All
                 </button>
               </Link>
@@ -180,7 +180,7 @@ const Products = () => {
                 {data.tshirts.map((item) => (
                   <motion.div
                     key={item.id}
-                    className="border-2 border-dashed border-[#262626] rounded-t-[50px]"
+                    className="border-2 border-dashed border-[#6b4d57] rounded-t-[50px]"
                     variants={itemVariants}
                   >
                     <Image
@@ -193,11 +193,11 @@ const Products = () => {
                     />
                     <div className="flex flex-col items-start gap-[20px] self-stretch py-[25px] px-[16px]">
                       <div className="flex w-full justify-between items-start self-stretch">
-                        <div className="flex py-[10px] px-[16px] items-start gap-[10px] rounded-[100px] border border-dashed border-[#262626] bg-[#1A1A1A] text-[var(--text-color)] text-[18px] not-italic font-[400] leading-[27px]">
+                        <div className="flex py-[10px] px-[16px] items-start gap-[10px] rounded-[100px] border border-dashed border-[#6b4d57] bg-[#1A1A1A] text-[var(--text-color)] text-[18px] not-italic font-[400] leading-[27px]">
                           {item?.tags}
                         </div>
                         <Link href="/all-collections">
-                          <button className="flex py-[12px] px-[14px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040] text-[16px] not-italic font-[600] leading-[27px]">
+                          <button className="flex py-[12px] px-[14px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#6b4d57] text-[16px] not-italic font-[600] leading-[27px]">
                             Shop Now
                           </button>
                         </Link>
@@ -243,7 +243,7 @@ const Products = () => {
                 Shirts Collection
               </p>
               <Link href="/all-collections">
-                <button className="flex py-[10px] px-[14px] lg:py-[18px] lg:px-[24px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040] text-[18px] not-italic font-[400] leading-[27px]">
+                <button className="flex py-[10px] px-[14px] lg:py-[18px] lg:px-[24px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#6b4d57] text-[18px] not-italic font-[400] leading-[27px]">
                   View All
                 </button>
               </Link>
@@ -259,7 +259,7 @@ const Products = () => {
                 {data.shirts.map((item) => (
                   <motion.div
                     key={item.id}
-                    className="border-2 border-dashed border-[#262626] rounded-t-[50px]"
+                    className="border-2 border-dashed border-[#6b4d57] rounded-t-[50px]"
                     variants={itemVariants}
                   >
                     <Image
@@ -272,11 +272,11 @@ const Products = () => {
                     />
                     <div className="flex flex-col items-start gap-[20px] self-stretch py-[25px] px-[16px]">
                       <div className="flex w-full justify-between items-start self-stretch">
-                        <div className="flex py-[10px] px-[16px] items-start gap-[10px] rounded-[100px] border border-dashed border-[#262626] bg-[#1A1A1A] text-[var(--text-color)] text-[18px] not-italic font-[400] leading-[27px]">
+                        <div className="flex py-[10px] px-[16px] items-start gap-[10px] rounded-[100px] border border-dashed border-[#6b4d57] bg-[#1A1A1A] text-[var(--text-color)] text-[18px] not-italic font-[400] leading-[27px]">
                           {item?.tags}
                         </div>
                         <Link href="/all-collections">
-                          <button className="flex py-[12px] px-[14px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040] text-[16px] not-italic font-[600] leading-[27px]">
+                          <button className="flex py-[12px] px-[14px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#6b4d57] text-[16px] not-italic font-[600] leading-[27px]">
                             Shop Now
                           </button>
                         </Link>
@@ -315,14 +315,14 @@ const Products = () => {
         </div>
 
         {/* PANTS */}
-        <div className="flex flex-col items-start self-stretch border-b-2 border-t-2 border-dashed border-[#262626]">
+        <div className="flex flex-col items-start self-stretch border-b-2 border-t-2 border-dashed border-[#6b4d57]">
           <div className="flex flex-col items-start self-stretch">
-            <div className="flex p-[30px] justify-between items-center self-stretch   border-b-2 border-dashed border-[#262626]">
+            <div className="flex p-[30px] justify-between items-center self-stretch   border-b-2 border-dashed border-[#6b4d57]">
               <p className="flex-1 text-[var(--foreground-primary)] lg:text-[30px] text-[15px] not-italic font-[700] leading-normal uppercase">
                 Pants Collection
               </p>
               <Link href="/all-collections">
-                <button className="flex py-[10px] px-[14px] lg:py-[18px] lg:px-[24px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040] text-[18px] not-italic font-[400] leading-[27px]">
+                <button className="flex py-[10px] px-[14px] lg:py-[18px] lg:px-[24px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#6b4d57] text-[18px] not-italic font-[400] leading-[27px]">
                   View All
                 </button>
               </Link>
@@ -338,7 +338,7 @@ const Products = () => {
                 {data.pants.map((item) => (
                   <motion.div
                     key={item.id}
-                    className="border-2 border-dashed border-[#262626] rounded-t-[50px]"
+                    className="border-2 border-dashed border-[#6b4d57] rounded-t-[50px]"
                     variants={itemVariants}
                   >
                     <Image
@@ -351,11 +351,11 @@ const Products = () => {
                     />
                     <div className="flex flex-col items-start gap-[20px] self-stretch py-[25px] px-[16px]">
                       <div className="flex w-full justify-between items-start self-stretch">
-                        <div className="flex py-[10px] px-[16px] items-start gap-[10px] rounded-[100px] border border-dashed border-[#262626] bg-[#1A1A1A] text-[var(--text-color)] text-[18px] not-italic font-[400] leading-[27px]">
+                        <div className="flex py-[10px] px-[16px] items-start gap-[10px] rounded-[100px] border border-dashed border-[#6b4d57] bg-[#1A1A1A] text-[var(--text-color)] text-[18px] not-italic font-[400] leading-[27px]">
                           {item?.tags}
                         </div>
                         <Link href="/all-collections">
-                          <button className="flex py-[12px] px-[14px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040] text-[16px] not-italic font-[600] leading-[27px]">
+                          <button className="flex py-[12px] px-[14px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#6b4d57] text-[16px] not-italic font-[600] leading-[27px]">
                             Shop Now
                           </button>
                         </Link>

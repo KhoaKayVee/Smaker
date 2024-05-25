@@ -64,7 +64,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <div className="flex mt-[100px] w-full flex-col items-start rounded-[20px] border-2 border-dashed border-[#262626]">
+    <div className="flex mt-[100px] w-full flex-col items-start rounded-[20px] border-2 border-dashed border-[#6b4d57]">
       <div className="relative lg:pt-[80px] pt-[40px] lg:pr-[300px] pr-[40px] lg:pb-[80px] pb-[40px] lg:pl-[80px] pl-[40px] flex flex-col items-start gap-[30px] w-full border-b-2 border-solid border-[#262626]">
         <p className="self-stretch text-[var(--foreground-primary)] lg:text-[36px] text-[26px] lg:whitespace-nowrap z-30 not-italic font-[500] leading-normal uppercase">
           BỘ SƯU TẬP CHỨNG THỰC CỦA BOINSTORE.
