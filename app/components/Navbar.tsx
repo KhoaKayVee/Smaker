@@ -20,7 +20,6 @@ import Logo from "../../public/boinshop/logoBoinShop.png";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { IoMdClose } from "react-icons/io";
-import CartIcon from "./Cart";
 
 const Navbar = () => {
   const { setTheme } = useTheme();
