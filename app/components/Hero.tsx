@@ -85,7 +85,7 @@ const Hero = () => {
             alt={`bg-${index}`}
             width={700}
             height={700}
-            className={`absolute w-full h-full top-0 left-0 transition-transform duration-1000 object-fill rounded-[8px] ${
+            className={`absolute w-full h-full top-0 left-0 transition-transform duration-1000 object-cover rounded-[8px] ${
               index === currentImage ? "translate-x-0" : "-translate-x-full"
             }`}
           />
@@ -142,7 +142,7 @@ const Hero = () => {
           </ul>
           <motion.p
             variants={itemVariants}
-            className="self-stretch text-[var(--foreground-primary)] lg:text-[44px] text-[30px] not-italic font-[500] leading-normal uppercase"
+            className="self-stretch text-[var(--foreground-primary)] lg:text-[44px] text-[30px]  not-italic font-[500] leading-normal uppercase"
           >
             NÂNG CẤP PHONG CÁCH CỦA BẠN VỚI BOINSTORE
           </motion.p>

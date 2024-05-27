@@ -20,6 +20,7 @@ import Logo from "../../public/boinshop/logoBoinShop.png";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { IoMdClose } from "react-icons/io";
+import CartIcon from "./Cart";
 
 const Navbar = () => {
   const { setTheme } = useTheme();
@@ -270,9 +271,12 @@ const Navbar = () => {
           </Link>
         </ul>
         <div className="flex items-center gap-4">
-          <div className="flex p-4 items-start gap-2 rounded-lg cursor-pointer hover:scale-110 hover:transition-all hover:duration-500 ">
-            <Image className="w-6 h-6" src={Image1} alt="Icon" />
-          </div>
+          <Link href="/cart">
+            <div className="flex p-4 items-start gap-2 rounded-lg cursor-pointer hover:scale-110 hover:transition-all hover:duration-500 ">
+              <Image className="w-6 h-6" src={Image1} alt="Icon" />
+              {/* ICON CART HERE */}
+            </div>
+          </Link>
           <div className="hidden lg:flex items-center gap-2 rounded-lg ">
             <button className=" items-center hover:duration-500 hover:transition-all hover:scale-110 text-base px-[20px] py-[14px] rounded-[6px] lg:text-lg font-medium leading-6">
               Contact

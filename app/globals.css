@@ -26,6 +26,8 @@ button {
   color: var(--btn-text);
   cursor: pointer;
   font-weight: 700 !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 button:hover {
@@ -173,4 +175,67 @@ button:hover {
 
 .bounce-arrow {
   animation: bounce 2s infinite;
+}
+
+.ant-divider.pink-divider {
+  border-top: 1px solid #fff;
+}
+
+/* styles/globals.css */
+.custom-modal .ant-modal-content {
+  background-color: var(--background);
+  color: white;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+}
+
+.custom-modal .ant-modal-header {
+  background-color: var(--background);
+  border-bottom: 1px solid #444;
+}
+
+.custom-modal .ant-modal-title {
+  color: white;
+}
+
+.custom-modal .ant-modal-body {
+  background-color: var(--background);
+}
+
+.custom-modal .ant-modal-footer {
+  background-color: var(--background);
+  border-top: 1px solid #444;
+}
+
+.custom-modal .ant-input,
+.custom-modal .ant-select-selector,
+.custom-modal .ant-input-textarea {
+  background-color: var(--background);
+  color: white;
+  border: 1px solid #555;
+}
+
+.custom-modal .ant-input::placeholder,
+.custom-modal .ant-select-selection-placeholder,
+.custom-modal .ant-input-textarea::placeholder {
+  color: #bbb;
+}
+
+.custom-modal .ant-btn-primary {
+  background-color: var(--background);
+  border-color: #1890ff;
+}
+
+.custom-modal .ant-btn {
+  background-color: var(--background);
+  border-color: #555;
+  color: white;
+}
+
+.custom-modal .ant-btn:hover {
+  background-color: var(--background);
+  border-color: #666;
+}
+
+.ant-select.ant-select-selector.custom-select {
+  background-color: pink !important;
 }

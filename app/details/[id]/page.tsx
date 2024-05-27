@@ -4,10 +4,12 @@
 import axios from "axios";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { useParams } from "next/navigation"; // Sử dụng useParams thay cho useRouter
+import { useParams, useRouter } from "next/navigation"; // Sử dụng useParams thay cho useRouter
 import Nen from "../../../public/images/nen.png";
 import { FaStar } from "react-icons/fa6";
 import { Flex, Progress } from "antd";
+import { toast } from "react-toastify";
+import { useCart, CartItem } from "@/app/context/CartContext";
 
 interface Product {
   id: any;
@@ -44,10 +46,66 @@ const renderRatingStars = (roundedTotalNumberRating: any) => {
   );
 };
 
-const ProductDetail = () => {
+const ProductDetail = ({ params }: any) => {
   const { id } = useParams(); // Lấy id từ URL
   const [product, setProduct] = useState<Product | null>(null);
   const [quantities, setQuantities] = useState<{ [key: string]: number }>({}); // Changed key type to string
+  // CART
+  const [quantity, setQuantity] = useState(1);
+  const [size, setSize] = useState("S");
+  const router = useRouter();
+
+  const { dispatch } = useCart();
+
+  const getCartItemsFromLocalStorage = () => {
+    // Kiểm tra xem local storage có khả dụng không
+    if (typeof window !== "undefined") {
+      const cartItems = localStorage.getItem("cartItems");
+      return cartItems ? JSON.parse(cartItems) : [];
+    }
+    return [];
+  };
+
+  const cartItems = getCartItemsFromLocalStorage();
+
+  const handleAddToCart = async () => {
+    if (product) {
+      try {
+        const response = await fetch("/api/cart", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            id: product.id,
+            name: product.name,
+            price: parseFloat(product.price.replace(/\./g, "")),
+            image: product.image,
+            size,
+            quantity,
+          }),
+        });
+
+        if (response.ok) {
+          toast.success("Đã thêm vào giỏ hàng thành công!");
+          const cartItem: CartItem = {
+            id: product.id,
+            name: product.name,
+            price: parseFloat(product.price.replace(/\./g, "")),
+            image: product.image,
+            size,
+            quantity,
+          };
+          dispatch({ type: "ADD_TO_CART", payload: cartItem });
+        } else {
+          toast.error("Thêm thất bại");
+        }
+      } catch (error) {
+        console.error("Error adding to cart:", error);
+      }
+    }
+  };
+  // CART
 
   const handleIncrease = (id: string) => {
     setQuantities((prevQuantities) => ({
@@ -85,7 +143,6 @@ const ProductDetail = () => {
     return <div>Loading...</div>;
   }
 
-  const quantity = quantities[product.id] || 1; // Ensure product is not null
   const before =
     product.rating5 * 5 +
     product.rating4 * 4 +
@@ -99,8 +156,6 @@ const ProductDetail = () => {
     parseInt(product?.rating3 || 0) +
     parseInt(product?.rating2 || 0) +
     parseInt(product?.rating1 || 0);
-
-  console.log(after);
 
   const totalNumberRating = before / after;
   const roundedTotalNumberRating = totalNumberRating.toFixed(1);
@@ -120,21 +175,12 @@ const ProductDetail = () => {
                 </p>
                 {product?.fit}
               </p>
-              <div className="flex lg:py-[8px] py-[2px] lg:px-[20px] px-[10px] items-center gap-[10px] rounded-[100px] bg-[var(--btn-secondary)]">
-                <p className="text-[var(--btn-text2)] lg:text-[18px] text-[8px] not-italic font-[400] leading-[27px]">
+              <div className="flex lg:py-[8px] py-[2px] lg:px-[20px] px-[10px] items-center gap-[10px] rounded-[100px] bg-[#333]">
+                <p className="text-[#59e959] lg:text-[18px] text-[8px] not-italic font-[400] leading-[27px]">
                   In stock
                 </p>
               </div>
             </div>
-          </div>
-
-          <div className="flex items-center lg:gap-[20px] gap-[8px]">
-            <button className="flex lg:py-[18px] lg:px-[36px] py-[4px] px-[8px]  items-start lg:gap-[4px] rounded-[12px] border border-dashed border-[#404040] bg-[var(--btn-secondary)] text-[var(--btn-text2)] lg:text-[18px] text-[8px] not-italic font-[400] leading-[27px]">
-              Add To Cart
-            </button>
-            <button className="flex lg:py-[18px] lg:px-[36px] py-[4px] px-[8px]  items-center lg:gap-[10px] rounded-[12px]  text-center font-mono lg:text-[24px] text-[10px] not-italic font-[700] leading-[27px]">
-              Shop Now
-            </button>
           </div>
         </div>
 
@@ -231,39 +277,43 @@ const ProductDetail = () => {
               </div>
 
               <div className="flex py-[20px] md:py-[50px] px-[20px] md:px-[80px] flex-col justify-center items-center gap-[20px] md:gap-[30px] self-stretch border-b-2 border-solid border-[#262626]">
-                <p className="text-[var(--foreground-secondary)] text-[22px] md:text-[26px] not-italic font-mono font-[700] leading-normal">
-                  Sizes có sẵn
+                <p className="text-[var(--foreground-primary)] text-[22px] md:text-[26px] not-italic font-mono font-[700] leading-normal">
+                  Chọn size
                 </p>
                 <div className="flex items-start gap-[8px] md:gap-[16px]">
-                  <button className="flex py-[6px] md:py-[12px] px-[20px] md:px-[50px] items-center gap-[10px] rounded-[100px]  font-mono text-[15px] md:text-[24px] not-italic font-[700] leading-[27px]">
-                    S
-                  </button>
-                  <button className="flex py-[6px] md:py-[12px] px-[20px] md:px-[50px] items-center gap-[10px] rounded-[100px]  font-mono text-[15px] md:text-[24px] not-italic font-[700] leading-[27px]">
-                    M
-                  </button>
-                  <button className="flex py-[6px] md:py-[12px] px-[20px] md:px-[50px] items-center gap-[10px] rounded-[100px]  font-mono text-[15px] md:text-[24px] not-italic font-[700] leading-[27px]">
-                    L
-                  </button>
-                  <button className="flex py-[6px] md:py-[12px] px-[20px] md:px-[50px] items-center gap-[10px] rounded-[100px]  font-mono text-[15px] md:text-[24px] not-italic font-[700] leading-[27px]">
-                    XL
-                  </button>
+                  {["S", "M", "L", "XL"].map((sizeOption) => (
+                    <button
+                      key={sizeOption}
+                      className={`flex text-[var(--text-color)] shadow-xl py-[6px] md:py-[12px] px-[20px] md:px-[50px] items-center gap-[10px] rounded-[100px]  font-mono text-[15px] md:text-[24px] not-italic font-[700] leading-[27px] ${
+                        size === sizeOption
+                          ? "bg-[var(--btn-secondary)]"
+                          : "bg-[#333]"
+                      }`}
+                      onClick={() => setSize(sizeOption)}
+                    >
+                      {sizeOption}
+                    </button>
+                  ))}
                 </div>
-                <button className="flex bg-[var(--btn-secondary)] text-[var(--btn-text2)] text-[16px] md:text-[18px] not-italic font-[700] leading-[27px] py-[12px] md:py-[18px] px-[16px] md:px-[24px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040]">
+                <button
+                  onClick={handleAddToCart}
+                  className="flex bg-[var(--btn-primary)] text-[#fff] text-[16px] md:text-[18px] not-italic font-[700] leading-[27px] py-[12px] md:py-[18px] px-[16px] md:px-[24px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040]"
+                >
                   Thêm vào giỏ
                 </button>
                 <div className="flex items-center text-center justify-center gap-[10px] md:gap-[20px] self-stretch">
                   <button
-                    onClick={() => handleDecrease(product?.id)}
-                    className="border-[#404040] bg-[#1F1F1F] text-[gold] text-[18px] md:text-[22px] not-italic font-[700] leading-[27px] rounded-[100px] py-[4px] md:py-[8px] px-[8px] md:px-[16px] hover:bg-[#000] transition-colors duration-300"
+                    onClick={() => setQuantity(Math.max(quantity - 1, 1))}
+                    className="border-[#404040] bg-[#1F1F1F] text-[var(--text-color)] text-[18px] md:text-[22px] not-italic font-[700] leading-[27px] rounded-[100px] py-[4px] md:py-[8px] px-[8px] md:px-[16px] hover:bg-[#000] transition-colors duration-300"
                   >
                     -
                   </button>
-                  <span className="text-[gold] bg-[#333] rounded-[12px] px-[10px] md:px-[15px] py-[4px] md:py-[8px] text-[18px] md:text-[22px] not-italic font-[600] leading-[27px]">
+                  <span className="text-[var(--text-color)] bg-[#333] rounded-[12px] px-[10px] md:px-[15px] py-[4px] md:py-[8px] text-[18px] md:text-[22px] not-italic font-[600] leading-[27px]">
                     {quantity}
                   </span>
                   <button
-                    onClick={() => handleIncrease(product?.id)}
-                    className="border-[#404040] bg-[#1F1F1F] text-[gold] text-[18px] not-italic font-[700] leading-[27px] rounded-[100px] py-[4px] md:py-[8px] px-[8px] md:px-[16px] hover:bg-[#000] transition-colors duration-300"
+                    onClick={() => setQuantity(quantity + 1)}
+                    className="border-[#404040] bg-[#1F1F1F] text-[var(--text-color)] text-[18px] not-italic font-[700] leading-[27px] rounded-[100px] py-[4px] md:py-[8px] px-[8px] md:px-[16px] hover:bg-[#000] transition-colors duration-300"
                   >
                     +
                   </button>
