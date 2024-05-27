@@ -63,4 +63,3 @@ export const useCart = () => {
 };
 
 // Export CartItem type
-export type { CartItem };
