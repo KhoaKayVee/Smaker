@@ -51,8 +51,8 @@ const ProductDetail = ({ params }: any) => {
   const [product, setProduct] = useState<Product | null>(null);
   const [quantities, setQuantities] = useState<{ [key: string]: number }>({}); // Changed key type to string
   // CART
-  const [quantity, setQuantity] = useState(1);
-  const [size, setSize] = useState("S");
+  const [quantity, setQuantity] = useState(0);
+  const [size, setSize] = useState("");
   const router = useRouter();
 
   const { dispatch } = useCart();
@@ -69,7 +69,7 @@ const ProductDetail = ({ params }: any) => {
   const cartItems = getCartItemsFromLocalStorage();
 
   const handleAddToCart = async () => {
-    if (product) {
+    if (product && size !== "" && quantity > 0) {
       try {
         const response = await fetch("/api/cart", {
           method: "POST",
@@ -87,7 +87,6 @@ const ProductDetail = ({ params }: any) => {
         });
 
         if (response.ok) {
-          toast.success("Đã thêm vào giỏ hàng thành công!");
           const cartItem: CartItem = {
             id: product.id,
             name: product.name,
@@ -96,15 +95,24 @@ const ProductDetail = ({ params }: any) => {
             size,
             quantity,
           };
+          toast.success("Đã thêm vào giỏ hàng thành công!");
           dispatch({ type: "ADD_TO_CART", payload: cartItem });
+          const existingCart = getCartItemsFromLocalStorage();
+          localStorage.setItem(
+            "cartItems",
+            JSON.stringify([...existingCart, cartItem])
+          );
         } else {
           toast.error("Thêm thất bại");
         }
       } catch (error) {
         console.error("Error adding to cart:", error);
       }
+    } else {
+      toast.error("Vui lòng chọn size và số lượng");
     }
   };
+
   // CART
 
   const handleIncrease = (id: string) => {
@@ -162,7 +170,7 @@ const ProductDetail = ({ params }: any) => {
 
   return (
     <div className="container mt-[100px] h-full">
-      <div className="flex flex-col items-start rounded-[20px] border-2 border-dashed border-[#262626]">
+      <div className="flex flex-col items-start rounded-[20px] shadow-xl shadow-[var(--foreground-primary)]">
         <div className="flex lg:p-[80px] p-[10px] lg:tems-start items-center justify-between self-stretch border-b-2 border-solid border-[#262626]">
           <div className="flex flex-col items-start gap-[14px] flex-1">
             <p className="self-stretch text-[var(--foreground-primary)] lg:text-[40px] text-[14px] not-italic font-[500] leading-normal uppercase">
@@ -295,12 +303,18 @@ const ProductDetail = ({ params }: any) => {
                     </button>
                   ))}
                 </div>
-                <button
-                  onClick={handleAddToCart}
-                  className="flex bg-[var(--btn-primary)] text-[#fff] text-[16px] md:text-[18px] not-italic font-[700] leading-[27px] py-[12px] md:py-[18px] px-[16px] md:px-[24px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040]"
-                >
-                  Thêm vào giỏ
-                </button>
+                {quantity > 0 && size === "" ? (
+                  <p className="text-[#FF0000]">
+                    Vui lòng chọn số lượng và size
+                  </p>
+                ) : (
+                  <button
+                    onClick={handleAddToCart}
+                    className="flex bg-[var(--btn-primary)] text-[#fff] text-[16px] md:text-[18px] not-italic font-[700] leading-[27px] py-[12px] md:py-[18px] px-[16px] md:px-[24px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040]"
+                  >
+                    Thêm vào giỏ
+                  </button>
+                )}
                 <div className="flex items-center text-center justify-center gap-[10px] md:gap-[20px] self-stretch">
                   <button
                     onClick={() => setQuantity(Math.max(quantity - 1, 1))}

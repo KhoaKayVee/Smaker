@@ -26,7 +26,7 @@ const Introduction = () => {
 
   const { ref, inView } = useInView({
     triggerOnce: true, // Chỉ kích hoạt một lần
-    threshold: 0.3, // Kích hoạt khi 10% của component xuất hiện
+    threshold: 0.1, // Kích hoạt khi 10% của component xuất hiện
   });
 
   const variants = {
@@ -35,7 +35,20 @@ const Introduction = () => {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 3.5,
+        duration: 2.5,
+        type: "spring",
+        bounce: 0.3,
+      },
+    },
+  };
+
+  const variants2 = {
+    hidden: { opacity: 0, y: -200 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 2.5,
         type: "spring",
         bounce: 0.3,
       },
@@ -64,38 +77,40 @@ const Introduction = () => {
     },
   };
   return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={inView ? "visible" : "hidden"}
-      variants={variants}
-      className="flex mt-[100px] w-full flex-col items-start rounded-[20px] border-2 border-dashed border-[#6b4d57]"
-    >
-      <motion.div
-        variants={itemVariants}
-        initial="hidden"
-        animate="visible"
-        className="flex flex-col  pt-[80px] lg:pr-[300px] pb-[80px] lg:pl-[80px] pr-[10px] pl-[10px] items-start gap-[30px] self-stretch border-b-2 border-solid border-[#262626]"
-      >
-        <p className="self-stretch text-[var(--foreground-primary)] truncate lg:text-[30px] text-[16px] whitespace-nowrap not-italic font-[500] leading-normal uppercase">
+    <div className="flex mt-[100px] w-full flex-col items-start rounded-[20px]  shadow-lg shadow-[var(--foreground-primary)]">
+      <div className="flex flex-col  pt-[80px] lg:pr-[300px] pb-[80px] lg:pl-[80px] pr-[10px] pl-[10px] items-start gap-[30px] self-stretch border-b-2 border-solid border-[#262626]">
+        <motion.p
+          ref={ref}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          variants={variants}
+          className="self-stretch text-[var(--foreground-primary)] truncate lg:text-[30px] text-[16px] whitespace-nowrap not-italic font-[500] leading-normal uppercase"
+        >
           XU HƯỚNG THỦ CÔNG, SỰ TIN TƯỞNG TRUYỀN CẢM HỨNG
-        </p>
-        <p className="self-stretch text-[var(--text-color)] lg:text-[18px] text-[12px] not-italic font-[400] leading-[27px]">
+        </motion.p>
+        <motion.p
+          ref={ref}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          variants={variants}
+          className="self-stretch text-[var(--text-color)] lg:text-[18px] text-[12px] not-italic font-[400] leading-[27px]"
+        >
           Khám phá thế giới thời trang tại BoinStore, nơi xu hướng đáp ứng được
           khả năng chi trả.
-        </p>
+        </motion.p>
         <div
           className="m-auto cursor-pointer bounce-arrow"
           onClick={handleClick}
         >
           <RiArrowDownDoubleFill size={36} fill="gold" />
         </div>
-      </motion.div>
+      </div>
       {showIntro && (
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          ref={ref}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          variants={variants2}
           className="flex flex-col items-start self-stretch"
         >
           <div className="flex flex-col md:flex-row items-start self-stretch border-b-2 border-solid border-[#262626]">
@@ -261,7 +276,7 @@ const Introduction = () => {
           </div>
         </motion.div>
       )}
-    </motion.div>
+    </div>
   );
 };
 

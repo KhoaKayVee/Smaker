@@ -27,14 +27,38 @@ const Testimonials = () => {
   });
 
   const variants = {
-    hidden: { opacity: 0, y: 200, scale: 0.5, rotate: -90 },
+    hidden: { opacity: 0, scale: 0.5 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 2.5,
+        type: "spring",
+        bounce: 0.3,
+      },
+    },
+  };
+
+  const variants3 = {
+    hidden: { opacity: 0, y: -200 },
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
-      rotate: 0,
       transition: {
-        duration: 3,
+        duration: 2.5,
+        type: "spring",
+        bounce: 0.3,
+      },
+    },
+  };
+
+  const variants2 = {
+    hidden: { opacity: 0, y: -200 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 2.5,
         type: "spring",
         bounce: 0.3,
       },
@@ -93,20 +117,26 @@ const Testimonials = () => {
   ];
 
   return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={inView ? "visible" : "hidden"}
-      variants={variants}
-      className="flex mt-[100px] w-full flex-col items-start rounded-[20px] border-2 border-dashed border-[#6b4d57]"
-    >
+    <div className="flex mt-[100px] w-full flex-col items-start rounded-[20px] shadow-lg shadow-[var(--foreground-primary)]">
       <div className="relative lg:pt-[80px] pt-[40px] lg:pr-[300px] pr-[40px] lg:pb-[80px] pb-[40px] lg:pl-[80px] pl-[40px] flex flex-col items-start gap-[30px] w-full border-b-2 border-solid border-[#262626]">
-        <p className="self-stretch text-[var(--foreground-primary)] lg:text-[36px] text-[26px] lg:whitespace-nowrap z-30 not-italic font-[500] leading-normal uppercase">
+        <motion.p
+          ref={ref}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          variants={variants}
+          className="self-stretch text-[var(--foreground-primary)] lg:text-[36px] text-[26px] lg:whitespace-nowrap z-30 not-italic font-[500] leading-normal uppercase"
+        >
           BỘ SƯU TẬP CHỨNG THỰC CỦA BOINSTORE.
-        </p>
-        <p className="self-stretch text-[var(--text-color)] text-[16px] not-italic font-[500] leading-[27px]">
+        </motion.p>
+        <motion.p
+          ref={ref}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          variants={variants}
+          className="self-stretch text-[var(--text-color)] text-[16px] not-italic font-[500] leading-[27px]"
+        >
           Tại BOINSTORE, khách hàng là trái tim của thương hiệu chúng tôi.
-        </p>
+        </motion.p>
         <Image
           src={Xoay}
           alt="xoay"
@@ -123,15 +153,16 @@ const Testimonials = () => {
 
       {showTesti && (
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4"
+          ref={ref}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          variants={variants3}
+          className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4 "
         >
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="flex flex-col lg:items-start items-center lg:p-[40px] p-[20px]  border-2 border-dashed border-[#262626] rounded-md"
+              className="flex flex-col lg:items-start items-center lg:p-[40px] p-[20px]   rounded-md shadow-md shadow-[black]"
             >
               <div className="flex items-center gap-[12px] self-stretch">
                 <Image
@@ -173,7 +204,7 @@ const Testimonials = () => {
           ))}
         </motion.div>
       )}
-    </motion.div>
+    </div>
   );
 };
 

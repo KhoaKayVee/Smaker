@@ -17,9 +17,11 @@ import Image2 from "../../public/Logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "../../public/boinshop/logoBoinShop.png";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { IoMdClose } from "react-icons/io";
+import { useCart } from "../context/CartContext";
+import { RxAvatar } from "react-icons/rx";
 
 const Navbar = () => {
   const { setTheme } = useTheme();
@@ -27,6 +29,34 @@ const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(false); // Thêm state mới để kiểm soát việc mở/closed sidebar
   const [sidebarVisible, setSidebarVisible] = React.useState(false);
+  const [searchQuery, setSearchQuery] = React.useState("");
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const { cartItems } = useCart();
+
+  const totalQuantity = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+
+  const router = useRouter();
+  const inputRef = React.useRef<HTMLInputElement>(null); // Specify HTMLInputElement type
+
+  const handleSearch = (e: any) => {
+    e.preventDefault();
+    if (searchQuery.trim() !== "") {
+      router.push(`/search?query=${encodeURIComponent(searchQuery)}`);
+    }
+    setSearchQuery("");
+    if (inputRef.current) {
+      // Add this null check
+      inputRef.current.focus();
+    }
+  };
 
   const handleNavItemClick = () => {
     setIsMenuOpen(false);
@@ -175,7 +205,7 @@ const Navbar = () => {
         )}
 
         <ul
-          className={`flex-col lg:flex-row flex items-center gap-2 lg:gap-4 ${
+          className={`flex-col lg:flex-row flex items-center w-full ${
             isMenuOpen
               ? "absolute left-0 top-full w-full bg-[#1A1A1A] py-4 px-0 z-10"
               : "hidden"
@@ -209,6 +239,7 @@ const Navbar = () => {
               </p>
             </li>
           </Link>
+
           <Link href="/all-collections">
             <li
               className={`flex py-4 px-6 gap-2 rounded-lg ${
@@ -269,17 +300,57 @@ const Navbar = () => {
             </li>
           </Link>
         </ul>
-        <div className="flex items-center gap-4">
+
+        <div className="flex items-center gap-2  ">
+          <form
+            onSubmit={handleSearch}
+            className="search-form flex items-center"
+          >
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Tìm sản phẩm..."
+              className="shadow-xl shadow-[black] bg-[var(--btn-primary)] rounded-[10px] text-[#fff] flex-grow mr-2 p-2 border border-gray-300 outline-none border-none focus:outline-none focus:border-blue-500 sm:w-full sm:mr-0 sm:mt-2"
+              ref={inputRef}
+            />
+          </form>
           <Link href="/cart">
-            <div className="flex p-4 items-start gap-2 rounded-lg cursor-pointer hover:scale-110 hover:transition-all hover:duration-500 ">
-              <Image className="w-6 h-6" src={Image1} alt="Icon" />
-              {/* ICON CART HERE */}
+            <div className="flex p-4 items-start gap-2 rounded-lg cursor-pointer ">
+              <Image
+                className="w-6 h-6 relative shadow-xl shadow-[black]"
+                src={Image1}
+                alt="Icon"
+              />
+              {totalQuantity > 0 && (
+                <div className="absolute right-[100px] top-[60px] rounded-full bg-red-500 px-[7px] text-[13px] font-[600] flex items-center justify-center text-center">
+                  {totalQuantity}
+                </div>
+              )}
             </div>
           </Link>
-          <div className="hidden lg:flex items-center gap-2 rounded-lg ">
-            <button className=" items-center hover:duration-500 hover:transition-all hover:scale-110 text-base px-[20px] py-[14px] rounded-[6px] lg:text-lg font-medium leading-6">
-              Contact
-            </button>
+          <div className="relative">
+            <div
+              className="flex items-center cursor-pointer hover:opacity-50 hover:duration-200 transition-all"
+              onClick={toggleDropdown}
+            >
+              <RxAvatar
+                size={26}
+                className="!text-[white] shadow-xl shadow-[black]"
+              />
+              <RiArrowDropDownLine className="h-6 w-6 !text-[white] " />
+            </div>
+            {/* Dropdown */}
+            {isOpen && (
+              <Link href="/loginpage">
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="inline whitespace-nowrap absolute rounded-[12px] top-[36px] -left-8 px-4 py-2"
+                >
+                  Sign-In
+                </button>
+              </Link>
+            )}
           </div>
         </div>
       </div>

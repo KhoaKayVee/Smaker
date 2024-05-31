@@ -75,7 +75,7 @@ const Hero = () => {
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       variants={variants}
-      className="flex mt-[36px] flex-col items-start gap-[-62px] rounded-[20px] border-2 border-dashed border-[#6b4d57]"
+      className="flex mt-[36px] flex-col items-start gap-[-62px] rounded-[20px] shadow-lg shadow-[var(--foreground-primary)]"
     >
       <div className="flex flex-col items-center gap-[-27px] self-stretch relative h-[670px] w-full overflow-hidden">
         {images.map((image, index) => (
@@ -117,25 +117,25 @@ const Hero = () => {
           <ul className="flex lg:items-center items-start lg:gap-[14px] gap-[12px]">
             <motion.li
               variants={itemVariants}
-              className="flex text-[var(--foreground-secondary)] text-center text-[18px] not-italic font-[400] leading-[27px] lg:py-[14px] lg:px-[24px] py-[4px] px-[8px] items-center gap-[10px] rounded-[12px] border border-dashed border-[#e0e0e0]"
+              className="flex text-[var(--foreground-secondary)] text-center text-[18px] not-italic font-[400] leading-[27px] lg:py-[14px] lg:px-[24px] py-[4px] px-[8px] items-center gap-[10px] rounded-[12px] border border-solid border-[#e0e0e0]"
             >
               ALL
             </motion.li>
             <motion.li
               variants={itemVariants}
-              className="flex text-[var(--foreground-secondary)] text-center text-[18px] not-italic font-[400] leading-[27px] lg:py-[14px] lg:px-[24px] py-[4px] px-[8px] items-center gap-[10px] rounded-[12px] border border-dashed border-[#e0e0e0]"
+              className="flex text-[var(--foreground-secondary)] text-center text-[18px] not-italic font-[400] leading-[27px] lg:py-[14px] lg:px-[24px] py-[4px] px-[8px] items-center gap-[10px] rounded-[12px] border border-solid border-[#e0e0e0]"
             >
               TSHIRTS
             </motion.li>
             <motion.li
               variants={itemVariants}
-              className="flex text-[var(--foreground-secondary)] text-center text-[18px] not-italic font-[400] leading-[27px] lg:py-[14px] lg:px-[24px] py-[4px] px-[8px] items-center gap-[10px] rounded-[12px] border border-dashed border-[#e0e0e0]"
+              className="flex text-[var(--foreground-secondary)] text-center text-[18px] not-italic font-[400] leading-[27px] lg:py-[14px] lg:px-[24px] py-[4px] px-[8px] items-center gap-[10px] rounded-[12px] border border-solid border-[#e0e0e0]"
             >
               SHIRTS
             </motion.li>
             <motion.li
               variants={itemVariants}
-              className="flex text-[var(--foreground-secondary)] text-center text-[18px] not-italic font-[400] leading-[27px] lg:py-[14px] lg:px-[24px] py-[4px] px-[8px] items-center gap-[10px] rounded-[12px] border border-dashed border-[#e0e0e0]"
+              className="flex text-[var(--foreground-secondary)] text-center text-[18px] not-italic font-[400] leading-[27px] lg:py-[14px] lg:px-[24px] py-[4px] px-[8px] items-center gap-[10px] rounded-[12px] border border-solid border-[#e0e0e0]"
             >
               PANTS
             </motion.li>

@@ -3,6 +3,7 @@ import { Button, Divider, Input, Modal, Select } from "antd";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { useCart } from "../context/CartContext";
 
 interface CartItem {
   id: number;
@@ -15,7 +16,7 @@ interface CartItem {
 const { Option } = Select;
 
 const CartPage = () => {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const { cartItems, setCartItems, handleQuantityChange } = useCart(); // Use context state instead of local state
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [customerDetails, setCustomerDetails] = useState({
     name: "",
@@ -26,19 +27,6 @@ const CartPage = () => {
     paymentMethod: "Chọn Phương Thức Thanh Toán",
   });
   const [shippingFee, setShippingFee] = useState(50000); // Example shipping fee
-
-  // useEffect(() => {
-  //   // Fetch cart items from the API
-  //   fetch("/api/cart")
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setCartItems(data);
-  //       localStorage.setItem("cart", JSON.stringify(data));
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching cart items:", error);
-  //     });
-  // }, []);
 
   useEffect(() => {
     // Fetch cart items from the API or local storage
@@ -55,51 +43,13 @@ const CartPage = () => {
           setCartItems(JSON.parse(localCart));
         }
       });
-  }, []);
-
-  const handleQuantityChange = (id: number, quantity: number) => {
-    const updatedItems = cartItems
-      .map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity + quantity } : item
-      )
-      .filter((item) => item.quantity > 0);
-    setCartItems(updatedItems);
-    localStorage.setItem("cart", JSON.stringify(updatedItems));
-  };
+  }, [setCartItems]);
 
   const formatCurrency = (amount: number) =>
     new Intl.NumberFormat("vi-VN", {
       style: "currency",
       currency: "VND",
     }).format(amount);
-
-  // const handleOrder = async () => {
-  //   try {
-  //     // Gửi dữ liệu đến mock API endpoint
-  //     const response = await fetch("/api/orders", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({
-  //         customerDetails,
-  //         cartItems,
-  //       }),
-  //     });
-
-  //     if (response.ok) {
-  //       console.log("Order created successfully");
-  //       setIsModalVisible(false);
-  //       toast.success("Bạn đã đã đặt hàng thành công!!!");
-  //       setCartItems([]);
-  //       localStorage.removeItem("cart"); // Xóa giỏ hàng sau khi đặt hàng thành công
-  //     } else {
-  //       console.error("Failed to create order");
-  //     }
-  //   } catch (error) {
-  //     console.error("Error creating order:", error);
-  //   }
-  // };
 
   const handleOrder = async () => {
     try {
@@ -125,9 +75,11 @@ const CartPage = () => {
               0
             ) + shippingFee,
         };
-        console.log("Order created successfully");
         setIsModalVisible(false);
         toast.success("Bạn đã đã đặt hàng thành công!!!");
+        toast.success(
+          "Nếu là ADMIN hoặc TESTING, Vui lòng đăng nhập ở icon thanh NAVBAR"
+        );
 
         // Save the order to local storage
         const existingOrders = JSON.parse(
@@ -146,6 +98,15 @@ const CartPage = () => {
     } catch (error) {
       console.error("Error creating order:", error);
     }
+  };
+
+  const handleOrderAndClear = async () => {
+    console.log("Handle order and clear function is called."); // Kiểm tra hàm được gọi hay không
+    await handleOrder(); // Gọi hàm handleOrder để gửi đơn hàng
+    console.log("Cart items before clearing:", cartItems); // In ra giỏ hàng trước khi xóa
+    setCartItems([]); // Xóa sản phẩm đã đặt hàng khỏi giỏ hàng
+    console.log("Cart items after clearing:", cartItems); // In ra giỏ hàng sau khi xóa
+    localStorage.removeItem("cart"); // Xóa dữ liệu giỏ hàng trong localStorage
   };
 
   const handleInputChange = (
@@ -261,7 +222,11 @@ const CartPage = () => {
                 <Button key="back" onClick={() => setIsModalVisible(false)}>
                   Cancel
                 </Button>,
-                <Button key="submit" type="primary" onClick={handleOrder}>
+                <Button
+                  key="submit"
+                  type="primary"
+                  onClick={handleOrderAndClear}
+                >
                   Đặt hàng
                 </Button>,
               ]}

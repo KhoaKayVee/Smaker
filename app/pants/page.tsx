@@ -129,7 +129,7 @@ const Pants = () => {
           {products.map((item, index) => (
             <motion.div
               key={item.id}
-              className="rounded-[50px] cursor-pointer"
+              className="rounded-[50px] cursor-pointer !shadow-md !shadow-[black]"
               whileHover={{
                 scale: 1.1,
                 transition: {

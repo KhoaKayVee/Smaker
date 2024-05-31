@@ -17,35 +17,53 @@ const Navigating = () => {
   });
 
   const variants = {
-    hidden: { opacity: 0, y: 200, scale: 0.5, rotate: -90 },
+    hidden: { opacity: 0, scale: 0.5 },
     visible: {
       opacity: 1,
-      y: 0,
       scale: 1,
-      rotate: 0,
       transition: {
-        duration: 3,
+        duration: 2.5,
         type: "spring",
         bounce: 0.3,
       },
     },
   };
+
+  const variants2 = {
+    hidden: { opacity: 0, y: -200 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 2.5,
+        type: "spring",
+        bounce: 0.3,
+      },
+    },
+  };
+
   return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={inView ? "visible" : "hidden"}
-      variants={variants}
-      className="flex mt-[100px] flex-col items-start rounded-[20px] border-2 border-dashed border-[#6b4d57]"
-    >
+    <div className="flex mt-[100px] flex-col items-start rounded-[20px] shadow-lg shadow-[var(--foreground-primary)]">
       <div className="flex relative pt-[80px] lg:pr-[300px] pb-[80px] lg:pl-[80px] pr-[40px] pl-[40px] flex-col items-start gap-[30px] self-stretch border-b-2 border-solid border-[#262626]">
-        <p className="self-stretch text-[var(--foreground-primary)] lg:text-[40px] text-[20px] not-italic font-[500] leading-normal uppercase lg:whitespace-nowrap whitespace-normal z-30">
+        <motion.p
+          ref={ref}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          variants={variants}
+          className="self-stretch text-[var(--foreground-primary)] lg:text-[40px] text-[20px] not-italic font-[500] leading-normal uppercase lg:whitespace-nowrap whitespace-normal z-30"
+        >
           HÀNH TRÌNH THỜI TRANG BoinStore.
-        </p>
-        <p className="self-stretch text-[var(--text-color)] lg:text-[18px] text-[10px] not-italic font-[500] leading-[27px]">
+        </motion.p>
+        <motion.p
+          ref={ref}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          variants={variants}
+          className="self-stretch text-[var(--text-color)] lg:text-[18px] text-[10px] not-italic font-[500] leading-[27px]"
+        >
           Tại BoinStore, chúng tôi đã thiết kế trải nghiệm mua sắm đơn giản để
           giúp bạn tiếp cận thời trang.
-        </p>
+        </motion.p>
         <Image
           src={Vector}
           alt="vector"
@@ -61,9 +79,10 @@ const Navigating = () => {
 
       {showNavigate && (
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          ref={ref}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          variants={variants2}
           className="flex flex-col md:flex-row items-start self-stretch"
         >
           <div className="flex p-[50px] flex-col items-start gap-[30px] flex-1 border-b-2 md:border-b-0 md:border-r-2 border-solid border-[#262626]">
@@ -124,7 +143,7 @@ const Navigating = () => {
           </div>
         </motion.div>
       )}
-    </motion.div>
+    </div>
   );
 };
 

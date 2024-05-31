@@ -23,7 +23,7 @@ const ProductList = () => {
 
   const { ref, inView } = useInView({
     triggerOnce: true, // Chỉ kích hoạt một lần
-    threshold: 0.3, // Kích hoạt khi 10% của component xuất hiện
+    threshold: 0.1, // Kích hoạt khi 10% của component xuất hiện
   });
 
   const variants = {
@@ -32,7 +32,20 @@ const ProductList = () => {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 3.5,
+        duration: 2.5,
+        type: "spring",
+        bounce: 0.3,
+      },
+    },
+  };
+
+  const variants2 = {
+    hidden: { opacity: 0, y: -200 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 2.5,
         type: "spring",
         bounce: 0.3,
       },
@@ -79,28 +92,38 @@ const ProductList = () => {
   };
 
   return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={inView ? "visible" : "hidden"}
-      variants={variants}
-      className="flex mt-[100px] w-full flex-col items-start rounded-[20px] border-2 border-dashed border-[#6b4d57]"
-    >
+    <div className="flex mt-[100px] w-full flex-col items-start rounded-[20px] shadow-lg shadow-[var(--foreground-primary)]">
       <div className="flex relative lg:pt-[80px] pt-[40px]  lg:pr-[300px] pr-[40px] lg:pb-[80px] pb-[40px] lg:pl-[80px] pl-[40px] flex-col items-start gap-[50px] self-stretch border-b-2 border-solid border-[#262626]">
         <div className="flex flex-col items-start gap-[30px] self-stretch">
-          <p className="self-stretch lg:whitespace-nowrap  text-[var(--foreground-primary)] lg:text-[30px] text-[20px] truncate z-10 not-italic font-[500] leading-normal uppercase">
+          <motion.p
+            ref={ref}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            variants={variants}
+            className="self-stretch lg:whitespace-nowrap  text-[var(--foreground-primary)] lg:text-[30px] text-[20px] truncate z-10 not-italic font-[500] leading-normal uppercase"
+          >
             NÂNG CAO PHONG CÁCH CỦA BẠN VỚI BỘ SƯU TẬP MỚI NHẤT CỦA CHÚNG TÔI
-          </p>
-          <p className="self-stretch text-[var(--text-color)] lg:text-[18px] text-[14px] not-italic font-[400] leading-[27px]">
+          </motion.p>
+          <motion.p
+            ref={ref}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            variants={variants}
+            className="self-stretch text-[var(--text-color)] lg:text-[18px] text-[14px] not-italic font-[400] leading-[27px]"
+          >
             Mỗi sản phẩm đều được chế tạo để nâng cao tuyên bố thời trang của
             bạn.
-          </p>
+          </motion.p>
         </div>
         <div className="flex lg:items-center items-start gap-[10px]">
           {["All", "Tshirts", "Shirts", "Pants"].map((tag) => (
-            <button
+            <motion.button
+              ref={ref}
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+              variants={variants}
               key={tag}
-              className={`flex text-center justify-center lg:text-[18px] text-[12px] not-italic font-[400] leading-[27px] lg:py-[18px] lg:px-[24px] py-[8px] px-[12px] items-center  rounded-[12px] border border-dashed border-[#333] hover:duration-500 hover:transition-all cursor-pointer ${
+              className={`flex text-center justify-center lg:text-[18px] text-[12px] not-italic font-[400] leading-[27px] lg:py-[18px] lg:px-[24px] py-[8px] px-[12px] items-center  rounded-[12px] border border-solid border-[#333] hover:duration-500 hover:transition-all cursor-pointer ${
                 filter === tag
                   ? "bg-[var(--btn-secondary)] text-[--btn-text2]"
                   : ""
@@ -108,7 +131,7 @@ const ProductList = () => {
               onClick={() => handleFilterClick(tag)}
             >
               {tag}
-            </button>
+            </motion.button>
           ))}
         </div>
         <Image
@@ -123,9 +146,13 @@ const ProductList = () => {
 
       <div className="flex flex-wrap mt-[36px]">
         {visibleProducts.map((product) => (
-          <div
+          <motion.div
+            ref={ref}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            variants={variants2}
             key={product.id}
-            className="w-full md:w-1/3 px-4 mb-8 product-item"
+            className="w-full md:w-1/3 px-4 mb-8 product-item shadow-md shadow-[black]"
           >
             <div className="flex flex-col items-start  rounded-[20px] overflow-hidden">
               <Image
@@ -138,12 +165,12 @@ const ProductList = () => {
               />
               <div className="flex flex-col p-4 gap-[20px] self-stretch">
                 <div className="flex justify-between items-center self-stretch">
-                  <div className="flex py-[10px] px-[16px] items-start gap-[10px] rounded-[100px] border border-dashed border-[#262626] bg-[#1A1A1A]">
+                  <div className="flex py-[10px] px-[16px] items-start gap-[10px] rounded-[100px] border border-solid border-[#262626] bg-[#1A1A1A]">
                     <p className="text-[#fff] text-[18px] not-italic font-[400] leading-[27px]">
                       {product.tags}
                     </p>
                   </div>
-                  <button className="flex py-[14px] px-[16px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040] text-[18px] not-italic font-[400] leading-[27px]">
+                  <button className="flex py-[14px] px-[16px] items-start gap-[4px] rounded-[12px] border border-solid border-[#404040] text-[18px] not-italic font-[400] leading-[27px]">
                     Shop Now
                   </button>
                 </div>
@@ -172,10 +199,10 @@ const ProductList = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 };
 

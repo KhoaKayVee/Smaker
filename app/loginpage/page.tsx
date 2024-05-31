@@ -22,7 +22,7 @@ const LoginPage: React.FC = () => {
       router.push("/admin");
     } else {
       setLoading(false);
-      toast.error("LIÊN HỆ KHOA ĐỂ LẤY TK + MK. CỐ GẮNG ĐĂNG NHẬP CON CẶC!");
+      toast.warning("tk: admin, mk: password");
     }
   };
 

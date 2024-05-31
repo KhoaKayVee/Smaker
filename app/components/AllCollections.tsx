@@ -80,7 +80,7 @@ const AllCollections = () => {
       transition: {
         type: "spring",
         stiffness: 260,
-        damping: 20,
+        damping: 10,
       },
     },
   };
@@ -168,11 +168,11 @@ const AllCollections = () => {
             Pants
           </button>
         </div>
-        <div className="flex flex-col lg:flex-row justify-center lg:justify-center gap-12 py-8 px-4 lg:px-20">
+        <div className="flex flex-col lg:flex-row justify-center lg:justify-center gap-12 py-8 px-4 lg:px-20 ">
           <Select
             defaultValue="Sắp xếp theo giá"
             onChange={handleSortByPrice}
-            className="w-full lg:w-auto text-lg" // Thêm lớp text-yellow-500
+            className="w-full lg:w-auto text-lg !shadow-2xl !shadow-[black]" // Thêm lớp text-yellow-500
           >
             <Option value="asc">Thấp - Cao</Option>
             <Option value="desc">Cao - Thấp</Option>
@@ -180,7 +180,7 @@ const AllCollections = () => {
           <Select
             defaultValue="Sắp xếp theo tên"
             onChange={handleSortByName}
-            className="w-full lg:w-auto text-lg text-yellow-500" // Thêm lớp text-yellow-500
+            className="w-full lg:w-auto text-lg text-yellow-500 !shadow-2xl !shadow-[black]" // Thêm lớp text-yellow-500
           >
             <Option value="asc">A to Z</Option>
             <Option value="desc">Z to A</Option>
@@ -204,7 +204,7 @@ const AllCollections = () => {
             {filteredProducts.map((item, index) => (
               <motion.div
                 key={item.id}
-                className="rounded-[50px] cursor-pointer"
+                className="rounded-[50px] cursor-pointer !shadow-md !shadow-[black]"
                 whileHover={{
                   scale: 1.1,
                   transition: {
@@ -224,8 +224,8 @@ const AllCollections = () => {
                     transition: {
                       type: "spring",
                       stiffness: 260,
-                      damping: 50,
-                      delay: index * 0.6, // Tăng dần thời gian delay cho mỗi sản phẩm
+                      damping: 20,
+                      delay: index * 0.2, // Tăng dần thời gian delay cho mỗi sản phẩm
                     },
                   },
                 }}

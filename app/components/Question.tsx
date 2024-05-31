@@ -29,7 +29,20 @@ const Question = () => {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 3.5,
+        duration: 2.5,
+        type: "spring",
+        bounce: 0.3,
+      },
+    },
+  };
+
+  const variants2 = {
+    hidden: { opacity: 0, y: -200 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 2.5,
         type: "spring",
         bounce: 0.3,
       },
@@ -78,28 +91,38 @@ const Question = () => {
   };
 
   return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={inView ? "visible" : "hidden"}
-      variants={variants}
-      className="flex mt-[100px] w-full flex-col items-start rounded-[20px] border-2 border-dashed border-[#6b4d57]"
-    >
+    <div className="flex mt-[100px] w-full flex-col items-start rounded-[20px]  shadow-lg shadow-[var(--foreground-primary)]">
       <div className="flex lg:pt-[80px] pt-[40px] relative lg:pr-[300px] pr-[40px] lg:pb-[80px] pb-[40px] lg:pl-[80px] pl-[40px] flex-col items-start gap-[50px] self-stretch border-b-2 border-solid border-[#262626]">
         <div className="flex flex-col items-start gap-[30px] self-stretch">
-          <p className="self-stretch lg:whitespace-nowrap text-[var(--foreground-primary)] lg:text-[40px] truncate text-[30px] z-10 not-italic font-[500] leading-normal uppercase">
+          <motion.p
+            ref={ref}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            variants={variants}
+            className="self-stretch lg:whitespace-nowrap text-[var(--foreground-primary)] lg:text-[40px] truncate text-[30px] z-10 not-italic font-[500] leading-normal uppercase"
+          >
             NÂNG CAO PHONG CÁCH CỦA BẠN VỚI BỘ SƯU TẬP MỚI NHẤT CỦA CHÚNG TÔI
-          </p>
-          <p className="self-stretch text-[#676665] lg:text-[18px] text-[var(--text-color)] not-italic font-[400] leading-[27px]">
+          </motion.p>
+          <motion.p
+            ref={ref}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            variants={variants}
+            className="self-stretch text-[#676665] lg:text-[18px] text-[var(--text-color)] not-italic font-[400] leading-[27px]"
+          >
             Mỗi sản phẩm đều được chế tạo để nâng cao tuyên bố thời trang của
             bạn.
-          </p>
+          </motion.p>
         </div>
         <div className="lg:flex grid grid-cols-3 items-center justify-center text-center gap-[14px]">
           {["ALL", "Ordering", "Shipping", "Returns", "Support"].map((tag) => (
-            <button
+            <motion.button
+              ref={ref}
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+              variants={variants}
               key={tag}
-              className={`flex text-center justify-center lg:text-[18px] text-[14px] not-italic font-[400] leading-[27px] lg:py-[18px] lg:px-[24px] py-[10px] px-[14px] items-center rounded-[12px] border border-dashed border-[#333] hover:duration-500 hover:transition-all cursor-pointer ${
+              className={`flex text-center justify-center lg:text-[18px] text-[14px] not-italic font-[400] leading-[27px] lg:py-[18px] lg:px-[24px] py-[10px] px-[14px] items-center rounded-[12px] border border-solid border-[#333] hover:duration-500 hover:transition-all cursor-pointer ${
                 filter === tag
                   ? "bg-[var(--foreground-primary)] text-black"
                   : ""
@@ -107,7 +130,7 @@ const Question = () => {
               onClick={() => handleFilterClick(tag)}
             >
               {tag}
-            </button>
+            </motion.button>
           ))}
         </div>
         <Image
@@ -120,11 +143,21 @@ const Question = () => {
         />
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
+      <motion.div
+        ref={ref}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        variants={variants2}
+        className="grid grid-cols-1 sm:grid-cols-2 gap-4 px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8"
+      >
         {visibleQuestions.map((question) => (
-          <div
+          <motion.div
+            ref={ref}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            variants={variants2}
             key={question.id}
-            className="flex flex-col p-4 gap-4 items-start border border-dashed border-gray-700 rounded-lg"
+            className="flex flex-col p-4 gap-4 items-start rounded-lg shadow-lg shadow-[black]"
           >
             <p className="self-stretch text-[var(--foreground-secondary)] text-[16px] sm:text-[18px] lg:text-[20px] not-italic font-[500] leading-[24px] sm:leading-[30px] lg:leading-[36px]">
               {question.title}
@@ -133,10 +166,10 @@ const Question = () => {
               {question.description}
             </p>
             <div hidden>{question.tags}</div>
-          </div>
+          </motion.div>
         ))}
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 };
 
