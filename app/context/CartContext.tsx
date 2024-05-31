@@ -51,7 +51,9 @@ const cartReducer = (state: CartState, action: any) => {
   }
 };
 
-export const CartProvider: React.FC = ({ children }: any) => {
+export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [state, dispatch] = useReducer(cartReducer, {
     cartItems: [],
     setCartItems: () => {},
