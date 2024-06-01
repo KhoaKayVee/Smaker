@@ -4,6 +4,7 @@ import * as React from "react";
 import { Moon, Sun, Menu } from "lucide-react";
 import { useTheme } from "next-themes";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import { FaShoppingCart } from "react-icons/fa";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -82,7 +83,7 @@ const Navbar = () => {
   const isAllCollections = pathname === "/all-collections";
 
   return (
-    <nav className="container sticky top-0 z-50">
+    <nav className="container backdrop-blur-[2px] sticky top-0 z-50">
       <div className="flex flex-wrap py-4 justify-between items-center border-b border-solid border-[#262626]">
         <Button
           size="icon"
@@ -215,12 +216,12 @@ const Navbar = () => {
             <li
               className={`flex cursor-pointer py-4 px-6 gap-2 rounded-lg ${
                 isHome
-                  ? "border-b-2 border-solid border-[var(--foreground-secondary)]"
+                  ? "border-b-2 border-solid border-[var(--foreground-primary)]"
                   : "text-[var(--foreground-primary)]"
               }`}
               onClick={handleNavItemClick}
             >
-              <p className="text-[var(--foreground-primary)] hover:text-[var(--foreground-secondary)] hover:transition-all hover:duration-500 hover:scale-95 text-center text-base lg:text-lg font-[700] leading-6">
+              <p className="hover:text-[var(--foreground-secondary)] hover:transition-all hover:duration-500 hover:scale-95 text-center text-base lg:text-lg font-[700] leading-6">
                 HOME
               </p>
             </li>
@@ -229,7 +230,7 @@ const Navbar = () => {
             <li
               className={`flex py-4 px-6 gap-2 rounded-lg ${
                 isNewArrivals
-                  ? "border-b-2 border-solid border-[var(--foreground-secondary)]"
+                  ? "border-b-2 border-solid border-[var(--foreground-primary)]"
                   : "text-[var(--foreground-primary)]"
               }`}
               onClick={handleNavItemClick}
@@ -244,7 +245,7 @@ const Navbar = () => {
             <li
               className={`flex py-4 px-6 gap-2 rounded-lg ${
                 isAllCollections
-                  ? "border-b-2 border-solid border-[var(--foreground-secondary)]"
+                  ? "border-b-2 border-solid border-[var(--foreground-primary)]"
                   : "text-[var(--foreground-primary)]"
               }`}
               onClick={handleNavItemClick}
@@ -317,13 +318,13 @@ const Navbar = () => {
           </form>
           <Link href="/cart">
             <div className="flex p-4 items-start gap-2 rounded-lg cursor-pointer ">
-              <Image
-                className="w-6 h-6 relative shadow-xl shadow-[black]"
-                src={Image1}
-                alt="Icon"
-              />
+              <FaShoppingCart className="w-6 h-6 relative shadow-xl shadow-[black] " />
+
               {totalQuantity > 0 && (
-                <div className="absolute right-[100px] top-[60px] rounded-full bg-red-500 px-[7px] text-[13px] font-[600] flex items-center justify-center text-center">
+                <div
+                  style={{ backdropFilter: "blur(50px)" }}
+                  className="absolute right-[100px] top-[56px] bg-opacity-50 rounded-full backdrop-filter bg-red-500 text-white px-[7px] text-[15px] font-[600] flex items-center justify-center text-center"
+                >
                   {totalQuantity}
                 </div>
               )}
@@ -336,9 +337,9 @@ const Navbar = () => {
             >
               <RxAvatar
                 size={26}
-                className="!text-[white] shadow-xl shadow-[black]"
+                className="!text-[var(--foreground-primary)] shadow-xl shadow-[black]"
               />
-              <RiArrowDropDownLine className="h-6 w-6 !text-[white] " />
+              <RiArrowDropDownLine className="h-6 w-6 !text-[var(--foreground-primary)] " />
             </div>
             {/* Dropdown */}
             {isOpen && (

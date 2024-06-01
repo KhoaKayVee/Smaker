@@ -73,7 +73,7 @@ const Navigating = () => {
           className="m-auto cursor-pointer bounce-arrow"
           onClick={handleClick}
         >
-          <RiArrowDownDoubleFill size={36} fill="gold" />
+          <RiArrowDownDoubleFill size={36} fill="#ff6699" />
         </div>
       </div>
 

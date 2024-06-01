@@ -279,7 +279,7 @@ const ProductDetail = ({ params }: any) => {
                 <p className="text-[var(--foreground-primary)] justify-center items-start text-center not-italic text-[24px] md:text-[30px] font-[700] leading-normal">
                   Giá sản phẩm
                 </p>
-                <p className="text-[var(--foreground-secondary)] text-[40px] md:text-[50px] font-mono not-italic font-[700] leading-[45px]">
+                <p className="text-[var(--text-color)] text-[40px] md:text-[50px] font-mono not-italic font-[700] leading-[45px]">
                   {product?.price} VND
                 </p>
               </div>
@@ -292,10 +292,10 @@ const ProductDetail = ({ params }: any) => {
                   {["S", "M", "L", "XL"].map((sizeOption) => (
                     <button
                       key={sizeOption}
-                      className={`flex text-[var(--text-color)] shadow-xl py-[6px] md:py-[12px] px-[20px] md:px-[50px] items-center gap-[10px] rounded-[100px]  font-mono text-[15px] md:text-[24px] not-italic font-[700] leading-[27px] ${
+                      className={`flex text-[var(--text-color)] shadow-xl shadow-black py-[6px] md:py-[12px] px-[20px] md:px-[50px] items-center gap-[10px] rounded-[100px]  font-mono text-[15px] md:text-[24px] not-italic font-[700] leading-[27px] ${
                         size === sizeOption
                           ? "bg-[var(--btn-secondary)]"
-                          : "bg-[#333]"
+                          : "bg-[var(--btn-primary)]"
                       }`}
                       onClick={() => setSize(sizeOption)}
                     >
@@ -310,7 +310,7 @@ const ProductDetail = ({ params }: any) => {
                 ) : (
                   <button
                     onClick={handleAddToCart}
-                    className="flex bg-[var(--btn-primary)] text-[#fff] text-[16px] md:text-[18px] not-italic font-[700] leading-[27px] py-[12px] md:py-[18px] px-[16px] md:px-[24px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040]"
+                    className="flex bg-[var(--btn-primary)] text-[var(--text-color)] text-[16px] md:text-[18px] not-italic font-[700] leading-[27px] py-[12px] md:py-[18px] px-[16px] md:px-[24px] items-start gap-[4px] rounded-[12px] border border-dashed border-[#404040]"
                   >
                     Thêm vào giỏ
                   </button>
@@ -318,16 +318,16 @@ const ProductDetail = ({ params }: any) => {
                 <div className="flex items-center text-center justify-center gap-[10px] md:gap-[20px] self-stretch">
                   <button
                     onClick={() => setQuantity(Math.max(quantity - 1, 1))}
-                    className="border-[#404040] bg-[#1F1F1F] text-[var(--text-color)] text-[18px] md:text-[22px] not-italic font-[700] leading-[27px] rounded-[100px] py-[4px] md:py-[8px] px-[8px] md:px-[16px] hover:bg-[#000] transition-colors duration-300"
+                    className="border-[#404040] bg-[var(--btn-secondary)] text-[var(--text-color)] text-[18px] md:text-[22px] not-italic font-[700] leading-[27px] rounded-[100px] py-[4px] md:py-[8px] px-[8px] md:px-[16px] hover:opacity-60  duration-300"
                   >
                     -
                   </button>
-                  <span className="text-[var(--text-color)] bg-[#333] rounded-[12px] px-[10px] md:px-[15px] py-[4px] md:py-[8px] text-[18px] md:text-[22px] not-italic font-[600] leading-[27px]">
+                  <span className="text-[var(--text-color)] bg-[var(--btn-primary)] rounded-[12px] px-[10px] md:px-[15px] py-[4px] md:py-[8px] text-[18px] md:text-[22px] not-italic font-[600] leading-[27px]">
                     {quantity}
                   </span>
                   <button
                     onClick={() => setQuantity(quantity + 1)}
-                    className="border-[#404040] bg-[#1F1F1F] text-[var(--text-color)] text-[18px] not-italic font-[700] leading-[27px] rounded-[100px] py-[4px] md:py-[8px] px-[8px] md:px-[16px] hover:bg-[#000] transition-colors duration-300"
+                    className="border-[#404040] bg-[var(--btn-secondary)] text-[var(--text-color)] text-[18px] not-italic font-[700] leading-[27px] rounded-[100px] py-[4px] md:py-[8px] px-[8px] md:px-[16px] hover:opacity-60  duration-300"
                   >
                     +
                   </button>
@@ -372,7 +372,7 @@ const ProductDetail = ({ params }: any) => {
                             (product?.rating5 * 100) / product?.totalRating
                           }
                           size="small"
-                          strokeColor="#AE9B84"
+                          strokeColor="#ff6699"
                           showInfo={false}
                         />
                       </div>
@@ -396,7 +396,7 @@ const ProductDetail = ({ params }: any) => {
                             (product?.rating4 * 100) / product?.totalRating
                           }
                           size="small"
-                          strokeColor="#AE9B84"
+                          strokeColor="#ff6699"
                           showInfo={false}
                         />
                       </div>
@@ -420,7 +420,7 @@ const ProductDetail = ({ params }: any) => {
                             (product?.rating3 * 100) / product?.totalRating
                           }
                           size="small"
-                          strokeColor="#AE9B84"
+                          strokeColor="#ff6699"
                           showInfo={false}
                         />
                       </div>
@@ -444,7 +444,7 @@ const ProductDetail = ({ params }: any) => {
                             (product?.rating2 * 100) / product?.totalRating
                           }
                           size="small"
-                          strokeColor="#AE9B84"
+                          strokeColor="#ff6699"
                           showInfo={false}
                         />
                       </div>
@@ -468,7 +468,7 @@ const ProductDetail = ({ params }: any) => {
                             (product?.rating1 * 100) / product?.totalRating
                           }
                           size="small"
-                          strokeColor="#AE9B84"
+                          strokeColor="#ff6699"
                           showInfo={false}
                         />
                       </div>

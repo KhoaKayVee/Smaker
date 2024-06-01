@@ -147,24 +147,28 @@ const Testimonials = () => {
           className="m-auto cursor-pointer bounce-arrow"
           onClick={handleClick}
         >
-          <RiArrowDownDoubleFill size={36} fill="gold" />
+          <RiArrowDownDoubleFill size={36} fill="#ff6699" />
         </div>
       </div>
 
       {showTesti && (
-        <motion.div
-          ref={ref}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={variants3}
-          className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4 "
-        >
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4 ">
           {testimonials.map((testimonial) => (
-            <div
+            <motion.div
+              ref={ref}
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+              variants={variants3}
               key={testimonial.id}
               className="flex flex-col lg:items-start items-center lg:p-[40px] p-[20px]   rounded-md shadow-md shadow-[black]"
             >
-              <div className="flex items-center gap-[12px] self-stretch">
+              <motion.div
+                ref={ref}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                variants={variants3}
+                className="flex items-center gap-[12px] self-stretch"
+              >
                 <Image
                   src={testimonial.avatar}
                   alt={testimonial.name}
@@ -172,14 +176,20 @@ const Testimonials = () => {
                   height={60}
                   className="rounded-full lg:w-[60px] w-[40px] lg:h-[60px] h-[40px] object-cover bg-no-repeat bg-[#AE9B84]"
                 />
-                <div className="flex flex-col items-start gap-[4px] flex-1">
+                <motion.div
+                  ref={ref}
+                  initial="hidden"
+                  animate={inView ? "visible" : "hidden"}
+                  variants={variants3}
+                  className="flex flex-col items-start gap-[4px] flex-1"
+                >
                   <p className="text-[#FFF] lg:text-[16px] text-[var(--foreground-secondary)] not-italic font-[500] leading-[30px]">
                     {testimonial.name}
                   </p>
                   <p className="text-[#fff] lg:text-[18px] text-[16px] not-italic font-[400] leading-[27px]">
                     {testimonial.location}
                   </p>
-                </div>
+                </motion.div>
                 <Image
                   src={Twitter}
                   alt="Twitter"
@@ -187,7 +197,7 @@ const Testimonials = () => {
                   height={34}
                   className="lg:w-[34px] w-[24px] lg:h-[34px] h-[24px]"
                 />
-              </div>
+              </motion.div>
 
               <div className="flex items-start gap-[5px] mt-4">
                 <FaStar fill="yellow" width={24} height={24} />
@@ -197,12 +207,18 @@ const Testimonials = () => {
                 <FaStar fill="yellow" width={24} height={24} />
               </div>
 
-              <p className="text-[var(--text-color)] text-[18px] not-italic font-[500] leading-[27px] mt-4">
+              <motion.p
+                ref={ref}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                variants={variants3}
+                className="text-[var(--text-color)] text-[18px] not-italic font-[500] leading-[27px] mt-4"
+              >
                 {testimonial.review}
-              </p>
-            </div>
+              </motion.p>
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
       )}
     </div>
   );

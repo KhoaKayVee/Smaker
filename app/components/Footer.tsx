@@ -120,19 +120,19 @@ const Footer = () => {
               <input
                 placeholder="Your Email"
                 type="text"
-                className="flex shadow-xl shadow-black py-[12px] md:py-[18px] px-[20px] md:px-[24px] justify-between items-center self-stretch rounded-[12px] bg-[#1A1A1A]"
+                className="flex shadow-xl shadow-black py-[12px] md:py-[18px] px-[20px] md:px-[24px] justify-between items-center self-stretch rounded-[12px] bg-[#34495e]"
               />
             </div>
           </div>
           <div className="flex flex-col md:flex-row py-[30px] md:py-[50px] px-[20px] md:px-[162px] lg:gap-0 gap-[20px] justify-between lg:items-center items-start md:items-start self-stretch">
-            <p className="text-[#818073] text-[14px] md:text-[18px] not-italic font-[400] leading-[20px] md:leading-[27px]">
+            <p className="text-[#f0f8ff] text-[14px] md:text-[18px] not-italic font-[400] leading-[20px] md:leading-[27px]">
               © 2024 BoinStore. All rights reserved.
             </p>
             <div className="flex items-center gap-[10px] md:gap-[11px] mt-[10px] md:mt-0">
               {["Terms & Conditions", "Privacy Policy"].map((text, index) => (
                 <p
                   key={index}
-                  className="text-[#81807E] text-[14px] md:text-[18px] not-italic font-[400] leading-[20px] md:leading-[27px]"
+                  className="text-[#f0f8ff] text-[14px] md:text-[18px] not-italic font-[400] leading-[20px] md:leading-[27px]"
                 >
                   {text}
                 </p>
