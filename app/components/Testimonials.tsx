@@ -118,7 +118,7 @@ const Testimonials = () => {
 
   return (
     <div className="flex mt-[100px] w-full flex-col items-start rounded-[20px] shadow-lg shadow-[var(--foreground-primary)]">
-      <div className="relative lg:pt-[80px] pt-[40px] lg:pr-[300px] pr-[40px] lg:pb-[80px] pb-[40px] lg:pl-[80px] pl-[40px] flex flex-col items-start gap-[30px] w-full border-b-2 border-solid border-[#262626]">
+      <div className="relative lg:pt-[80px] pt-[40px] lg:pr-[300px] pr-[40px] lg:pb-[80px] pb-[40px] lg:pl-[80px] pl-[40px] flex flex-col items-start gap-[30px] w-full">
         <motion.p
           ref={ref}
           initial="hidden"

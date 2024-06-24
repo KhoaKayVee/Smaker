@@ -88,7 +88,7 @@ const Navbar = () => {
         <Button
           size="icon"
           onClick={handleToggleClick} // Thêm sự kiện onClick để mở sidebar
-          className="lg:hidden"
+          className="lg:hidden !bg-transparent !shadow-sm !shadow-black"
         >
           <Menu className="h-5 w-5 text-[var(--foreground-primary)]" />
           <span className="sr-only">Toggle menu</span>

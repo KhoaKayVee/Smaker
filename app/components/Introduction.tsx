@@ -78,7 +78,7 @@ const Introduction = () => {
   };
   return (
     <div className="flex mt-[100px] w-full flex-col items-start rounded-[20px]  shadow-lg shadow-[var(--foreground-primary)]">
-      <div className="flex flex-col  pt-[80px] lg:pr-[300px] pb-[80px] lg:pl-[80px] pr-[10px] pl-[10px] items-start gap-[30px] self-stretch border-b-2 border-solid border-[#262626]">
+      <div className="flex flex-col  pt-[80px] lg:pr-[300px] pb-[80px] lg:pl-[80px] pr-[10px] pl-[10px] items-start gap-[30px] self-stretch">
         <motion.p
           ref={ref}
           initial="hidden"

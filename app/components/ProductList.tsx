@@ -93,7 +93,7 @@ const ProductList = () => {
 
   return (
     <div className="flex mt-[100px] w-full flex-col items-start rounded-[20px] shadow-lg shadow-[var(--foreground-primary)]">
-      <div className="flex relative lg:pt-[80px] pt-[40px]  lg:pr-[300px] pr-[40px] lg:pb-[80px] pb-[40px] lg:pl-[80px] pl-[40px] flex-col items-start gap-[50px] self-stretch border-b-2 border-solid border-[#262626]">
+      <div className="flex relative lg:pt-[80px] pt-[40px]  lg:pr-[300px] pr-[40px] lg:pb-[80px] pb-[40px] lg:pl-[80px] pl-[40px] flex-col items-start gap-[50px] self-stretch">
         <div className="flex flex-col items-start gap-[30px] self-stretch">
           <motion.p
             ref={ref}

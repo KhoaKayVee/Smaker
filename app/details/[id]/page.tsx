@@ -304,7 +304,7 @@ const ProductDetail = ({ params }: any) => {
                   ))}
                 </div>
                 {quantity > 0 && size === "" ? (
-                  <p className="text-[#FF0000]">
+                  <p className="text-[#FF0000] text-[700] text-[20px]">
                     Vui lòng chọn số lượng và size
                   </p>
                 ) : (

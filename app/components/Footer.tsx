@@ -106,7 +106,7 @@ const Footer = () => {
                       <Image
                         src={Shape}
                         alt="shape"
-                        className="w-[4px] md:w-[6px] h-[4px] md:h-[6px]"
+                        className="w-[4px] md:w-[6px] h-[4px] md:h-[6px] "
                       />
                     )}
                   </React.Fragment>

@@ -112,7 +112,7 @@ const Hero = () => {
       >
         <motion.div
           variants={itemVariants}
-          className="flex flex-col pt-[100px] pr-[80px] pb-[80px] pl-[80px] items-start gap-[30px] flex-1 border-b-2 lg:border-b-0 lg:border-r-2 border-solid border-[#262626]"
+          className="flex flex-col pt-[100px] pr-[80px] pb-[80px] pl-[80px] items-start gap-[30px] flex-1"
         >
           <ul className="flex lg:items-center items-start lg:gap-[14px] gap-[12px]">
             <motion.li

@@ -135,19 +135,32 @@ const Products = () => {
     exit: { opacity: 0, x: -100 }, // Ẩn sang trái khi thoát
   };
 
+  const variants2 = {
+    hidden: { opacity: 0, y: -200 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 2.5,
+        type: "spring",
+        bounce: 0.3,
+      },
+    },
+  };
+
   return (
     <>
       <head>
         <title>BoinShop | New Arrivals</title>
       </head>
-      <motion.div
-        ref={ref}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-        variants={variants}
-        className="mt-[100px] flex w-full flex-col items-start rounded-[20px] shadow-lg shadow-[var(--foreground-primary)]"
-      >
-        <div className="flex lg:pt-[80px] pt-[40px] relative lg:pr-[300px] pr-[40px] lg:pb-[80px] pb-[40px] lg:pl-[80px] pl-[40px] flex-col items-start gap-[50px] self-stretch ">
+      <div className="mt-[100px] flex w-full flex-col items-start rounded-[20px] shadow-lg shadow-[var(--foreground-primary)]">
+        <motion.div
+          ref={ref}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          variants={variants2}
+          className="flex lg:pt-[80px] pt-[40px] relative lg:pr-[300px] pr-[40px] lg:pb-[80px] pb-[40px] lg:pl-[80px] pl-[40px] flex-col items-start gap-[50px] self-stretch "
+        >
           <div className="flex flex-col items-start gap-[30px] self-stretch">
             <p className="self-stretch lg:whitespace-nowrap truncate text-[var(--foreground-primary)] lg:text-[30px] text-[20px] z-10 not-italic font-[500] leading-normal uppercase">
               NÂNG CAO PHONG CÁCH CỦA BẠN VỚI BỘ SƯU TẬP MỚI NHẤT CỦA CHÚNG TÔI
@@ -180,10 +193,16 @@ const Products = () => {
             width={325}
             height={325}
           />
-        </div>
+        </motion.div>
 
         {/* TSHIRT */}
-        <div className="flex flex-col items-start self-stretch">
+        <motion.div
+          ref={ref}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          variants={variants2}
+          className="flex flex-col items-start self-stretch"
+        >
           <div className="flex flex-col items-start self-stretch ">
             <div className="flex    shadow-lg shadow-[black] p-[30px] justify-between items-center self-stretch  ">
               <p className="flex-1  text-[var(--foreground-primary)] lg:text-[30px] text-[15px] not-italic font-[700] leading-normal uppercase">
@@ -260,10 +279,16 @@ const Products = () => {
               </motion.div>
             )}
           </div>
-        </div>
+        </motion.div>
 
         {/* SHIRTS */}
-        <div className="flex flex-col items-start self-stretch">
+        <motion.div
+          ref={ref}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          variants={variants2}
+          className="flex flex-col items-start self-stretch"
+        >
           <div className="flex flex-col items-start self-stretch">
             <div className="flex    shadow-lg shadow-[black] p-[30px] justify-between items-center self-stretch ">
               <p className="flex-1 text-[var(--foreground-primary)] lg:text-[30px] text-[15px] not-italic font-[700] leading-normal uppercase">
@@ -339,10 +364,16 @@ const Products = () => {
               </motion.div>
             )}
           </div>
-        </div>
+        </motion.div>
 
         {/* PANTS */}
-        <div className="flex flex-col items-start self-stretch ">
+        <motion.div
+          ref={ref}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          variants={variants2}
+          className="flex flex-col items-start self-stretch "
+        >
           <div className="flex flex-col items-start self-stretch">
             <div className="flex p-[30px]     shadow-lg shadow-[black] justify-between items-center self-stretch ">
               <p className="flex-1 text-[var(--foreground-primary)] lg:text-[30px] text-[15px] not-italic font-[700] leading-normal uppercase">
@@ -418,8 +449,8 @@ const Products = () => {
               </motion.div>
             )}
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </>
   );
 };
